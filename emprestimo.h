@@ -9,9 +9,8 @@ class Emprestimo {
     private:
         Leitor* leitor;
         Livro* livro;
-        time_t dataEmprestimo;
-        time_t dataDevolucao;
     protected:
+
 
     public:
         Emprestimo(Livro *L, Leitor *LT);
@@ -20,6 +19,8 @@ class Emprestimo {
         float calcularMulta();
         Livro* getLivro() const;
         Leitor* getLeitor() const;
+        time_t dataEmprestimo;
+        time_t dataDevolucao;
 };
 
 #endif // EMPRESTIMO_H

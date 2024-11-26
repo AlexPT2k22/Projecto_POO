@@ -31,12 +31,10 @@ class Biblioteca
         void Prorrogacao_Emprestimos();
         void Sistema_Notificacoes_Atraso();
         void Listagem_Livros();
-        //bool Add_Leitores(); TODO
         bool Add_Leitor(Leitor *LT);
         bool Add_Livro(Livro *L);
         void Add_Emprestimo(Livro *L, Leitor *LT);
         void Devolver_Livro(Emprestimo *E);
-        void Pesquisar_Livros(string genero);//Pesquisar livros pelo genero
         void Gerar_RelatorioEmprestimos();
 
 };
