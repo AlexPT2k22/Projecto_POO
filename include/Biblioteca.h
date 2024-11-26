@@ -8,12 +8,15 @@ using namespace std;
 #include "Leitor.h"
 #include "Livro.h"
 #include "Emprestimo.h"
+#include "Estudante.h"
+#include "Professor.h"
+
 
 class Biblioteca
 {
    // list, vector, map Coleccao_LIVROS;
    // list, vector, map Coleccao_REQ;
-    private:
+    protected:
         list<Livro*> Coleccao_LIVROS;
         list<Leitor*> Coleccao_LEITORES;
         list<Emprestimo*> Coleccao_REQ; //Requesicões

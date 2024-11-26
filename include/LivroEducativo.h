@@ -1,7 +1,7 @@
 #ifndef LIVROEDUCATIVO_H
 #define LIVROEDUCATIVO_H
 
-#include <Livro.h>
+#include "Livro.h"
 using namespace std;
 
 class LivroEducativo : public Livro
@@ -10,14 +10,14 @@ class LivroEducativo : public Livro
         LivroEducativo(string t, string a, string i, string g);
         virtual ~LivroEducativo();
 
-        string getTipo() const;
-        int getPrazoEmprestimo() const;
+        string getTipo() const override;
+        int getPrazoEmprestimo() const override;
         
 
     protected:
 
     private:
-        string grau_escolaridade; //ou categoria
+        string grau_escolaridade;
 };
 
 

@@ -1,7 +1,7 @@
 #ifndef LIVROFICCAO_H
 #define LIVROFICCAO_H
 
-#include <Livro.h>
+#include "Livro.h"
 
 
 class LivroFiccao : public Livro
@@ -10,8 +10,8 @@ class LivroFiccao : public Livro
         LivroFiccao(string t, string a, string i, string g);
         virtual ~LivroFiccao();
 
-        string getTipo() const;
-        int getPrazoEmprestimo() const;
+        string getTipo() const override;
+        int getPrazoEmprestimo() const override;
 
     protected:
 

@@ -8,9 +8,9 @@ class Estudante : public Leitor {
         Estudante(string n, string i);
         virtual ~Estudante();
 
-        int getLimiteEmprestimos() const;
-        float getDescontoMulta() const;
-        bool podeProrrogar() const;
+        int getLimiteEmprestimos() const override;
+        float getDescontoMulta() const override;
+        bool podeProrrogar() const override;
 };
 
 

@@ -1,7 +1,7 @@
 #ifndef LIVROCIENTIFICO_H
 #define LIVROCIENTIFICO_H
 
-#include <Livro.h>
+#include "Livro.h"
 
 
 class LivroCientifico : public Livro
@@ -10,14 +10,15 @@ class LivroCientifico : public Livro
         LivroCientifico(string t, string a, string i, string g);
         virtual ~LivroCientifico();
 
-        string getTipo() const;
-        int getPrazoEmprestimo() const;
+        string getTipo() const override;
+        int getPrazoEmprestimo() const override;
         
 
     protected:
 
     private:
-        string genero; //ou categoria
+        string genero;
+
 };
 
 #endif // LIVROCIENTIFICO_H

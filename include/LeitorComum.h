@@ -10,9 +10,9 @@ class LeitorComum : public Leitor
         LeitorComum(string n, string i);
         virtual ~LeitorComum();
 
-        int getLimiteEmprestimos() const {return 3;}
-        float getDescontoMulta() const {return 0.0;}
-        bool podeProrrogar() const {return false;}
+        int getLimiteEmprestimos() const override;
+        float getDescontoMulta() const override;
+        bool podeProrrogar() const override;
 
     protected:
 

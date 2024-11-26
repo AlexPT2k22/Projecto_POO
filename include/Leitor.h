@@ -14,17 +14,18 @@ protected:
 
 public:
     
-    Leitor(string n, string i);
+    Leitor(string n, string i); //nome e ID
     virtual ~Leitor();
 
     virtual int getLimiteEmprestimos() const = 0;
     virtual float getDescontoMulta() const = 0;
     virtual bool podeProrrogar() const = 0;
 
-    string getNome() const { return nome; }
+    string getNome() const;
     void adicionarEmprestimo(Emprestimo* e);
     void removerEmprestimo(Emprestimo* e);
-    void LimparTodosEmprestimos(Emprestimo* e);
+    void LimparTodosEmprestimos();
+    string getID() const;
 };
 
 #endif // LEITOR_H

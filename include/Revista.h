@@ -1,22 +1,23 @@
 #ifndef REVISTA_H
 #define REVISTA_H
 
-#include <Livro.h>
+#include "Livro.h"
 
 
 class Revista : public Livro
 {
     public:
-        Revista(string t, string a, string i, int e);
+        Revista(string t, string a, string i, string e);
         virtual ~Revista();
 
-        int getEdicao() const;
+        string getEdicao() const;
         int getPrazoEmprestimo() const;
+        string getTipo() const override;
 
     protected:
 
     private:
-        int edicao;
+        string edicao;
 };
 
 #endif // REVISTA_H

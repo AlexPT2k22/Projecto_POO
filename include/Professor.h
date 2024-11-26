@@ -1,7 +1,7 @@
 #ifndef PROFESSOR_H
 #define PROFESSOR_H
 
-#include <Leitor.h>
+#include "Leitor.h"
 
 
 class Professor : public Leitor
@@ -10,9 +10,9 @@ class Professor : public Leitor
         Professor(string n, string i);
         virtual ~Professor();
 
-        int getLimiteEmprestimos() const;
-        float getDescontoMulta() const;
-        bool podeProrrogar() const;
+        int getLimiteEmprestimos() const override;
+        float getDescontoMulta() const override;
+        bool podeProrrogar() const override;
 
     protected:
 

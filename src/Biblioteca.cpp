@@ -49,13 +49,18 @@ void Biblioteca::Listagem_Livros()
 {
     
 }
-/*bool Biblioteca::Add_Leitores()
-{
-    
-    return true;
-} TODO */
+
 bool Biblioteca::Add_Leitor(Leitor *LT)
 {
     
     return true;
+}
+
+bool Biblioteca::Add_Livro(Livro *L){
+    if (L != nullptr) {
+        Coleccao_LIVROS.push_back(L);
+        cout << "Livro adicionado: " << L->getTitulo() << " (" << L->getTipo() << ")\n";
+        return true;
+    }
+    return false;
 }
