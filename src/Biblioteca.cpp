@@ -104,30 +104,47 @@ void Biblioteca::Add_Emprestimo(Livro *L, Leitor *LT)
 {
     Emprestimo* emprestimo = new Emprestimo(L, LT);
     Coleccao_REQ.push_back(emprestimo);
-    cout << "Empréstimo realizado com sucesso!" << endl;
 }
 
 void Biblioteca::Devolver_Livro(Emprestimo *E)
 {
-    for (list<Emprestimo*>::iterator it = Coleccao_REQ.begin(); it != Coleccao_REQ.end(); it++)
-    {
-        if ((*it) == E)
-        {
-            Coleccao_REQ.erase(it);
-            cout << "Livro devolvido com sucesso!" << endl;
-            return;
-        }
+    if (!E) {
+        cout << "Emprestimo invalido!" << endl;
+        return;
     }
-    cout << "Livro não encontrado!" << endl;
+
+    // Remove o empréstimo da lista de empréstimos do leitor
+    Leitor* leitor = E->getLeitor();
+    if (leitor) {
+        leitor->removerEmprestimo(E);
+    }
+
+    // Remove o empréstimo da lista geral da biblioteca
+    Coleccao_REQ.remove(E);
+
+    // Mensagem de multa, se aplicável
+    float multa = E->calcularMulta();
+    if (multa > 0) {
+        cout << "Livro devolvido com atraso! Multa: " << multa << "€" << endl;
+    } else {
+        cout << "Livro devolvido dentro do prazo!" << endl;
+    }
+
+    // Libera a memória do objeto Emprestimo
+    delete E;
 }
 
 void Biblioteca::Gerar_RelatorioEmprestimos()
 {
+    cout << "=== Relatório de Empréstimos Atuais ===" << endl;
     for (list<Emprestimo*>::iterator it = Coleccao_REQ.begin(); it != Coleccao_REQ.end(); it++)
     {
-        cout << "Livro: " << (*it)->getLivro()->getTitulo() << " (Leitor: " << (*it)->getLeitor()->getNome() << ")" << endl;
-        cout << "Data de empréstimo: " << ctime(&(*it)->dataEmprestimo);
-        cout << "Data de devolução: " << ctime(&(*it)->dataDevolucao);
+        cout << "Livro: " << (*it)->getLivro()->getTitulo() << endl;
+        cout << "Leitor: " << (*it)->getLeitor()->getNome() << endl;
+        cout << "Data de Devolução Prevista: " << ctime(&(*it)->dataDevolucao);
+        if ((*it)->estaAtrasado()) {
+            cout << "ATRASADO! Multa: " << (*it)->calcularMulta() << "€" << endl;
+        }
         cout << "---------------------------------" << endl;
     }
 }
