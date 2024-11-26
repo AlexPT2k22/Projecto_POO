@@ -167,10 +167,6 @@ int main() {
             }
 
             case 5: {
-                string genero;
-                cout << "Digite o gênero para pesquisa: ";
-                cin >> genero;
-                bib->Pesquisar_Livros(genero);
                 break;
             }
 

@@ -14,6 +14,7 @@ class Emprestimo {
 
     public:
         Emprestimo(Livro *L, Leitor *LT);
+        virtual ~Emprestimo(); 
         void calcularDataDevolucao();
         bool estaAtrasado();
         float calcularMulta();
