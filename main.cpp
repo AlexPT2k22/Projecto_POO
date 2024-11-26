@@ -141,28 +141,30 @@ int main() {
                 Livro *livro = nullptr;
                 Leitor *leitor = nullptr;
 
-                // Procura pelo livro
-                for (auto &l : bib->Coleccao_LIVROS) {
-                    if (l->getIsbn() == isbn) {
-                        livro = l;
+                for (list<Livro*>::iterator it = bib->Coleccao_LIVROS.begin(); it != bib->Coleccao_LIVROS.end(); it++) {
+                    if ((*it)->getIsbn() == isbn) {
+                        livro = *it;
+                        break;
+                    }
+                }
+                for (list<Leitor*>::iterator it = bib->Coleccao_LEITORES.begin(); it != bib->Coleccao_LEITORES.end(); it++) {
+                    if ((*it)->getID() == id) {
+                        leitor = *it;
                         break;
                     }
                 }
 
-                // Procura pelo leitor
-                for (auto &l : bib->Coleccao_LEITORES) {
-                    if (l->getID() == id) {
-                        leitor = l;
-                        break;
+                if (livro != nullptr && leitor != nullptr) {
+                        Emprestimo *E = new Emprestimo(livro, leitor);
+                        
+                        float multa = E->calcularMulta();
+                        if (multa > 0) {
+                            cout << "Atraso! Multa: " << multa << "€" << endl;
+                        } else {
+                            cout << "Emprestimo devolvido dentro do prazo!" << endl;
+                        }
+                        delete E;
                     }
-                }
-
-                if (livro && leitor) {
-                    // Devolver livro logicamente
-                    cout << "Livro devolvido com sucesso!" << endl;
-                } else {
-                    cout << "Livro ou Leitor não encontrado!" << endl;
-                }
                 break;
             }
 
