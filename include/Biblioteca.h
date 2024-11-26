@@ -16,14 +16,15 @@ class Biblioteca
 {
    // list, vector, map Coleccao_LIVROS;
    // list, vector, map Coleccao_REQ;
-    protected:
-        list<Livro*> Coleccao_LIVROS;
-        list<Leitor*> Coleccao_LEITORES;
-        list<Emprestimo*> Coleccao_REQ; //Requesicões
 
     public:
         Biblioteca();
         virtual ~Biblioteca();
+
+        list<Livro*> Coleccao_LIVROS;
+        list<Leitor*> Coleccao_LEITORES;
+        list<Emprestimo*> Coleccao_REQ; //Requesicões
+
         bool SaveToFile(string nf);
         bool LoadFile(string nf);
         void RelatorioCategoria(string cat);
