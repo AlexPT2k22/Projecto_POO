@@ -105,8 +105,15 @@ void Biblioteca::Sistema_Notificacoes_Atraso()
             cout << "Data de Devolução Prevista: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
             cout << "ATRASADO! Multa: " << Coleccao_REQ[i]->calcularMulta() << "€" << endl;
             cout << "---------------------------------" << endl;
+        }else{
+            cout << "Nenhum livro atrasado!" << endl;
         }
     }
+
+    if (Coleccao_REQ.size() == 0) {
+        cout << "Nenhum livro atrasado!" << endl;
+    }
+
 }
 
 /**
