@@ -3,7 +3,7 @@
 
 #include <iostream>
 using namespace std;
-#include <list>
+#include <vector>
 #include <map>
 #include "Leitor.h"
 #include "Livro.h"
@@ -21,9 +21,9 @@ class Biblioteca
         Biblioteca();
         virtual ~Biblioteca();
 
-        list<Livro*> Coleccao_LIVROS;
-        list<Leitor*> Coleccao_LEITORES;
-        list<Emprestimo*> Coleccao_REQ; //Requesicões
+        vector<Livro*> Coleccao_LIVROS;
+        vector<Leitor*> Coleccao_LEITORES;
+        vector<Emprestimo*> Coleccao_REQ; //Requesicões
 
         bool SaveToFile(string nf);
         bool LoadFile(string nf);
