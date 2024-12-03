@@ -10,6 +10,21 @@
 #include "LivroFiccao.h"
 #include "Revista.h"
 
+/* TODO:
+    - Relatório de Empréstimos por Tipo de Livro (a fazer)
+    - Relatório de Empréstimos por Leitor (a fazer)
+    - Relatório de Multas pendentes (a fazer)
+    - Sistema de Notificações de Atraso (rever)
+    - Gravar e Carregar Ficheiros
+    - Reservar Livros que estão emprestados (a fazer)
+    - Cancelar Reserva (a fazer)
+    - Mostrar reservas (a fazer)
+    - Remover Leitor
+    - Remover Livro
+*/
+
+
+
 using namespace std;
 
 int main()
@@ -25,18 +40,24 @@ int main()
         cout << "2 - Adicionar Leitor\n";                                   // Adicionar leitor por ID
         cout << "3 - Adicionar Emprestimo\n";                               // Adicionar empréstimo por ISBN e ID
         cout << "4 - Devolver Livro\n";                                     // Devolver livro por ISBN e ID (remover empréstimo)
-        cout << "5 - Pesquisar Livro\n";                                    // Pesquisar livro por ISBN
-        cout << "6 - Gerar Relatorio de Emprestimos (Por tipo de livro)\n"; // Gerar relatório de empréstimos por tipo de livro
-        cout << "7 - Listagem por Categoria\n";                             // Gerar Lista de livros por categoria
-        cout << "8 - Prorrogar Emprestimos\n";                              // Prorrogar empréstimos
-        cout << "9 - Sistema de Notificacoes de Atraso\n";                  // Sistema de notificações de atraso
-        cout << "10 - Listagem de Livros\n";                                // Listagem de todos os livros
-        cout << "11 - Editar Informacoes Leitores\n";                       // Editar informações de leitores
-        cout << "12 - Editar Informacoes Livros\n";                         // Editar informações de livros
-        cout << "13 - Importar Ficheiro\n";                                 // Importar ficheiro
-        cout << "14 - Exportar Ficheiro\n";                                 // Exportar ficheiro
-        cout << "15 - Remover Leitor\n";                                    // Remover leitor por ID
-        cout << "16 - Remover Livro\n";                                     // Remover livro por ISBN
+        cout << "5 - Pesquisar Livro por Tipo\n";                           // Pesquisar livro por tipo
+        cout << "6 - Gerar Relatorio de Emprestimos\n";                     // Gerar relatório de empréstimos ativos
+        cout << "7 - Prorrogar Emprestimos\n";                              // Prorrogar empréstimos
+        cout << "8 - Sistema de Notificacoes de Atraso\n";                  // Sistema de notificações de atraso
+        cout << "9 - Listagem de Livros\n";                                // Listagem de todos os livros
+        cout << "10 - Editar Informacoes Leitores\n";                       // Editar informações de leitores
+        cout << "11 - Editar Informacoes Livros\n";                         // Editar informações de livros
+        cout << "12 - Importar Ficheiro\n";                                 // Importar ficheiro
+        cout << "13 - Exportar Ficheiro\n";                                 // Exportar ficheiro
+        cout << "14 - Remover Leitor\n";                                    // Remover leitor por ID
+        cout << "15 - Remover Livro\n";                                     // Remover livro por ISBN
+        cout << "16 - Reservar Livro\n";                                    // Reservar livro por ISBN
+        cout << "17 - Listar Reservas\n";                                   // Listar reservas
+        cout << "18 - Cancelar Reserva\n";                                  // Cancelar reserva por ISBN e ID
+        cout << "19 - Gerar Relatorio de Multas Pendentes\n";               // Gerar relatório de multas pendentes
+        cout << "20 - Gerar Relatorio de Emprestimos por Tipo de Livro\n";  // Gerar relatório de empréstimos por tipo de livro
+        cout << "21 - Gerar Relatorio de Emprestimos por Leitor\n";         // Gerar relatório de empréstimos por leitor  
+        cout << "22 - Listagem de Livros por Categoria\n";                  // Listagem de livros por categoria
         cout << "0 - Sair\n";
         cout << "Escolha: ";
         cin >> opcao;
@@ -45,7 +66,7 @@ int main()
         {
         case 1:
         {
-            string titulo, autor, isbn, tipo, edicao;
+            string titulo, autor, isbn, tipo, edicao, categoria;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "Titulo: ";
             getline(cin, titulo);
@@ -55,25 +76,33 @@ int main()
             cin >> isbn;
             cout << "Tipo de Livro (Cientifico, Educacional, Ficcao, Revista): ";
             cin >> tipo;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "Categoria: ";
+            getline(cin, categoria);
+
 
             Livro *livro = nullptr;
-            if (tipo == "Cientifico")
+            if (tipo == "Cientifico" || tipo == "cientifico")
             {
-                livro = new LivroCientifico(titulo, autor, isbn, "Cientifico");
+                livro = new LivroCientifico(titulo, autor, isbn, categoria);
             }
-            else if (tipo == "Educacional")
+            else if (tipo == "Educacional" || tipo == "educacional")
             {
-                livro = new LivroEducativo(titulo, autor, isbn, "Educational");
+                string grau;
+                cout << "Grau de escolaridade: ";
+                cin.ignore();
+                getline(cin, grau);
+                livro = new LivroEducativo(titulo, autor, isbn, categoria, grau);
             }
-            else if (tipo == "Ficcao")
+            else if (tipo == "Ficcao" || tipo == "ficcao")
             {
-                livro = new LivroFiccao(titulo, autor, isbn, "Ficcao");
+                livro = new LivroFiccao(titulo, autor, isbn, categoria);
             }
-            else if (tipo == "Revista")
+            else if (tipo == "Revista" || tipo == "revista")
             {
                 cout << "Edicao: ";
                 cin >> edicao;
-                livro = new Revista(titulo, autor, isbn, edicao);
+                livro = new Revista(titulo, autor, isbn, categoria, edicao);
             }
 
             if (livro)
@@ -99,19 +128,19 @@ int main()
             cin >> tipoLeitor;
 
             Leitor *leitor = nullptr;
-            if (tipoLeitor == "Comum")
+            if (tipoLeitor == "Comum" || tipoLeitor == "comum")
             {
                 leitor = new LeitorComum(nome, id);
             }
-            else if (tipoLeitor == "Estudante")
+            else if (tipoLeitor == "Estudante" || tipoLeitor == "estudante")
             {
                 leitor = new Estudante(nome, id);
             }
-            else if (tipoLeitor == "Professor")
+            else if (tipoLeitor == "Professor" || tipoLeitor == "professor")
             {
                 leitor = new Professor(nome, id);
             }
-            else if (tipoLeitor == "Senior")
+            else if (tipoLeitor == "Senior" || tipoLeitor == "senior")
             {
                 leitor = new Senior(nome, id);
             }
@@ -202,6 +231,10 @@ int main()
 
         case 5:
         {
+            string tipo;
+            cout << "Tipo de Livro (Cientifico, Educacional, Ficcao, Revista): ";
+            cin >> tipo;
+            bib->Pesquisar_Livro_Tipo(tipo);
             break;
         }
 
@@ -213,15 +246,6 @@ int main()
 
         case 7:
         {
-            string categoria;
-            cout << "Digite a categoria para o relatorio: ";
-            cin >> categoria;
-            bib->RelatorioCategoria(categoria);
-            break;
-        }
-
-        case 8:
-        {
             string id, isbn;
             cout << "ID do leitor: ";
             cin >> id;
@@ -231,33 +255,33 @@ int main()
             break;
         }
 
-        case 9:
+        case 8:
         {
             bib->Sistema_Notificacoes_Atraso();
             break;
         }
 
-        case 10:
+        case 9:
         {
             bib->Listagem_Livros();
             break;
         }
 
-        case 11:
+        case 10:
         {
             string id;
             cout << "ID do leitor: ";
             cin >> id;
             bib->Editar_InformacoesLeitores(id);
-            break; //TODO:
+            break;
         }
 
-        case 12:
+        case 11: // Editar Informacoes Livros (categoria de um tipo de livro, ediçao de revista, etc)
         {
             break; //TODO:
         }
 
-        case 13:
+        case 12:
         {
             string nomeFicheiro;
             cout << "Digite o nome do ficheiro para importar: ";
@@ -273,7 +297,7 @@ int main()
             break;
         }
 
-        case 14:
+        case 13:
         {
             string nomeFicheiro;
             cout << "Digite o nome do ficheiro para exportar: ";
@@ -289,12 +313,12 @@ int main()
             break;
         }
 
-        case 15:
+        case 14:
         {
             break; //TODO:
         }
 
-        case 16:
+        case 15:
         {
             break; //TODO:
         }

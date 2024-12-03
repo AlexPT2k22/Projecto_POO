@@ -1,6 +1,6 @@
 #include "Livro.h"
 
-Livro::Livro(string t, string a, string i): Titulo(t), Autor(a), isbn(i), Disponivel(true)
+Livro::Livro(string t, string a, string i, string c): Titulo(t), Autor(a), isbn(i), categoria(c), Disponivel(true)
 {
     //constructor
 }
@@ -20,3 +20,9 @@ string Livro::getTitulo() const {return Titulo;}
 string Livro::getAutor() const {return Autor;}
 
 string Livro::getIsbn() const {return isbn;}
+
+string Livro::getCategoria() const {return categoria;}
+
+void Livro::setCategoria(string c) {
+    categoria = c;
+}
