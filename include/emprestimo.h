@@ -20,6 +20,7 @@ class Emprestimo {
         float calcularMulta();
         Livro* getLivro() const;
         Leitor* getLeitor() const;
+        void prorrogarEmprestimo();
         time_t dataEmprestimo;
         time_t dataDevolucao;
 };

@@ -28,7 +28,7 @@ class Biblioteca
         bool SaveToFile(string nf);
         bool LoadFile(string nf);
         void RelatorioCategoria(string cat);
-        void Prorrogacao_Emprestimos();
+        void Prorrogacao_Emprestimos(string id, string isbn);
         void Sistema_Notificacoes_Atraso();
         void Listagem_Livros();
         bool Add_Leitor(Leitor *LT);

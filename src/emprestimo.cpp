@@ -9,6 +9,11 @@ Emprestimo::~Emprestimo() {
     //dtor
 }
 
+void Emprestimo::prorrogarEmprestimo(){
+    dataDevolucao += livro->getPrazoEmprestimo() * 24 * 60 * 60;
+    cout << "Nova data de devolução: " << ctime(&dataDevolucao);
+}
+
 void Emprestimo::calcularDataDevolucao() {
     dataDevolucao = dataEmprestimo + (livro->getPrazoEmprestimo() * 24 * 60 * 60);
 }

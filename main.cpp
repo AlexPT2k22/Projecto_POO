@@ -222,7 +222,12 @@ int main()
 
         case 8:
         {
-            bib->Prorrogacao_Emprestimos(); //TODO:
+            string id, isbn;
+            cout << "ID do leitor: ";
+            cin >> id;
+            cout << "ISBN do livro: ";
+            cin >> isbn;
+            bib->Prorrogacao_Emprestimos(id, isbn); //TODO:
             break;
         }
 
@@ -253,7 +258,7 @@ int main()
             string nomeFicheiro;
             cout << "Digite o nome do ficheiro para importar: ";
             cin >> nomeFicheiro;
-            if (bib->LoadFile(nomeFicheiro))
+            if (bib->LoadFile(nomeFicheiro)) //TODO:
             {
                 cout << "Ficheiro importado com sucesso!" << endl;
             }
@@ -269,7 +274,7 @@ int main()
             string nomeFicheiro;
             cout << "Digite o nome do ficheiro para exportar: ";
             cin >> nomeFicheiro;
-            if (bib->SaveToFile(nomeFicheiro))
+            if (bib->SaveToFile(nomeFicheiro)) //TODO:
             {
                 cout << "Ficheiro exportado com sucesso!" << endl;
             }

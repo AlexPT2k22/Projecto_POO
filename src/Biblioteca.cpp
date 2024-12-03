@@ -74,9 +74,28 @@ void Biblioteca::RelatorioCategoria(string categoria)
     }
 }
 
-void Biblioteca::Prorrogacao_Emprestimos()
+void Biblioteca::Prorrogacao_Emprestimos(string id, string isbn)
 {
-    
+    Emprestimo* emprestimo = nullptr;
+
+    for (size_t i = 0; i < Coleccao_REQ.size(); ++i) {
+        if (Coleccao_REQ[i]->getLivro()->getIsbn() == isbn && Coleccao_REQ[i]->getLeitor()->getID() == id) {
+            emprestimo = Coleccao_REQ[i];
+            break;
+        }
+    }
+
+    if (!emprestimo) {
+        cout << "Emprestimo não encontrado!" << endl;
+        return;
+    }
+
+    if (emprestimo->getLeitor()->podeProrrogar()) {
+        emprestimo->prorrogarEmprestimo();
+        cout << "Emprestimo prorrogado com sucesso!" << endl;
+    } else {
+        cout << "Leitor não pode prorrogar emprestimos!" << endl;
+    }
 }
 
 /**

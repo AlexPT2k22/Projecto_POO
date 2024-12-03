@@ -13,5 +13,5 @@ float Senior::getDescontoMulta() const {
 }
 
 bool Senior::podeProrrogar() const {
-    return true;  // Sêniores podem prorrogar
+    return false;  // Sêniores podem prorrogar
 }
