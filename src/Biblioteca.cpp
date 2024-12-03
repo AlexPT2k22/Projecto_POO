@@ -125,6 +125,10 @@ void Biblioteca::Sistema_Notificacoes_Atraso()
  */
 void Biblioteca::Listagem_Livros()
 {
+    if (Coleccao_LIVROS.size() == 0) {
+        cout << "Nenhum livro na colecao!" << endl;
+    }
+
     for (size_t i = 0; i < Coleccao_LIVROS.size(); ++i) {
         cout << "Titulo: " << Coleccao_LIVROS[i]->getTitulo() << endl;
         cout << "Autor: " << Coleccao_LIVROS[i]->getAutor() << endl;
@@ -324,4 +328,55 @@ void Biblioteca::ListarLivrosCategoria(string categoria){
     if (!encontrado) {
         cout << "Nenhum livro encontrado!" << endl;
     }
+}
+
+void Biblioteca::Editar_InformacoesLivros(string isbn)
+{
+    for (size_t i = 0; i < Coleccao_LIVROS.size(); ++i) {
+        if (Coleccao_LIVROS[i]->getIsbn() == isbn) {
+            cout << "A atualizar informacoes do livro: " << Coleccao_LIVROS[i]->getTitulo() << endl;
+            Coleccao_LIVROS[i]->EditarInformacoesLivro();
+            return;
+        }
+    }
+
+    cout << "Livro nao encontrado!" << endl;
+}
+
+void Biblioteca::Remover_Leitor(string id){
+        for (size_t i = 0; i < Coleccao_LEITORES.size(); ++i) {
+        if (Coleccao_LEITORES[i]->getID() == id) {
+            if (!Coleccao_LEITORES[i]->getEmprestimos().empty()) {
+                cout << "Erro: O leitor ainda possui empréstimos pendentes e nao pode ser removido!" << endl;
+                return;
+            }
+
+            cout << "Removendo leitor: " << Coleccao_LEITORES[i]->getNome() << endl;
+            delete Coleccao_LEITORES[i];
+            Coleccao_LEITORES.erase(Coleccao_LEITORES.begin() + i);
+            cout << "Leitor removido com sucesso!" << endl;
+            return;
+        }
+    }
+    cout << "Leitor com ID " << id << " nao encontrado!" << endl;
+}
+
+void Biblioteca::Remover_Livro(string isbn){
+        for (size_t i = 0; i < Coleccao_LIVROS.size(); ++i) {
+        if (Coleccao_LIVROS[i]->getIsbn() == isbn) {
+            for (size_t j = 0; j < Coleccao_REQ.size(); ++j) {
+                if (Coleccao_REQ[j]->getLivro()->getIsbn() == isbn) {
+                    cout << "Erro: O livro está associado a um empréstimo ativo e não pode ser removido!" << endl;
+                    return;
+                }
+            }
+
+            cout << "Removendo livro: " << Coleccao_LIVROS[i]->getTitulo() << endl;
+            delete Coleccao_LIVROS[i]; // Libera a memória do livro
+            Coleccao_LIVROS.erase(Coleccao_LIVROS.begin() + i); // Remove do vetor
+            cout << "Livro removido com sucesso!" << endl;
+            return;
+        }
+    }
+    cout << "Livro com ISBN " << isbn << " nao encontrado!" << endl;
 }

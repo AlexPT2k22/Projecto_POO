@@ -14,7 +14,6 @@
     - Relatório de Empréstimos por Tipo de Livro (a fazer)
     - Relatório de Empréstimos por Leitor (a fazer)
     - Relatório de Multas pendentes (a fazer)
-    - Sistema de Notificações de Atraso (rever)
     - Gravar e Carregar Ficheiros
     - Reservar Livros que estão emprestados (a fazer)
     - Cancelar Reserva (a fazer)
@@ -278,7 +277,11 @@ int main()
 
         case 11: // Editar Informacoes Livros (categoria de um tipo de livro, ediçao de revista, etc)
         {
-            break; //TODO:
+            string isbn;
+            cout << "ISBN do livro: ";
+            cin >> isbn;
+            bib->Editar_InformacoesLivros(isbn);
+            break;
         }
 
         case 12:
@@ -315,12 +318,20 @@ int main()
 
         case 14:
         {
-            break; //TODO:
+            string id;
+            cout << "ID do leitor: ";
+            cin >> id;
+            bib->Remover_Leitor(id);
+            break; 
         }
 
         case 15:
-        {
-            break; //TODO:
+        {   
+            string isbn;
+            cout << "ISBN do livro: ";
+            cin >> isbn;
+            bib->Remover_Livro(isbn);
+            break;
         }
 
         case 0:

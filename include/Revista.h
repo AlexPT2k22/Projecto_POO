@@ -13,6 +13,8 @@ class Revista : public Livro
         string getEdicao() const;
         int getPrazoEmprestimo() const;
         string getTipo() const override;
+        void setEdicao(string e);
+        void EditarInformacoesLivro() override;
 
     protected:
 

@@ -26,3 +26,15 @@ string Livro::getCategoria() const {return categoria;}
 void Livro::setCategoria(string c) {
     categoria = c;
 }
+
+void Livro::setTitulo(string t) {
+    Titulo = t;
+}
+
+void Livro::setAutor(string a) {
+    Autor = a;
+}
+
+void Livro::setIsbn(string i) {
+    isbn = i;
+}

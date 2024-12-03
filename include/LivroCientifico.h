@@ -12,8 +12,7 @@ class LivroCientifico : public Livro
 
         string getTipo() const override;
         int getPrazoEmprestimo() const override;
-        
-
+        void EditarInformacoesLivro() override;
     protected:
 
     private:

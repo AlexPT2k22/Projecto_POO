@@ -14,6 +14,7 @@ class LivroEducativo : public Livro
         int getPrazoEmprestimo() const override;
         string getGrauEscolaridade() const;
         void setGrauEscolaridade(string g);
+        void EditarInformacoesLivro() override;
 
     protected:
 
