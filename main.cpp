@@ -18,8 +18,6 @@
     - Reservar Livros que estão emprestados (a fazer)
     - Cancelar Reserva (a fazer)
     - Mostrar reservas (a fazer)
-    - Remover Leitor
-    - Remover Livro
 */
 
 
@@ -331,6 +329,61 @@ int main()
             cout << "ISBN do livro: ";
             cin >> isbn;
             bib->Remover_Livro(isbn);
+            break;
+        }
+
+        case 16:
+        {
+            string isbn, id;
+            cout << "ISBN do livro: ";
+            cin >> isbn;
+            cout << "ID do leitor: ";
+            cin >> id;
+            bib->Reservar_Livro(isbn, id);
+            break;
+        }
+
+        case 17:
+        {
+            bib->ListarReservas();
+            break;
+        }
+
+        case 18:
+        {
+            string isbn, id;
+            cout << "ISBN do livro: ";
+            cin >> isbn;
+            cout << "ID do leitor: ";
+            cin >> id;
+            bib->CancelarReserva(isbn, id);
+            break;
+        }
+
+        case 19:
+        {
+            bib->GerarRelatorioMultasPendentes();
+            break;
+        }
+
+        case 20:
+        {
+            bib->GerarRelatorioEmprestimosPorTipo();
+            break;
+        }
+
+        case 21:
+        {
+            bib->GerarRelatorioEmprestimosPorLeitor();
+            break;
+        }
+
+        case 22:
+        {
+            string categoria;
+            cout << "Categoria: ";
+            cin >> categoria;
+            bib->ListarLivrosCategoria(categoria);
             break;
         }
 
