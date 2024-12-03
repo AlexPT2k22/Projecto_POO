@@ -1,4 +1,5 @@
 #include "Senior.h"
+#include <iostream>
 
 Senior::Senior(string nome, string id) : Leitor(nome, id) {}
 
@@ -14,4 +15,8 @@ float Senior::getDescontoMulta() const {
 
 bool Senior::podeProrrogar() const {
     return false;  // Sêniores podem prorrogar
+}
+
+void Senior::editarInformacoes() {
+    cout << "Seniores nao podem editar informacoes!" << endl;
 }

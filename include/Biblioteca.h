@@ -36,6 +36,7 @@ class Biblioteca
         void Add_Emprestimo(Livro *L, Leitor *LT);
         void Devolver_Livro(Emprestimo *E);
         void Gerar_RelatorioEmprestimos();
+        void Editar_InformacoesLeitores(string id);
 
 };
 

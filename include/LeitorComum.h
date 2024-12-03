@@ -13,6 +13,7 @@ class LeitorComum : public Leitor
         int getLimiteEmprestimos() const override;
         float getDescontoMulta() const override;
         bool podeProrrogar() const override;
+        void editarInformacoes() override;
 
     protected:
 

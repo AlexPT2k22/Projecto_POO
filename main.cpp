@@ -227,7 +227,7 @@ int main()
             cin >> id;
             cout << "ISBN do livro: ";
             cin >> isbn;
-            bib->Prorrogacao_Emprestimos(id, isbn); //TODO:
+            bib->Prorrogacao_Emprestimos(id, isbn);
             break;
         }
 
@@ -245,6 +245,10 @@ int main()
 
         case 11:
         {
+            string id;
+            cout << "ID do leitor: ";
+            cin >> id;
+            bib->Editar_InformacoesLeitores(id);
             break; //TODO:
         }
 

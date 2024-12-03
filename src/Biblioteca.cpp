@@ -248,12 +248,24 @@ void Biblioteca::Devolver_Livro(Emprestimo *E)
  */
 void Biblioteca::Gerar_RelatorioEmprestimos()
 {
-    cout << "=== Relatório de Empréstimos Atuais ===" << endl;
+    cout << "=== Relatorio de Emprestimos Atuais ===" << endl;
     for (size_t i = 0; i < Coleccao_REQ.size(); ++i) {
         cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << endl;
         cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << endl;
-        cout << "Data de Empréstimo: " << ctime(&Coleccao_REQ[i]->dataEmprestimo);
-        cout << "Data de Devolução: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
+        cout << "Data de Emprestimo: " << ctime(&Coleccao_REQ[i]->dataEmprestimo);
+        cout << "Data de Devolucao: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
         cout << "---------------------------------" << endl;
     }
+}
+
+void Biblioteca::Editar_InformacoesLeitores(string id)
+{
+    for (size_t i = 0; i < Coleccao_LEITORES.size(); ++i) {
+        if (Coleccao_LEITORES[i]->getID() == id) {
+            Coleccao_LEITORES[i]->editarInformacoes();
+            return;
+        }
+    }
+
+    cout << "Leitor nao encontrado!" << endl;
 }

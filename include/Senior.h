@@ -11,6 +11,7 @@ public:
     int getLimiteEmprestimos() const override;
     float getDescontoMulta() const override;
     bool podeProrrogar() const override;
+    void editarInformacoes() override;
 };
 
 #endif // SENIOR_H

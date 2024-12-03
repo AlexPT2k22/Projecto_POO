@@ -4,6 +4,9 @@
 #include "Leitor.h"
 
 class Estudante : public Leitor {
+
+    private:
+        int limiteEmprestimos = 10;
     public:
         Estudante(string n, string i);
         virtual ~Estudante();
@@ -11,6 +14,7 @@ class Estudante : public Leitor {
         int getLimiteEmprestimos() const override;
         float getDescontoMulta() const override;
         bool podeProrrogar() const override;
+        void editarInformacoes() override;
 };
 
 

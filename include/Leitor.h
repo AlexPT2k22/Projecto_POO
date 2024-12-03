@@ -20,6 +20,7 @@ public:
     virtual int getLimiteEmprestimos() const = 0;
     virtual float getDescontoMulta() const = 0;
     virtual bool podeProrrogar() const = 0;
+    virtual void editarInformacoes() = 0;
 
     string getNome() const;
     void adicionarEmprestimo(Emprestimo* e);

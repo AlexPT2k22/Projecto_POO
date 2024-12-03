@@ -1,4 +1,5 @@
 #include "LeitorComum.h"
+#include <iostream>
 
 LeitorComum::LeitorComum(string n, string i) : Leitor(n, i)
 {
@@ -20,4 +21,8 @@ float LeitorComum::getDescontoMulta() const {
 
 bool LeitorComum::podeProrrogar() const {
     return false;
+}
+
+void LeitorComum::editarInformacoes() {
+    cout << "Leitor Comum nao pode editar informacoes!" << endl;
 }
