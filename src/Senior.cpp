@@ -17,6 +17,12 @@ bool Senior::podeProrrogar() const {
     return false;  // Sêniores podem prorrogar
 }
 
+/**
+ * @brief Displays a message indicating that senior users cannot edit their information
+ * 
+ * This method implements the editarInformacoes interface but restricts seniors
+ * from modifying their account details by displaying a message.
+ */
 void Senior::editarInformacoes() {
     cout << "Seniores nao podem editar informacoes!" << endl;
 }
