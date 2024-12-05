@@ -7,17 +7,15 @@
 class LivroCientifico : public Livro
 {
     public:
-        LivroCientifico(string t, string a, string i, string g);
+        LivroCientifico(string t, string a, string i, string c);
         virtual ~LivroCientifico();
 
         string getTipo() const override;
         int getPrazoEmprestimo() const override;
-        
-
+        void EditarInformacoesLivro() override;
     protected:
 
     private:
-        string genero;
 
 };
 

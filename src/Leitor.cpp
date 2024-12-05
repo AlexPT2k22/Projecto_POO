@@ -65,3 +65,7 @@ string Leitor::getID() const {
 string Leitor::getNome() const {
     return nome;
 }
+
+list<Emprestimo*> Leitor::getEmprestimos() const {
+    return emprestimos;
+}

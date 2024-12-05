@@ -27,7 +27,6 @@ class Biblioteca
 
         bool SaveToFile(string nf);
         bool LoadFile(string nf);
-        void RelatorioCategoria(string cat);
         void Prorrogacao_Emprestimos(string id, string isbn);
         void Sistema_Notificacoes_Atraso();
         void Listagem_Livros();
@@ -37,6 +36,11 @@ class Biblioteca
         void Devolver_Livro(Emprestimo *E);
         void Gerar_RelatorioEmprestimos();
         void Editar_InformacoesLeitores(string id);
+        void Editar_InformacoesLivros(string isbn);
+        void Pesquisar_Livro_Tipo(string tipo);
+        void ListarLivrosCategoria(string categoria);
+        void Remover_Leitor(string id);
+        void Remover_Livro(string isbn);
 
 };
 

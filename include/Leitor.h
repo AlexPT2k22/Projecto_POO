@@ -16,6 +16,7 @@ public:
     
     Leitor(string n, string i); //nome e ID
     virtual ~Leitor();
+    list<Emprestimo*> getEmprestimos() const;
 
     virtual int getLimiteEmprestimos() const = 0;
     virtual float getDescontoMulta() const = 0;
