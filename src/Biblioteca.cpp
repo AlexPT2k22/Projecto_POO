@@ -1,4 +1,5 @@
 #include "Biblioteca.h"
+#include <algorithm>
 
 /**
  * @brief Construct a new Biblioteca object.
@@ -200,18 +201,14 @@ void Biblioteca::Devolver_Livro(Emprestimo *E)
         return;
     }
 
-    Leitor* leitor = E->getLeitor();
-    if (leitor) {
-        leitor->removerEmprestimo(E);
-    }
+    Livro* livro = E->getLivro();
+    Leitor* leitorAtual = E->getLeitor();
 
-    for (size_t i = 0; i < Coleccao_REQ.size(); ++i) {
-        if (Coleccao_REQ[i] == E) {
-            Coleccao_REQ.erase(Coleccao_REQ.begin() + i);
-            break;
-        }
-    }
+    // Remove o empréstimo
+    leitorAtual->removerEmprestimo(E);
+    Coleccao_REQ.erase(std::remove(Coleccao_REQ.begin(), Coleccao_REQ.end(), E), Coleccao_REQ.end());
 
+    // Exibe a multa, se aplicável
     float multa = E->calcularMulta();
     if (multa > 0) {
         cout << "Livro devolvido com atraso! Multa: " << multa << "€" << endl;
@@ -220,6 +217,13 @@ void Biblioteca::Devolver_Livro(Emprestimo *E)
     }
 
     delete E;
+
+    // Processa reservas
+    if (livro->temReserva()) {
+        Leitor* proximoLeitor = livro->Proximo_Leitor_Reserva();
+        cout << "Livro reservado para o próximo leitor: " << proximoLeitor->getNome() << endl;
+        livro->remover_Reserva(proximoLeitor);
+    }
 }
 
 /**
@@ -380,3 +384,26 @@ void Biblioteca::Remover_Livro(string isbn){
     }
     cout << "Livro com ISBN " << isbn << " nao encontrado!" << endl;
 }
+
+void Biblioteca::reservarLivro(string isbn, Leitor *LT){
+    for (size_t i = 0; i < Coleccao_LIVROS.size(); ++i) {
+        if (Coleccao_LIVROS[i]->getIsbn() == isbn) {
+            Livro* livro = Coleccao_LIVROS[i];
+
+            bool emprestado = false;
+            for (size_t j = 0; j < Coleccao_REQ.size(); ++j) {
+                if (Coleccao_REQ[j]->getLivro() == livro) {
+                    emprestado = true;
+                    break;
+                }
+            }
+            if (!emprestado){
+                livro->adicionar_Reserva(LT);
+                cout << "Livro reservado com sucesso para o leitor: " << LT->getNome() << endl;
+            }else{
+                cout << "Livro nao disponivel para reserva!" << endl;
+            }
+        }
+    }
+}
+

@@ -339,7 +339,18 @@ int main()
             cin >> isbn;
             cout << "ID do leitor: ";
             cin >> id;
-            bib->Reservar_Livro(isbn, id);
+            Leitor *leitor = nullptr;
+            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) {
+                if (bib->Coleccao_LEITORES[i]->getID() == id) {
+                    leitor = bib->Coleccao_LEITORES[i];
+                    break;
+                }
+            }
+            if (!leitor){
+                cout << "Leitor nao encontrado!" << endl;
+            }else{
+                bib->reservarLivro(isbn, leitor);
+            }
             break;
         }
 

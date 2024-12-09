@@ -2,6 +2,8 @@
 #define Livro_H
 #include <iostream>
 #include <string>
+#include <vector>
+#include "Leitor.h"
 using namespace std;
 
 class Livro
@@ -10,8 +12,8 @@ class Livro
         string Titulo;
         string Autor;
         string isbn;
-        bool Disponivel;
         string categoria;
+        vector<Leitor*> reservas;
     public:
         Livro(string t, string a, string i, string c);
         virtual ~Livro();
@@ -20,8 +22,6 @@ class Livro
         virtual int getPrazoEmprestimo() const = 0;
         virtual void EditarInformacoesLivro() = 0;
 
-        bool estaDisponivel() const;
-        void setDisponivel(bool d);
         string getTitulo() const;
         void setTitulo(string titulo);
         string getAutor() const;
@@ -30,6 +30,10 @@ class Livro
         void setIsbn(string isbn);
         void setCategoria(string categoria);
         string getCategoria() const;
+        void adicionar_Reserva(Leitor* LT);
+        void remover_Reserva(Leitor* LT);
+        Leitor* Proximo_Leitor_Reserva() const;
+        bool temReserva() const;
 };
 
 #endif // Livro_H
