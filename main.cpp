@@ -356,7 +356,7 @@ int main()
 
         case 17:
         {
-            bib->ListarReservas();
+            //bib->ListarReservas();
             break;
         }
 
@@ -367,25 +367,25 @@ int main()
             cin >> isbn;
             cout << "ID do leitor: ";
             cin >> id;
-            bib->CancelarReserva(isbn, id);
+            //bib->CancelarReserva(isbn, id);
             break;
         }
 
         case 19:
         {
-            bib->GerarRelatorioMultasPendentes();
+            //bib->GerarRelatorioMultasPendentes();
             break;
         }
 
         case 20:
         {
-            bib->GerarRelatorioEmprestimosPorTipo();
+            //bib->GerarRelatorioEmprestimosPorTipo();
             break;
         }
 
         case 21:
         {
-            bib->GerarRelatorioEmprestimosPorLeitor();
+            //bib->GerarRelatorioEmprestimosPorLeitor();
             break;
         }
 

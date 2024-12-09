@@ -221,7 +221,7 @@ void Biblioteca::Devolver_Livro(Emprestimo *E)
     // Processa reservas
     if (livro->temReserva()) {
         Leitor* proximoLeitor = livro->Proximo_Leitor_Reserva();
-        cout << "Livro reservado para o próximo leitor: " << proximoLeitor->getNome() << endl;
+        cout << "Livro reservado para o proximo leitor: " << proximoLeitor->getNome() << " com ID: " << proximoLeitor->getID() << endl;
         livro->remover_Reserva(proximoLeitor);
     }
 }
@@ -398,12 +398,15 @@ void Biblioteca::reservarLivro(string isbn, Leitor *LT){
                 }
             }
             if (!emprestado){
+                cout << "Livro nao disponivel para reserva pois nao esta emprestado!" << endl;
+                return;
+            }else{
                 livro->adicionar_Reserva(LT);
                 cout << "Livro reservado com sucesso para o leitor: " << LT->getNome() << endl;
-            }else{
-                cout << "Livro nao disponivel para reserva!" << endl;
+                return;
             }
         }
     }
+    cout << "Livro com ISBN " << isbn << " nao encontrado!" << endl;
 }
 
