@@ -1,6 +1,6 @@
 #include "LivroEducativo.h"
 
-LivroEducativo::LivroEducativo(string t, string a, string i, string c, string g) : Livro(t, a, i, c), grau_escolaridade(g)
+LivroEducativo::LivroEducativo(string t, string a, string i, string c, string g, int numCopias) : Livro(t, a, i, c, numCopias), grau_escolaridade(g)
 {
     //ctor
 }

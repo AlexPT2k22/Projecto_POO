@@ -13,11 +13,13 @@ class Livro
         string Autor;
         string isbn;
         string categoria;
-        vector<Leitor*> reservas;
+        int total_copias;
+        int copias_emprestadas;
+        
     public:
-        Livro(string t, string a, string i, string c);
+        Livro(string t, string a, string i, string c, int numCopias);
         virtual ~Livro();
-
+        vector<Leitor*> reservas;
         virtual string getTipo() const = 0;
         virtual int getPrazoEmprestimo() const = 0;
         virtual void EditarInformacoesLivro() = 0;
@@ -34,6 +36,11 @@ class Livro
         void remover_Reserva(Leitor* LT);
         Leitor* Proximo_Leitor_Reserva() const;
         bool temReserva() const;
+        int getCopiasDisponiveis() const;
+        bool emprestar_Copia();
+        void devolver_Copia();
+        int getNumCopias() const;
+        void setNumCopias(int numCopias);
 };
 
 #endif // Livro_H

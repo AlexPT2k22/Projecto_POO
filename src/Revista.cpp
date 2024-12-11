@@ -1,6 +1,6 @@
 #include "Revista.h"
 
-Revista::Revista(string t, string a, string i, string c, string e) : Livro(t, a, i, c), edicao(e)
+Revista::Revista(string t, string a, string i, string c, string e, int numCopias) : Livro(t, a, i, c, numCopias), edicao(e)
 {
     //ctor
 }

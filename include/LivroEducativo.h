@@ -7,7 +7,7 @@ using namespace std;
 class LivroEducativo : public Livro
 {
     public:
-        LivroEducativo(string t, string a, string i, string c, string g);
+        LivroEducativo(string t, string a, string i, string c, string g, int numCopias);
         virtual ~LivroEducativo();
 
         string getTipo() const override;

@@ -26,3 +26,7 @@ bool LeitorComum::podeProrrogar() const {
 void LeitorComum::editarInformacoes() {
     cout << "Leitor Comum nao pode editar informacoes!" << endl;
 }
+
+string LeitorComum::getTipo() const {
+    return "Comum";
+}

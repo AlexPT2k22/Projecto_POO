@@ -7,7 +7,7 @@
 class Revista : public Livro
 {
     public:
-        Revista(string t, string a, string i, string c, string e);
+        Revista(string t, string a, string i, string c, string e, int numCopias);
         virtual ~Revista();
 
         string getEdicao() const;

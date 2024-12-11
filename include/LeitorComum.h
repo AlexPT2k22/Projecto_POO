@@ -14,6 +14,7 @@ class LeitorComum : public Leitor
         float getDescontoMulta() const override;
         bool podeProrrogar() const override;
         void editarInformacoes() override;
+        string getTipo() const override;
 
     protected:
 

@@ -2,7 +2,7 @@
 #include "LivroEducativo.h"
 #include "Estudante.h"
 
-Livro::Livro(string t, string a, string i, string c): Titulo(t), Autor(a), isbn(i), categoria(c)
+Livro::Livro(string t, string a, string i, string c, int numCopias): Titulo(t), Autor(a), isbn(i), categoria(c), total_copias(numCopias), copias_emprestadas(0)
 {
     //constructor
 }
@@ -11,6 +11,32 @@ Livro::Livro(string t, string a, string i, string c): Titulo(t), Autor(a), isbn(
 Livro::~Livro()
 {
     //destructor
+}
+
+int Livro::getNumCopias() const{
+    return total_copias;
+}
+
+void Livro::setNumCopias(int numCopias){
+    total_copias = numCopias;
+}
+
+int Livro::getCopiasDisponiveis() const{
+    return total_copias - copias_emprestadas;
+}
+
+bool Livro::emprestar_Copia(){
+    if (getCopiasDisponiveis() > 0){
+        copias_emprestadas++;
+        return true;
+    }
+    return false; //nao tem copias disponiveis
+}
+
+void Livro::devolver_Copia(){
+    if (copias_emprestadas > 0){
+        copias_emprestadas--;
+    }
 }
 
 string Livro::getTitulo() const {return Titulo;}
@@ -59,9 +85,11 @@ void Livro::remover_Reserva(Leitor* LT){
     for (size_t i = 0; i < reservas.size(); ++i) {
         if (reservas[i] == LT) {
             reservas.erase(reservas.begin() + i);
+            cout << "Reserva removida com sucesso para o leitor: " << LT->getNome() << endl;
             return;
         }
     }
+    cout << "Reserva nao encontrada para o leitor: " << LT->getNome() << endl;
 }
 
 Leitor* Livro::Proximo_Leitor_Reserva() const{

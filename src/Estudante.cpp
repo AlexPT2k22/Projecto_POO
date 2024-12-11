@@ -34,3 +34,7 @@ void Estudante::editarInformacoes() {
         cout << "Limite tem que ser maior do que 0!" << endl;
     }
 }
+
+string Estudante::getTipo() const {
+    return "Estudante";
+}

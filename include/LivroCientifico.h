@@ -7,7 +7,7 @@
 class LivroCientifico : public Livro
 {
     public:
-        LivroCientifico(string t, string a, string i, string c);
+        LivroCientifico(string t, string a, string i, string c, int numCopias);
         virtual ~LivroCientifico();
 
         string getTipo() const override;

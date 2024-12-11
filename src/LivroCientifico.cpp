@@ -1,6 +1,6 @@
 #include "LivroCientifico.h"
 
-LivroCientifico::LivroCientifico(string t, string a, string i, string c) : Livro(t, a, i, c)
+LivroCientifico::LivroCientifico(string t, string a, string i, string c, int numCopias) : Livro(t, a, i, c, numCopias)
 {
     //ctor
 }

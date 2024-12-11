@@ -26,3 +26,8 @@ bool Senior::podeProrrogar() const {
 void Senior::editarInformacoes() {
     cout << "Seniores nao podem editar informacoes!" << endl;
 }
+
+string Senior::getTipo() const {
+    return "Senior";
+}
+

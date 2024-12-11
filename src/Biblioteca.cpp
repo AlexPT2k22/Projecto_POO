@@ -1,5 +1,6 @@
 #include "Biblioteca.h"
 #include <algorithm>
+#include <vector>
 
 /**
  * @brief Construct a new Biblioteca object.
@@ -64,7 +65,7 @@ void Biblioteca::Prorrogacao_Emprestimos(string id, string isbn)
     }
 
     if (!emprestimo) {
-        cout << "Emprestimo não encontrado!" << endl;
+        cout << "Emprestimo nao encontrado!" << endl;
         return;
     }
 
@@ -72,7 +73,7 @@ void Biblioteca::Prorrogacao_Emprestimos(string id, string isbn)
         emprestimo->prorrogarEmprestimo();
         cout << "Emprestimo prorrogado com sucesso!" << endl;
     } else {
-        cout << "Leitor não pode prorrogar emprestimos!" << endl;
+        cout << "Leitor do tipo " << emprestimo->getLeitor()->getTipo() << " nao pode prorrogar emprestimos!" << endl;
     }
 }
 
@@ -136,6 +137,7 @@ void Biblioteca::Listagem_Livros()
         cout << "Genero: " << Coleccao_LIVROS[i]->getTipo() << endl;
         cout << "Tipo: " << Coleccao_LIVROS[i]->getTipo() << endl;
         cout << "ISBN: " << Coleccao_LIVROS[i]->getIsbn() << endl;
+        cout << "Numero de copias: " << Coleccao_LIVROS[i]->getNumCopias() << endl;
         cout << "---------------------------------" << endl;
     }
 }
@@ -168,20 +170,50 @@ bool Biblioteca::Add_Livro(Livro *L){
     return true;
 }
 
+
 /**
- * @brief Adds a new loan (Emprestimo) to the collection.
+ * @brief Adiciona um empréstimo de livro para um leitor.
  * 
- * This function creates a new loan (Emprestimo) object using the provided
- * book (Livro) and reader (Leitor) pointers, and then adds it to the 
- * collection of loans (Coleccao_REQ).
+ * Esta função tenta adicionar um empréstimo de um livro para um leitor específico.
+ * Primeiro, verifica se o livro e o leitor existem. Se o livro não tiver cópias
+ * disponíveis, o usuário é perguntado se deseja realizar uma reserva. Se o empréstimo
+ * for bem-sucedido, ele é adicionado à coleção de empréstimos ativos.
  * 
- * @param L Pointer to the book (Livro) that is being loaned.
- * @param LT Pointer to the reader (Leitor) who is borrowing the book.
+ * @param L Ponteiro para o objeto Livro a ser emprestado.
+ * @param LT Ponteiro para o objeto Leitor que está recebendo o empréstimo.
  */
 void Biblioteca::Add_Emprestimo(Livro *L, Leitor *LT)
 {
-    Emprestimo* emprestimo = new Emprestimo(L, LT);
-    Coleccao_REQ.push_back(emprestimo);
+    if (!L){
+        cout << "Livro com ISBN " << L->getIsbn() << " e titulo " << L->getTitulo() << " nao encontrado!" << endl;
+        return;
+    }
+    if (!L->emprestar_Copia()){
+        cout << "Nao ha copias disponiveis para o livro: " << L->getTitulo() << endl;
+        cout << "Realizar reserva (S/N)?" << endl;
+        string resposta;
+        cin >> resposta;
+        if (resposta == "S" || resposta == "s"){
+            reservarLivro(L->getIsbn(), LT);
+        }
+        else{
+            cout << "Emprestimo nao realizado!" << endl;
+            return;
+        }
+    }
+    //verifica se o leitor existe
+    if (!LT){
+        cout << "Leitor com ID " << LT->getID() << " nao encontrado!" << endl;
+        return;
+    }else{
+        Emprestimo* emprestimo = new Emprestimo(L, LT);
+        Coleccao_REQ.push_back(emprestimo);
+        LT->adicionarEmprestimo(emprestimo);
+        cout << "Emprestimo realizado com sucesso!" << endl;
+        return;
+    }
+    cout << "Nao ha copias disponiveis para o livro: " << L->getTitulo() << endl;
+    
 }
 
 /**
@@ -204,11 +236,27 @@ void Biblioteca::Devolver_Livro(Emprestimo *E)
     Livro* livro = E->getLivro();
     Leitor* leitorAtual = E->getLeitor();
 
-    // Remove o empréstimo
-    leitorAtual->removerEmprestimo(E);
-    Coleccao_REQ.erase(std::remove(Coleccao_REQ.begin(), Coleccao_REQ.end(), E), Coleccao_REQ.end());
+    if (leitorAtual){
+        leitorAtual->removerEmprestimo(E);
+    }
 
-    // Exibe a multa, se aplicável
+    Coleccao_REQ.erase(std::remove(Coleccao_REQ.begin(), Coleccao_REQ.end(), E), Coleccao_REQ.end()); //remove o empréstimo da coleção
+
+    livro->devolver_Copia();
+
+    if (livro->temReserva()){
+        Leitor* proximoLeitor = livro->Proximo_Leitor_Reserva();
+        cout << "Livro reservado para o proximo leitor: " << proximoLeitor->getNome() << " com ID: " << proximoLeitor->getID() << endl;
+        livro->remover_Reserva(proximoLeitor);
+        cout << "Realizar emprestimo para o leitor?: " << proximoLeitor->getNome() << " com ID: " << proximoLeitor->getID() << endl;
+        string resposta;
+        cin >> resposta;
+        if (resposta == "S" || resposta == "s"){
+            Add_Emprestimo(livro, proximoLeitor);
+        }
+    }
+
+    //multa
     float multa = E->calcularMulta();
     if (multa > 0) {
         cout << "Livro devolvido com atraso! Multa: " << multa << "€" << endl;
@@ -217,13 +265,6 @@ void Biblioteca::Devolver_Livro(Emprestimo *E)
     }
 
     delete E;
-
-    // Processa reservas
-    if (livro->temReserva()) {
-        Leitor* proximoLeitor = livro->Proximo_Leitor_Reserva();
-        cout << "Livro reservado para o proximo leitor: " << proximoLeitor->getNome() << " com ID: " << proximoLeitor->getID() << endl;
-        livro->remover_Reserva(proximoLeitor);
-    }
 }
 
 /**
@@ -410,3 +451,29 @@ void Biblioteca::reservarLivro(string isbn, Leitor *LT){
     cout << "Livro com ISBN " << isbn << " nao encontrado!" << endl;
 }
 
+
+void Biblioteca::cancelar_reserva(string isbn, string id){
+    Livro* livro = nullptr;
+    for (size_t i = 0; i < Coleccao_LIVROS.size(); ++i) {
+        if (Coleccao_LIVROS[i]->getIsbn() == isbn) {
+            livro = Coleccao_LIVROS[i];
+            break;
+        }
+    }
+    if (!livro){
+        cout << "Livro com ISBN " << isbn << " e titulo " << livro->getTitulo() << " nao encontrado!" << endl;
+        return;
+    }
+    Leitor* leitor = nullptr;
+    for (size_t i = 0; i < livro->reservas.size(); ++i) {
+        if (livro->reservas[i]->getID() == id) {
+            leitor = livro->reservas[i];
+            break;
+        }
+    }
+    if (!leitor){
+        cout << "Reserva nao encontrada para o leitor: " << leitor->getNome() << endl;
+        return;
+    }
+    livro->remover_Reserva(leitor);
+}

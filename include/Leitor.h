@@ -28,6 +28,7 @@ public:
     void removerEmprestimo(Emprestimo* e);
     void LimparTodosEmprestimos();
     string getID() const;
+    virtual string getTipo() const = 0;
 };
 
 #endif // LEITOR_H

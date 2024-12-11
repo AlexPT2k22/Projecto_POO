@@ -16,10 +16,7 @@ class Professor : public Leitor
         float getDescontoMulta() const override;
         bool podeProrrogar() const override;
         void editarInformacoes() override;
-
-    protected:
-
-    private:
+        string getTipo() const override;
 };
 
 #endif // PROFESSOR_H

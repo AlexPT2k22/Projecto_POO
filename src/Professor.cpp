@@ -43,3 +43,7 @@ void Professor::editarInformacoes()
         cout << "Desconto tem que ser entre 0 e 100%!" << endl;
     }
 }
+
+string Professor::getTipo() const {
+    return "Professor";
+}

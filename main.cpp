@@ -9,15 +9,19 @@
 #include "LivroEducativo.h"
 #include "LivroFiccao.h"
 #include "Revista.h"
+#include "Emprestimo.h"
+
 
 /* TODO:
     - Relatório de Empréstimos por Tipo de Livro (a fazer)
     - Relatório de Empréstimos por Leitor (a fazer)
     - Relatório de Multas pendentes (a fazer)
     - Gravar e Carregar Ficheiros
-    - Reservar Livros que estão emprestados (a fazer)
     - Cancelar Reserva (a fazer)
     - Mostrar reservas (a fazer)
+    - Adicionar Jornal
+    - Livros teem varias cópias
+    - O isbn não pode ser igual, apenas para as cópias
 */
 
 
@@ -63,7 +67,7 @@ int main()
         {
         case 1:
         {
-            string titulo, autor, isbn, tipo, edicao, categoria;
+            string titulo, autor, isbn, tipo, edicao, categoria, numCopias;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "Titulo: ";
             getline(cin, titulo);
@@ -76,12 +80,14 @@ int main()
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "Categoria: ";
             getline(cin, categoria);
+            cout << "Numero de copias: ";
+            cin >> numCopias;
 
 
             Livro *livro = nullptr;
             if (tipo == "Cientifico" || tipo == "cientifico")
             {
-                livro = new LivroCientifico(titulo, autor, isbn, categoria);
+                livro = new LivroCientifico(titulo, autor, isbn, categoria, stoi(numCopias));
             }
             else if (tipo == "Educacional" || tipo == "educacional")
             {
@@ -89,17 +95,17 @@ int main()
                 cout << "Grau de escolaridade: ";
                 cin.ignore();
                 getline(cin, grau);
-                livro = new LivroEducativo(titulo, autor, isbn, categoria, grau);
+                livro = new LivroEducativo(titulo, autor, isbn, categoria, grau, stoi(numCopias));
             }
             else if (tipo == "Ficcao" || tipo == "ficcao")
             {
-                livro = new LivroFiccao(titulo, autor, isbn, categoria);
+                livro = new LivroFiccao(titulo, autor, isbn, categoria, stoi(numCopias));
             }
             else if (tipo == "Revista" || tipo == "revista")
             {
                 cout << "Edicao: ";
                 cin >> edicao;
-                livro = new Revista(titulo, autor, isbn, categoria, edicao);
+                livro = new Revista(titulo, autor, isbn, categoria, edicao, stoi(numCopias));
             }
 
             if (livro)
@@ -186,7 +192,6 @@ int main()
             if (livro && leitor)
             { // Se ambos foram encontrados
                 bib->Add_Emprestimo(livro, leitor);
-                cout << "Emprestimo realizado com sucesso!" << endl;
             }
             else
             {
@@ -356,7 +361,7 @@ int main()
 
         case 17:
         {
-            //bib->ListarReservas();
+            //bib->ListarReservas(); //TODO:
             break;
         }
 
@@ -367,25 +372,25 @@ int main()
             cin >> isbn;
             cout << "ID do leitor: ";
             cin >> id;
-            //bib->CancelarReserva(isbn, id);
+            bib->cancelar_reserva(isbn, id);
             break;
         }
 
         case 19:
         {
-            //bib->GerarRelatorioMultasPendentes();
+            //bib->GerarRelatorioMultasPendentes(); //TODO:
             break;
         }
 
         case 20:
         {
-            //bib->GerarRelatorioEmprestimosPorTipo();
+            //bib->GerarRelatorioEmprestimosPorTipo(); //TODO:
             break;
         }
 
         case 21:
         {
-            //bib->GerarRelatorioEmprestimosPorLeitor();
+            //bib->GerarRelatorioEmprestimosPorLeitor(); //TODO:
             break;
         }
 

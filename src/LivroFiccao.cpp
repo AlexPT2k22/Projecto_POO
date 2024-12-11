@@ -1,6 +1,6 @@
 #include "LivroFiccao.h"
 
-LivroFiccao::LivroFiccao(string t, string a, string i, string c) : Livro(t, a, i, c)
+LivroFiccao::LivroFiccao(string t, string a, string i, string c, int numCopias) : Livro(t, a, i, c, numCopias)
 {
     //ctor
 }
