@@ -26,8 +26,7 @@ void LivroFiccao::EditarInformacoesLivro(){
     cout << "O que deseja editar?" << endl;
     cout << "1 - Categoria" << endl;
     cout << "2 - Autor" << endl;
-    cout << "3 - ISBN" << endl;
-    cout << "4 - Titulo" << endl;
+    cout << "3 - Titulo" << endl;
     cout << "Escolha: ";
     cin >> opcao;
 
@@ -54,16 +53,6 @@ void LivroFiccao::EditarInformacoesLivro(){
         break;
     }
     case 3:{
-        string novoIsbn;
-        cout << "ISBN Atual: " << getIsbn() << endl;
-        cout << "Novo ISBN: ";
-        cin.ignore();
-        getline(cin, novoIsbn);
-        setIsbn(novoIsbn);
-        cout << "Informacoes atualizadas com sucesso!" << endl;
-        break;
-    }
-    case 4:{
         string novoTitulo;
         cout << "Titulo Atual: " << getTitulo() << endl;
         cout << "Novo Titulo: ";

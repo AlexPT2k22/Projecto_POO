@@ -13,17 +13,12 @@
 
 
 /* TODO:
-    - Relatório de Empréstimos por Tipo de Livro (a fazer)
-    - Relatório de Empréstimos por Leitor (a fazer)
-    - Relatório de Multas pendentes (a fazer)
+    - Relatório de Empréstimos por Tipo de Livro
+    - Histórico de Empréstimos por Leitor
+    - Relatório de Multas pendentes
     - Gravar e Carregar Ficheiros
-    - Cancelar Reserva (a fazer)
-    - Mostrar reservas (a fazer)
     - Adicionar Jornal
-    - O isbn não pode ser igual, apenas para as cópias
 */
-
-
 
 using namespace std;
 
@@ -359,7 +354,7 @@ int main()
 
         case 17:
         {
-            //bib->ListarReservas(); //TODO:
+            bib->ListarReservas();
             break;
         }
 
@@ -376,19 +371,19 @@ int main()
 
         case 19:
         {
-            //bib->GerarRelatorioMultasPendentes(); //TODO:
+            //bib->GerarRelatorioMultasPendentes(); //TODO: multas pendentes
             break;
         }
 
         case 20:
         {
-            //bib->GerarRelatorioEmprestimosPorTipo(); //TODO:
+            //bib->GerarRelatorioEmprestimosPorTipo(); //TODO: empréstimos por tipo de livro
             break;
         }
 
         case 21:
         {
-            //bib->GerarRelatorioEmprestimosPorLeitor(); //TODO:
+            //bib->GerarRelatorioEmprestimosPorLeitor(); //TODO: historico de emprestimos por leitor
             break;
         }
 

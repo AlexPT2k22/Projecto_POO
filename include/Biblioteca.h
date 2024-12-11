@@ -43,6 +43,7 @@ class Biblioteca
         void Remover_Livro(string isbn);
         void reservarLivro(string isbn, Leitor *LT);
         void cancelar_reserva(string isbn, string id);
+        void ListarReservas();
 
 };
 

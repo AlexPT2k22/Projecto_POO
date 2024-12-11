@@ -35,8 +35,7 @@ void Revista::EditarInformacoesLivro(){
     cout << "1 - Edicao" << endl;
     cout << "2 - Categoria" << endl;
     cout << "3 - Autor" << endl;
-    cout << "4 - ISBN" << endl;
-    cout << "5 - Titulo" << endl;
+    cout << "4 - Titulo" << endl;
     cout << "Escolha: ";
     cin >> opcao;
 
@@ -73,16 +72,6 @@ void Revista::EditarInformacoesLivro(){
         break;
     }
     case 4:{
-        string novoIsbn;
-        cout << "ISBN Atual: " << getIsbn() << endl;
-        cout << "Novo ISBN: ";
-        cin.ignore();
-        getline(cin, novoIsbn);
-        setIsbn(novoIsbn);
-        cout << "Informacoes atualizadas com sucesso!" << endl;
-        break;
-    }
-    case 5:{
         string novoTitulo;
         cout << "Titulo Atual: " << getTitulo() << endl;
         cout << "Novo Titulo: ";
