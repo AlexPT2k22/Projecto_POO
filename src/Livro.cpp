@@ -85,11 +85,11 @@ void Livro::remover_Reserva(Leitor* LT){
     for (size_t i = 0; i < reservas.size(); ++i) {
         if (reservas[i] == LT) {
             reservas.erase(reservas.begin() + i);
-            cout << "Reserva removida com sucesso para o leitor: " << LT->getNome() << endl;
+            cout << "Reserva removida com sucesso para o leitor: " << LT->getNome() << " com ID " << LT->getID() << endl;
             return;
         }
     }
-    cout << "Reserva nao encontrada para o leitor: " << LT->getNome() << endl;
+    cout << "Reserva nao encontrada para o leitor: " << LT->getNome() << " com ID " << LT->getID() << endl;
 }
 
 Leitor* Livro::Proximo_Leitor_Reserva() const{

@@ -20,7 +20,6 @@
     - Cancelar Reserva (a fazer)
     - Mostrar reservas (a fazer)
     - Adicionar Jornal
-    - Livros teem varias cópias
     - O isbn não pode ser igual, apenas para as cópias
 */
 
@@ -111,7 +110,6 @@ int main()
             if (livro)
             {
                 bib->Add_Livro(livro);
-                cout << "Livro adicionado com sucesso!" << endl;
             }
             else
             {

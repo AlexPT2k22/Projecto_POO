@@ -166,7 +166,17 @@ bool Biblioteca::Add_Leitor(Leitor *LT)
  * @return true Always returns true.
  */
 bool Biblioteca::Add_Livro(Livro *L){
-    Coleccao_LIVROS.push_back(L); // Usar push_back para adicionar no final
+    //apenas as cópias podem ter o mesmo isbn
+    if (Coleccao_LIVROS.size() > 0){
+        for (size_t i = 0; i < Coleccao_LIVROS.size(); ++i) {
+            if (Coleccao_LIVROS[i]->getIsbn() == L->getIsbn()) {
+                cout << "Livro com ISBN " << L->getIsbn() << " ja existe!" << endl;
+                return false;
+            }
+        }
+    }
+    Coleccao_LIVROS.push_back(L);
+    cout << "Livro adicionado com sucesso!" << endl;
     return true;
 }
 
@@ -184,35 +194,36 @@ bool Biblioteca::Add_Livro(Livro *L){
  */
 void Biblioteca::Add_Emprestimo(Livro *L, Leitor *LT)
 {
-    if (!L){
-        cout << "Livro com ISBN " << L->getIsbn() << " e titulo " << L->getTitulo() << " nao encontrado!" << endl;
+    if (!L) {
+        cout << "Livro nao encontrado!" << endl;
         return;
     }
-    if (!L->emprestar_Copia()){
+
+    if (!LT) {
+        cout << "Leitor nao encontrado!" << endl;
+        return;
+    }
+
+    // Verificar se há cópias disponíveis
+    if (!L->emprestar_Copia()) {
         cout << "Nao ha copias disponiveis para o livro: " << L->getTitulo() << endl;
-        cout << "Realizar reserva (S/N)?" << endl;
+        cout << "Deseja realizar uma reserva (S/N)? ";
         string resposta;
         cin >> resposta;
-        if (resposta == "S" || resposta == "s"){
+        if (resposta == "S" || resposta == "s") {
             reservarLivro(L->getIsbn(), LT);
-        }
-        else{
+        } else {
             cout << "Emprestimo nao realizado!" << endl;
-            return;
         }
-    }
-    //verifica se o leitor existe
-    if (!LT){
-        cout << "Leitor com ID " << LT->getID() << " nao encontrado!" << endl;
-        return;
-    }else{
-        Emprestimo* emprestimo = new Emprestimo(L, LT);
-        Coleccao_REQ.push_back(emprestimo);
-        LT->adicionarEmprestimo(emprestimo);
-        cout << "Emprestimo realizado com sucesso!" << endl;
         return;
     }
-    cout << "Nao ha copias disponiveis para o livro: " << L->getTitulo() << endl;
+
+    // Criar o empréstimo e associá-lo ao leitor e à coleção de empréstimos
+    Emprestimo* emprestimo = new Emprestimo(L, LT);
+    Coleccao_REQ.push_back(emprestimo);
+    LT->adicionarEmprestimo(emprestimo);
+
+    cout << "Emprestimo realizado com sucesso!" << endl;
     
 }
 
@@ -248,11 +259,13 @@ void Biblioteca::Devolver_Livro(Emprestimo *E)
         Leitor* proximoLeitor = livro->Proximo_Leitor_Reserva();
         cout << "Livro reservado para o proximo leitor: " << proximoLeitor->getNome() << " com ID: " << proximoLeitor->getID() << endl;
         livro->remover_Reserva(proximoLeitor);
-        cout << "Realizar emprestimo para o leitor?: " << proximoLeitor->getNome() << " com ID: " << proximoLeitor->getID() << endl;
+        cout << "Realizar emprestimo para o leitor " << proximoLeitor->getNome() << " com ID " << proximoLeitor->getID() << "? (S/N): ";
         string resposta;
         cin >> resposta;
         if (resposta == "S" || resposta == "s"){
             Add_Emprestimo(livro, proximoLeitor);
+        }else{
+            cout << "Emprestimo nao realizado!" << endl;
         }
     }
 
