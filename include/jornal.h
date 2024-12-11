@@ -3,11 +3,11 @@
 
 #include "Livro.h"
 
-
+//jornal vai ser tratado como um livro
 class Jornal : public Livro
 {
     public:
-        Jornal(string t, string a, string i, string d);
+        Jornal(string t, string a, string i, string d, int num_copias);
         virtual ~Jornal();
 
         string getDia() const;
