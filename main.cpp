@@ -18,7 +18,7 @@
     - Histórico de Empréstimos por Leitor
     - Relatório de Multas pendentes
     - Gravar e Carregar Ficheiros
-    - Adicionar Jornal
+    - Certificar que o jornal está bem implementado
 */
 
 using namespace std;
@@ -235,7 +235,7 @@ int main()
         case 5:
         {
             string tipo;
-            cout << "Tipo de Livro (Cientifico, Educacional, Ficcao, Revista): ";
+            cout << "Tipo de Livro (Cientifico, Educacional, Ficcao, Revista, Jornal): ";
             cin >> tipo;
             bib->Pesquisar_Livro_Tipo(tipo);
             break;
