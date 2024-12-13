@@ -10,6 +10,7 @@
 #include "LivroFiccao.h"
 #include "Revista.h"
 #include "Emprestimo.h"
+#include "Jornal.h"
 
 
 /* TODO:
@@ -61,7 +62,7 @@ int main()
         {
         case 1:
         {
-            string titulo, autor, isbn, tipo, edicao, categoria, numCopias;
+            string titulo, autor, isbn, tipo, edicao, categoria, numCopias, dia;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "Titulo: ";
             getline(cin, titulo);
@@ -69,7 +70,7 @@ int main()
             getline(cin, autor);
             cout << "ISBN: ";
             cin >> isbn;
-            cout << "Tipo de Livro (Cientifico, Educacional, Ficcao, Revista): ";
+            cout << "Tipo de Livro (Cientifico, Educacional, Ficcao, Revista, Jornal): ";
             cin >> tipo;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "Categoria: ";
@@ -101,6 +102,13 @@ int main()
                 cin >> edicao;
                 livro = new Revista(titulo, autor, isbn, categoria, edicao, stoi(numCopias));
             }
+            else if (tipo == "Jornal" || tipo == "jornal")
+            {
+                cout << "Dia: ";
+                cin >> dia;
+                livro = new Jornal(titulo, autor, isbn, dia, stoi(numCopias));
+            }
+
 
             if (livro)
             {

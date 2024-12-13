@@ -13,6 +13,8 @@ class Jornal : public Livro
         string getDia() const;
         int getPrazoEmprestimo() const;
         string getTipo() const override;
+        void EditarInformacoesLivro() override;
+        void setDia(string d);
 
     protected:
 
