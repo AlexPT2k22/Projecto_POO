@@ -10,6 +10,8 @@ using namespace std;
 #include "Emprestimo.h"
 #include "Estudante.h"
 #include "Professor.h"
+#include <fstream>
+#include <sstream>
 
 
 class Biblioteca
@@ -46,6 +48,7 @@ class Biblioteca
         void ListarReservas();
         void GerarRelatorioMultasPendentes();
         void GerarRelatorioEmprestimosPorTipo();
+        void GerarHistoricoEmprestimosLeitor(Leitor *LT);
 
 };
 

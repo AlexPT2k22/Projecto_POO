@@ -27,6 +27,11 @@ Leitor::~Leitor() {
  */
 void Leitor::adicionarEmprestimo(Emprestimo* e) {
     emprestimos.push_back(e);  // Adiciona um empréstimo à lista
+    historico_emprestimos.push_back(e); // Adiciona o empréstimo ao histórico
+}
+
+vector<Emprestimo*> Leitor::getHistoricoEmprestimos() const {
+    return historico_emprestimos;
 }
 
 /**

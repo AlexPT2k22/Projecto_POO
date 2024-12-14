@@ -1,0 +1,24 @@
+LIVROS
+TIPO,TITULO,AUTOR,ISBN,CATEGORIA,COPIAS,COPIAS_EMPRESTADAS,INFO_ADICIONAL
+Ficcao,O Senhor dos Aneis,J.R.R. Tolkien,1234567890,Fantasia,3,2,
+Educacional,Calculo Vol 1,James Stewart,2345678901,Matematica,5,4,Superior
+Cientifico,Fisica Quantica,Richard Feynman,3456789012,Fisica,2,2,
+Revista,National Geographic,National Geographic,4567890123,Ciencia,10,10,156
+Jornal,Publico,Publico,5678901234,Noticias,20,20,15
+
+LEITORES
+TIPO,NOME,ID
+Comum,Ana Silva,L001
+Estudante,Pedro Santos,L002
+Professor,Maria Oliveira,L003
+Senior,Jose Pereira,L004
+
+EMPRESTIMOS
+ISBN,ID_LEITOR,DATA_EMPRESTIMO,DATA_DEVOLUCAO
+1234567890,L001,2024-12-14 22:48:57,2024-12-21 22:48:57
+2345678901,L002,2024-12-14 22:48:57,2024-12-24 22:48:57
+
+RESERVAS
+ISBN,ID_LEITOR
+1234567890,L003
+2345678901,L004

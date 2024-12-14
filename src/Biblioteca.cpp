@@ -1,7 +1,19 @@
-#include "Biblioteca.h"
-#include "Livro.h"
+#include <fstream>
+#include <sstream>
 #include <algorithm>
+#include <ctime>
 #include <vector>
+#include "Biblioteca.h"
+#include "LivroEducativo.h"
+#include "LivroCientifico.h"
+#include "LivroFiccao.h"
+#include "Revista.h"
+#include "Jornal.h"
+#include "LeitorComum.h"
+#include "Estudante.h"
+#include "Professor.h"
+#include "Senior.h"
+#include "Livro.h"
 
 /**
  * @brief Construct a new Biblioteca object.
@@ -49,11 +61,240 @@ Biblioteca::~Biblioteca()
 
 bool Biblioteca::SaveToFile(string nf)
 {
+    nf += ".csv";
+    ofstream file(nf);
+    if (!file.is_open())
+    {
+        cout << "Erro ao abrir o ficheiro para escrita!" << endl;
+        return false;
+    }
+
+    // Salvar livros
+    file << "LIVROS" << endl;
+    file << "TIPO,TITULO,AUTOR,ISBN,CATEGORIA,COPIAS,COPIAS_EMPRESTADAS,INFO_ADICIONAL" << endl;
+    for (size_t i = 0; i < Coleccao_LIVROS.size(); i++) {
+        Livro* livro = Coleccao_LIVROS[i];
+        file << livro->getTipo() << ","
+             << livro->getTitulo() << ","
+             << livro->getAutor() << ","
+             << livro->getIsbn() << ","
+             << livro->getCategoria() << ","
+             << livro->getNumCopias() << ","
+             << livro->getCopiasDisponiveis() << ",";
+
+        // Informação adicional específica para cada tipo
+        if (LivroEducativo* livroEd = dynamic_cast<LivroEducativo*>(livro)) {
+            file << livroEd->getGrauEscolaridade();
+        }
+        else if (Revista* revista = dynamic_cast<Revista*>(livro)) {
+            file << revista->getEdicao();
+        }
+        else if (Jornal* jornal = dynamic_cast<Jornal*>(livro)) {
+            file << jornal->getDia();
+        }
+        file << endl;
+    }
+
+    // Cabeçalho dos leitores
+    file << "\nLEITORES" << endl;
+    file << "TIPO,NOME,ID" << endl;
+    for (size_t i = 0; i < Coleccao_LEITORES.size(); i++) {
+        Leitor* leitor = Coleccao_LEITORES[i];
+        file << leitor->getTipo() << ","
+             << leitor->getNome() << ","
+             << leitor->getID() << endl;
+    }
+
+    // Salvar empréstimos
+    file << "\nEMPRESTIMOS" << endl;
+    file << "ISBN,ID_LEITOR,DATA_EMPRESTIMO,DATA_DEVOLUCAO" << endl;
+    for (size_t i = 0; i < Coleccao_REQ.size(); i++) {
+        Emprestimo* emp = Coleccao_REQ[i];
+        char data_emp[26], data_dev[26];
+        strftime(data_emp, sizeof(data_emp), "%Y-%m-%d %H:%M:%S", localtime(&emp->dataEmprestimo));
+        strftime(data_dev, sizeof(data_dev), "%Y-%m-%d %H:%M:%S", localtime(&emp->dataDevolucao));
+    
+        file << emp->getLivro()->getIsbn() << ","
+                << emp->getLeitor()->getID() << ","
+                << data_emp << ","
+                << data_dev << endl;
+    }
+
+    // Salvar reservas (fora do loop de livros)
+    file << "\nRESERVAS" << endl;
+    file << "ISBN,ID_LEITOR" << endl;
+    for (Livro* livro : Coleccao_LIVROS) {
+        for (Leitor* leitor : livro->reservas) {
+            file << livro->getIsbn() << "," << leitor->getID() << endl;
+        }
+    }
+
+    file.close();
+    cout << "Ficheiro exportado com sucesso!" << endl;
     return true;
 }
 
 bool Biblioteca::LoadFile(string nf)
 {
+    nf += ".csv";
+    ifstream file(nf);
+    if (!file.is_open()) {
+        cout << "Erro ao abrir arquivo para leitura!" << endl;
+        return false;
+    }
+
+    // Limpar coleções existentes
+    for (size_t i = 0; i < Coleccao_LIVROS.size(); i++) delete Coleccao_LIVROS[i];
+    for (size_t i = 0; i < Coleccao_LEITORES.size(); i++) delete Coleccao_LEITORES[i];
+    for (size_t i = 0; i < Coleccao_REQ.size(); i++) delete Coleccao_REQ[i];
+    
+    Coleccao_LIVROS.clear();
+    Coleccao_LEITORES.clear();
+    Coleccao_REQ.clear();
+
+    string line;
+    string section;
+
+    while (getline(file, line)) {
+        if (line.empty()) continue;
+
+        if (line == "LIVROS" || line == "LEITORES" || line == "EMPRESTIMOS" || line == "RESERVAS") {
+            section = line;
+            getline(file, line); // Pular cabeçalho
+            continue;
+        }
+
+        stringstream ss(line);
+        
+        if (section == "LIVROS") {
+            string tipo, titulo, autor, isbn, categoria, copias_str, copias_emp_str, info;
+            getline(ss, tipo, ',');
+            getline(ss, titulo, ',');
+            getline(ss, autor, ',');
+            getline(ss, isbn, ',');
+            getline(ss, categoria, ',');
+            getline(ss, copias_str, ',');
+            getline(ss, copias_emp_str, ',');
+            getline(ss, info);
+
+            int copias = std::stoi(copias_str);
+            Livro* livro = nullptr;
+
+            if (tipo == "Cientifico") {
+                livro = new LivroCientifico(titulo, autor, isbn, categoria, copias);
+            } 
+            else if (tipo == "Educacional") {
+                livro = new LivroEducativo(titulo, autor, isbn, categoria, info, copias);
+            } 
+            else if (tipo == "Ficcao") {
+                livro = new LivroFiccao(titulo, autor, isbn, categoria, copias);
+            } 
+            else if (tipo == "Revista") {
+                livro = new Revista(titulo, autor, isbn, categoria, std::stoi(info), copias);
+            } 
+            else if (tipo == "Jornal") {
+                livro = new Jornal(titulo, autor, isbn, categoria, std::stoi(info), copias);
+            }
+
+            if (livro) {
+                Coleccao_LIVROS.push_back(livro);
+            }
+        }
+        else if (section == "LEITORES") {
+            string tipo, nome, id;
+            getline(ss, tipo, ',');
+            getline(ss, nome, ',');
+            getline(ss, id);
+
+            Leitor* leitor = nullptr;
+            if (tipo == "Comum") leitor = new LeitorComum(nome, id);
+            else if (tipo == "Estudante") leitor = new Estudante(nome, id);
+            else if (tipo == "Professor") leitor = new Professor(nome, id);
+            else if (tipo == "Senior") leitor = new Senior(nome, id);
+
+            if (leitor) Coleccao_LEITORES.push_back(leitor);
+        }
+        else if (section == "EMPRESTIMOS") {
+            string isbn, id_leitor, data_emp_str, data_dev_str;
+            getline(ss, isbn, ',');
+            getline(ss, id_leitor, ',');
+            getline(ss, data_emp_str, ',');
+            getline(ss, data_dev_str);
+
+            Livro* livro = nullptr;
+            Leitor* leitor = nullptr;
+
+            for (Livro* l : Coleccao_LIVROS) {
+                if (l->getIsbn() == isbn) {
+                    livro = l;
+                    break;
+                }
+            }
+
+            for (Leitor* l : Coleccao_LEITORES) {
+                if (l->getID() == id_leitor) {
+                    leitor = l;
+                    break;
+                }
+            }
+
+            if (livro && leitor) {
+                Emprestimo* emp = new Emprestimo(livro, leitor);
+                struct tm tm_emp = {0}, tm_dev = {0};
+                sscanf(data_emp_str.c_str(), "%d-%d-%d %d:%d:%d",
+                    &tm_emp.tm_year, &tm_emp.tm_mon, &tm_emp.tm_mday,
+                    &tm_emp.tm_hour, &tm_emp.tm_min, &tm_emp.tm_sec);
+                tm_emp.tm_year -= 1900;
+                tm_emp.tm_mon -= 1;
+                emp->dataEmprestimo = mktime(&tm_emp);
+
+                sscanf(data_dev_str.c_str(), "%d-%d-%d %d:%d:%d",
+                    &tm_dev.tm_year, &tm_dev.tm_mon, &tm_dev.tm_mday,
+                    &tm_dev.tm_hour, &tm_dev.tm_min, &tm_dev.tm_sec);
+                tm_dev.tm_year -= 1900;
+                tm_dev.tm_mon -= 1;
+                emp->dataDevolucao = mktime(&tm_dev);
+
+                Coleccao_REQ.push_back(emp);
+                leitor->adicionarEmprestimo(emp);
+                livro->emprestar_Copia();
+            }
+        }
+        else if (section == "RESERVAS") {
+            string isbn, id_leitor;
+            getline(ss, isbn, ',');
+            getline(ss, id_leitor);
+
+            Livro* livro = nullptr;
+            Leitor* leitor = nullptr;
+
+            // Encontrar o livro
+            for (Livro* l : Coleccao_LIVROS) {
+                if (l->getIsbn() == isbn) {
+                    livro = l;
+                    //cout << "Livro encontrado: " << livro->getTitulo() << endl;
+                    break;
+                }
+            }
+
+            // Encontrar o leitor
+            for (Leitor* l : Coleccao_LEITORES) {
+                if (l->getID() == id_leitor) {
+                    leitor = l;
+                    //cout << "Leitor encontrado: " << leitor->getNome() << endl;
+                    break;
+                }
+            }
+
+            if (livro && leitor) {
+                livro->adicionar_Reserva(leitor);
+                //cout << "Reserva carregada: " << livro->getTitulo() << " para " << leitor->getNome() << endl;
+            }
+        }
+    }
+
+    file.close();
+    cout << "Arquivo carregado com sucesso!" << endl;
     return true;
 }
 
@@ -87,25 +328,10 @@ void Biblioteca::Prorrogacao_Emprestimos(string id, string isbn)
     }
 }
 
-/**
- * @brief Sistema de Notificações de Atraso
- *
- * Este método percorre a coleção de requisições (Coleccao_REQ) e verifica se algum livro está atrasado.
- * Para cada livro atrasado, imprime no console as seguintes informações:
- * - Título do livro
- * - Nome do leitor
- * - Data de devolução prevista
- * - Mensagem de atraso e a multa correspondente
- *
- * A estrutura da saída é a seguinte:
- * Livro: [Título do Livro]
- * Leitor: [Nome do Leitor]
- * Data de Devolução Prevista: [Data de Devolução]
- * ATRASADO! Multa: [Valor da Multa]€
- * ---------------------------------
- */
+
 void Biblioteca::Sistema_Notificacoes_Atraso()
 {
+    cout << "=== Sistema de Notificacoes de Atraso ===" << endl;
     if (Coleccao_REQ.size() == 0)
     {
         cout << "Nenhum livro atrasado!" << endl;
@@ -131,19 +357,16 @@ void Biblioteca::Sistema_Notificacoes_Atraso()
                 cout << "Multa acresce em 1 euro por dia de atraso!" << endl;
                 cout << "---------------------------------" << endl;
             }
+        }else{
+            cout << "Nenhum livro atrasado!" << endl;
         }
     }
 }
 
-/**
- * @brief Lists all the books in the library collection.
- *
- * This function iterates through the collection of books (Coleccao_LIVROS)
- * and prints the details of each book, including the title, author, genre,
- * type, and ISBN. Each book's details are separated by a line of dashes.
- */
+
 void Biblioteca::Listagem_Livros()
 {
+    cout << "=== Listagem de Livros ===" << endl;
     if (Coleccao_LIVROS.size() == 0)
     {
         cout << "Nenhum livro na colecao!" << endl;
@@ -162,29 +385,14 @@ void Biblioteca::Listagem_Livros()
     }
 }
 
-/**
- * @brief Adds a new reader to the library's collection.
- *
- * This function adds a new reader (Leitor) to the end of the library's collection of readers.
- *
- * @param LT A pointer to the Leitor object to be added.
- * @return true Always returns true after adding the reader.
- */
+
 bool Biblioteca::Add_Leitor(Leitor *LT)
 {
     Coleccao_LEITORES.push_back(LT); // Adiciona ao final do vetor
     return true;
 }
 
-/**
- * @brief Adds a book to the library collection.
- *
- * This function adds a pointer to a Livro object to the Coleccao_LIVROS vector.
- * It uses the push_back method to add the book to the end of the collection.
- *
- * @param L A pointer to the Livro object to be added to the collection.
- * @return true Always returns true.
- */
+
 bool Biblioteca::Add_Livro(Livro *L)
 {
     // apenas as cópias podem ter o mesmo isbn
@@ -331,8 +539,8 @@ void Biblioteca::Gerar_RelatorioEmprestimos()
     cout << "=== Relatorio de Emprestimos Atuais ===" << endl;
     for (size_t i = 0; i < Coleccao_REQ.size(); ++i)
     {
-        cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << endl;
-        cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << endl;
+        cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << " (ISBN: " << Coleccao_REQ[i]->getLivro()->getIsbn() << ")" << endl;
+        cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << " (ID: " << Coleccao_REQ[i]->getLeitor()->getID() << ")" << endl;
         cout << "Data de Emprestimo: " << ctime(&Coleccao_REQ[i]->dataEmprestimo);
         cout << "Data de Devolucao: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
         cout << "---------------------------------" << endl;
@@ -373,7 +581,8 @@ void Biblioteca::Editar_InformacoesLeitores(string id)
  */
 void Biblioteca::Pesquisar_Livro_Tipo(string tipo)
 {
-    cout << "\n--- Pesquisar livro por tipo: " << tipo << " ---" << endl;
+    cout << "=== Pesquisar livro por tipo ===" << endl;
+    cout << "\nPesquisar livro por tipo: " << tipo << " ---" << endl;
     bool encontrado = false;
 
     if (Coleccao_LIVROS.size() == 0)
@@ -411,7 +620,8 @@ void Biblioteca::Pesquisar_Livro_Tipo(string tipo)
  */
 void Biblioteca::ListarLivrosCategoria(string categoria)
 {
-    cout << "\n--- Listar livros por categoria: " << categoria << " ---" << endl;
+    cout << "=== Listar livros por categoria ===" << endl;
+    cout << "\nListar livros por categoria: " << categoria << " ---" << endl;
     bool encontrado = false;
 
     if (Coleccao_LIVROS.size() == 0)
@@ -578,7 +788,7 @@ void Biblioteca::ListarReservas()
             reservas_encontradas++;
             for (size_t j = 0; j < Coleccao_LIVROS[i]->reservas.size(); ++j) // iterar sobre as reservas do livro
             { 
-                cout << "Reserva #" << j + 1 << endl;
+                cout << "Reserva #" << reservas_encontradas << endl;
                 cout << "Livro: " << Coleccao_LIVROS[i]->getTitulo() << " (ISBN: " << Coleccao_LIVROS[i]->getIsbn() << ")" << endl; // imprimir o titulo do livro
                 cout << "Leitor: " << Coleccao_LIVROS[i]->reservas[j]->getNome() << " (ID: " << Coleccao_LIVROS[i]->reservas[j]->getID() << ")" << endl; // imprimir o nome do leitor
                 cout << "---------------------------------" << endl;
@@ -673,3 +883,35 @@ void Biblioteca::GerarRelatorioEmprestimosPorTipo()
     }
 }
 
+void Biblioteca::GerarHistoricoEmprestimosLeitor(Leitor *LT)
+{
+    if (!LT){
+        cout << "Leitor nao encontrado!" << endl;
+        return;
+    }
+
+    if (LT->getHistoricoEmprestimos().empty()){
+        cout << "Nenhum historico de emprestimos encontrado!" << endl;
+        return;
+    }
+
+    cout << "=== Historico de Emprestimos do Leitor: " << LT->getNome() << " (ID: " << LT->getID() << ") ===" << endl;
+
+    for (size_t i = 0; i < LT->getHistoricoEmprestimos().size(); ++i){
+        Emprestimo *emprestimo = LT->getHistoricoEmprestimos()[i];
+        Leitor *leitor = emprestimo->getLeitor();
+        Livro *livro = emprestimo->getLivro();
+        cout << "Emprestimo #" << i + 1 << endl;
+        cout << "Livro: " << livro->getTitulo() << " (ISBN: " << livro->getIsbn() << ")" << endl;
+        cout << "Leitor: " << leitor->getNome() << " (ID: " << leitor->getID() << ")" << endl;
+        cout << "Data de Emprestimo: " << ctime(&emprestimo->dataEmprestimo);
+        cout << "Data de Devolucao: " << ctime(&emprestimo->dataDevolucao);
+        if (emprestimo->estaAtrasado()){
+            cout << "Estado: ATRASADO" << endl;
+            cout << "Multa: " << emprestimo->calcularMulta() << " euros" << endl;
+        }else{
+            cout << "Estado: DEVOLVIDO" << endl;
+        }
+        cout << "---------------------------------" << endl;
+    }
+}

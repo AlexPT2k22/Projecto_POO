@@ -24,36 +24,42 @@ using namespace std;
 
 int main()
 {
-    // Criando a biblioteca
+
     Biblioteca *bib = new Biblioteca();
 
-    //dados para teste
-    bib->Add_Livro(new LivroFiccao("Titulo 1", "Joao da Silva", "1234567890", "Aventura", 10));
-    bib->Add_Livro(new LivroEducativo("Titulo 2", "Joao da Silva", "123456", "matematica", "Ensino superior", 10));
-    bib->Add_Livro(new LivroCientifico("Titulo 3", "Joao da Silva", "1124124", "biologia", 10));
-    bib->Add_Livro(new Revista("Titulo 4", "Joao da Silva", "126443", "Drama", 1, 10));
-    bib->Add_Livro(new Jornal("Titulo 5", "Joao da Silva", "1234567486", "Futebol", 1, 10));
+    /*
+    // Adicionar Livros
+    bib->Add_Livro(new LivroFiccao("O Senhor dos Aneis", "J.R.R. Tolkien", "1234567890", "Fantasia", 3));
+    bib->Add_Livro(new LivroEducativo("Calculo Vol 1", "James Stewart", "2345678901", "Matematica", "Superior", 5));
+    bib->Add_Livro(new LivroCientifico("Fisica Quantica", "Richard Feynman", "3456789012", "Fisica", 2));
+    bib->Add_Livro(new Revista("National Geographic", "National Geographic", "4567890123", "Ciencia", 156, 10));
+    bib->Add_Livro(new Jornal("Publico", "Publico", "5678901234", "Noticias", 15, 20));
 
-    bib->Add_Leitor(new LeitorComum("Joao", "123"));
-    bib->Add_Leitor(new Estudante("Silva", "1234"));
-    bib->Add_Leitor(new Professor("Alex", "12345"));
-    bib->Add_Leitor(new Senior("Bruno", "123456"));
+    // Adicionar Leitores
+    bib->Add_Leitor(new LeitorComum("Ana Silva", "L001"));
+    bib->Add_Leitor(new Estudante("Pedro Santos", "L002"));
+    bib->Add_Leitor(new Professor("Maria Oliveira", "L003"));
+    bib->Add_Leitor(new Senior("Jose Pereira", "L004"));
 
-    bib->Add_Emprestimo(bib->Coleccao_LIVROS[0], bib->Coleccao_LEITORES[0]);
-    bib->Add_Emprestimo(bib->Coleccao_LIVROS[1], bib->Coleccao_LEITORES[1]);
-    bib->Add_Emprestimo(bib->Coleccao_LIVROS[2], bib->Coleccao_LEITORES[2]);
-    bib->Add_Emprestimo(bib->Coleccao_LIVROS[3], bib->Coleccao_LEITORES[3]);
-    bib->Add_Emprestimo(bib->Coleccao_LIVROS[4], bib->Coleccao_LEITORES[0]);
+    // Criar alguns empréstimos
+    Livro* livro1 = bib->Coleccao_LIVROS[0];  // Senhor dos Aneis
+    Livro* livro2 = bib->Coleccao_LIVROS[1];  // Calculo
+    Leitor* leitor1 = bib->Coleccao_LEITORES[0];  // Ana
+    Leitor* leitor2 = bib->Coleccao_LEITORES[1];  // Pedro
 
-    //simular atraso
-    bib->Coleccao_REQ[0]->simularAtraso(20); //20 dias
-    bib->Coleccao_REQ[1]->simularAtraso(25); //25 dias
-    bib->Coleccao_REQ[2]->simularAtraso(37); //37 dias
+    bib->Add_Emprestimo(livro1, leitor1);
+    bib->Add_Emprestimo(livro2, leitor2);
+
+    // Criar algumas reservas
+    bib->reservarLivro("1234567890", bib->Coleccao_LEITORES[2]);  // Maria reserva Senhor dos Aneis
+    bib->reservarLivro("2345678901", bib->Coleccao_LEITORES[3]);  // Jose reserva Calculo
+    */
 
     int opcao;
     do
     {
-        cout << "\nEscolha uma opcao:\n";
+        cout << "\n=== Biblioteca ===\n";
+        cout << "Escolha uma opcao:\n";
         cout << "1 - Adicionar Livro\n";                                    // Adicionar livro por ISBN
         cout << "2 - Adicionar Leitor\n";                                   // Adicionar leitor por ID
         cout << "3 - Adicionar Emprestimo\n";                               // Adicionar empréstimo por ISBN e ID
@@ -143,7 +149,6 @@ int main()
             }
             break;
         }
-
         case 2:
         {
             string nome, id, tipoLeitor;
@@ -183,7 +188,6 @@ int main()
             }
             break;
         }
-
         case 3:
         { // Adicionar empréstimo
             string isbn, id;
@@ -223,7 +227,6 @@ int main()
             }
             break;
         }
-
         case 4:
         { // Devolver Livro
             string isbn, id;
@@ -254,7 +257,6 @@ int main()
             }
             break;
         }
-
         case 5:
         {
             string tipo;
@@ -263,13 +265,11 @@ int main()
             bib->Pesquisar_Livro_Tipo(tipo);
             break;
         }
-
         case 6:
         {
             bib->Gerar_RelatorioEmprestimos();
             break;
         }
-
         case 7:
         {
             string id, isbn;
@@ -280,19 +280,16 @@ int main()
             bib->Prorrogacao_Emprestimos(id, isbn);
             break;
         }
-
         case 8:
         {
             bib->Sistema_Notificacoes_Atraso();
             break;
         }
-
         case 9:
         {
             bib->Listagem_Livros();
             break;
         }
-
         case 10:
         {
             string id;
@@ -301,7 +298,6 @@ int main()
             bib->Editar_InformacoesLeitores(id);
             break;
         }
-
         case 11: // Editar Informacoes Livros (categoria de um tipo de livro, ediçao de revista, etc)
         {
             string isbn;
@@ -310,48 +306,41 @@ int main()
             bib->Editar_InformacoesLivros(isbn);
             break;
         }
-
         case 12:
         {
             string nomeFicheiro;
-            cout << "Digite o nome do ficheiro para importar: ";
+            cout << "Digite o nome do ficheiro para importar (.csv): ";
             cin >> nomeFicheiro;
-            if (bib->LoadFile(nomeFicheiro)) //TODO:
-            {
-                cout << "Ficheiro importado com sucesso!" << endl;
-            }
-            else
-            {
-                cout << "Erro ao importar ficheiro!" << endl;
-            }
+            bib->LoadFile(nomeFicheiro);
             break;
         }
-
         case 13:
         {
             string nomeFicheiro;
-            cout << "Digite o nome do ficheiro para exportar: ";
+            cout << "Digite o nome do ficheiro para exportar (.csv): ";
             cin >> nomeFicheiro;
-            if (bib->SaveToFile(nomeFicheiro)) //TODO:
-            {
-                cout << "Ficheiro exportado com sucesso!" << endl;
-            }
-            else
-            {
-                cout << "Erro ao exportar ficheiro!" << endl;
-            }
+            bib->SaveToFile(nomeFicheiro);
             break;
         }
-
         case 14:
         {
             string id;
             cout << "ID do leitor: ";
             cin >> id;
-            bib->Remover_Leitor(id);
+            Leitor *leitor = nullptr;
+            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) {
+                if (bib->Coleccao_LEITORES[i]->getID() == id) {
+                    leitor = bib->Coleccao_LEITORES[i];
+                    break;
+                }
+            }
+            if (!leitor){
+                cout << "Leitor nao encontrado!" << endl;
+            }else{
+                bib->Remover_Leitor(id);
+            }
             break; 
         }
-
         case 15:
         {   
             string isbn;
@@ -360,7 +349,6 @@ int main()
             bib->Remover_Livro(isbn);
             break;
         }
-
         case 16:
         {
             string isbn, id;
@@ -382,13 +370,11 @@ int main()
             }
             break;
         }
-
         case 17:
         {
             bib->ListarReservas();
             break;
         }
-
         case 18:
         {
             string isbn, id;
@@ -396,28 +382,49 @@ int main()
             cin >> isbn;
             cout << "ID do leitor: ";
             cin >> id;
-            bib->cancelar_reserva(isbn, id);
+            Leitor *leitor = nullptr;
+            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) {
+                if (bib->Coleccao_LEITORES[i]->getID() == id) {
+                    leitor = bib->Coleccao_LEITORES[i];
+                    break;
+                }
+            }
+            if (!leitor){
+                cout << "Leitor nao encontrado!" << endl;
+            }else{
+                bib->cancelar_reserva(isbn, id);
+            }
             break;
         }
-
         case 19:
         {
             bib->GerarRelatorioMultasPendentes();
             break;
         }
-
         case 20:
         {
             bib->GerarRelatorioEmprestimosPorTipo();
             break;
         }
-
         case 21:
         {
-            //bib->GerarRelatorioEmprestimosPorLeitor(); //TODO: historico de emprestimos por leitor
+            string id;
+            cout << "ID do leitor: ";
+            cin >> id;
+            Leitor *leitor = nullptr;
+            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) {
+                if (bib->Coleccao_LEITORES[i]->getID() == id) {
+                    leitor = bib->Coleccao_LEITORES[i];
+                    break;
+                }
+            }
+            if (!leitor){
+                cout << "Leitor nao encontrado!" << endl;
+            }else{
+                bib->GerarHistoricoEmprestimosLeitor(leitor);
+            }
             break;
         }
-
         case 22:
         {
             string categoria;
@@ -426,7 +433,6 @@ int main()
             bib->ListarLivrosCategoria(categoria);
             break;
         }
-
         case 0:
             cout << "Saindo..." << endl;
             break;
@@ -435,7 +441,6 @@ int main()
             cout << "Opcao invalida!" << endl;
             break;
         }
-
     } while (opcao != 0);
 
     delete bib;
