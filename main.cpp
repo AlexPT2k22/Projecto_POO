@@ -15,10 +15,9 @@
 
 /* TODO:
     - Relatório de Empréstimos por Tipo de Livro
+    - Refazer notificações de atraso
     - Histórico de Empréstimos por Leitor
-    - Relatório de Multas pendentes
     - Gravar e Carregar Ficheiros (final)
-    - Certificar que o jornal está bem implementado
     - Doxygen para a documentação (final)
 */
 
@@ -49,7 +48,8 @@ int main()
 
     //simular atraso
     bib->Coleccao_REQ[0]->simularAtraso(20); //20 dias
-    bib->Coleccao_REQ[1]->simularAtraso(10); //5 dias
+    bib->Coleccao_REQ[1]->simularAtraso(25); //25 dias
+    bib->Coleccao_REQ[2]->simularAtraso(37); //37 dias
 
     int opcao;
     do
@@ -403,7 +403,7 @@ int main()
 
         case 19:
         {
-            bib->GerarRelatorioMultasPendentes(); //TODO: multas pendentes
+            bib->GerarRelatorioMultasPendentes();
             break;
         }
 

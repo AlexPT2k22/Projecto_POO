@@ -115,11 +115,22 @@ void Biblioteca::Sistema_Notificacoes_Atraso()
     {
         if (Coleccao_REQ[i]->estaAtrasado())
         {
-            cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << endl;
-            cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << endl;
-            cout << "Data de Devolucao Prevista: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
-            cout << "ATRASADO! Multa: " << Coleccao_REQ[i]->calcularMulta() << " euros" << endl;
-            cout << "---------------------------------" << endl;
+            if (Coleccao_REQ[i]->getLeitor()->podeProrrogar() == true)
+            {
+                cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << endl;
+                cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << endl;
+                cout << "Data de Devolucao Prevista: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
+                cout << "ATRASADO! Multa: " << Coleccao_REQ[i]->calcularMulta() << " euros" << endl;
+                cout << "AVISO: Pode prorrogar o seu emprestimo!" << endl;
+                cout << "---------------------------------" << endl;
+            }else{
+                cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << endl;
+                cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << endl;
+                cout << "Data de Devolucao Prevista: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
+                cout << "ATRASADO! Multa: " << Coleccao_REQ[i]->calcularMulta() << " euros" << endl;
+                cout << "Multa acresce em 1 euro por dia de atraso!" << endl;
+                cout << "---------------------------------" << endl;
+            }
         }
     }
 }
@@ -591,7 +602,8 @@ void Biblioteca::GerarRelatorioMultasPendentes()
             int multa = Coleccao_REQ[i]->calcularMulta();
             multas_encontradas++;
             cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << " (ISBN: " << Coleccao_REQ[i]->getLivro()->getIsbn() << ")" << endl;
-            cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << " (ID: " << Coleccao_REQ[i]->getLeitor()->getID() << ")" << endl;
+            cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << " (ID: " << Coleccao_REQ[i]->getLeitor()->getID() << ")" << " (Tipo: " << Coleccao_REQ[i]->getLeitor()->getTipo() << ")" << endl;
+            cout << "Desconto: " << Coleccao_REQ[i]->getLeitor()->getDescontoMulta() * 100 << "%" << endl;
             cout << "Data de Emprestimo: " << ctime(&Coleccao_REQ[i]->dataEmprestimo);
             cout << "Data de Devolucao: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
             cout << "Multa: " << multa << " euros" << endl;

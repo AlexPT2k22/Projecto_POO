@@ -26,9 +26,10 @@ float Emprestimo::calcularMulta() {
     if (estaAtrasado()) {
         int dias_de_atraso = (time(nullptr) - dataDevolucao) / (24 * 60 * 60);
         float multa = dias_de_atraso * 1.0f; // 1€ por dia de atraso
-        return multa * leitor->getDescontoMulta(); // Aplicar desconto
+        float desconto = multa * leitor->getDescontoMulta();
+        return multa -= desconto;
     }
-    return 0;
+    return 0.0f;
 }
 
 Livro* Emprestimo::getLivro() const {
