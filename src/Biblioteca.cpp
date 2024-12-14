@@ -110,9 +110,9 @@ bool Biblioteca::SaveToFile(string nf)
     file << "ISBN,ID_LEITOR,DATA_EMPRESTIMO,DATA_DEVOLUCAO" << endl;
     for (size_t i = 0; i < Coleccao_REQ.size(); i++) {
         Emprestimo* emp = Coleccao_REQ[i];
-        char data_emp[26], data_dev[26];
-        strftime(data_emp, sizeof(data_emp), "%Y-%m-%d %H:%M:%S", localtime(&emp->dataEmprestimo));
-        strftime(data_dev, sizeof(data_dev), "%Y-%m-%d %H:%M:%S", localtime(&emp->dataDevolucao));
+        char data_emp[26], data_dev[26]; 
+        strftime(data_emp, sizeof(data_emp), "%Y-%m-%d %H:%M:%S", localtime(&emp->dataEmprestimo)); // %Y-%m-%d %H:%M:%S
+        strftime(data_dev, sizeof(data_dev), "%Y-%m-%d %H:%M:%S", localtime(&emp->dataDevolucao));    // %Y-%m-%d %H:%M:%S
     
         file << emp->getLivro()->getIsbn() << ","
                 << emp->getLeitor()->getID() << ","
@@ -123,9 +123,9 @@ bool Biblioteca::SaveToFile(string nf)
     // Salvar reservas (fora do loop de livros)
     file << "\nRESERVAS" << endl;
     file << "ISBN,ID_LEITOR" << endl;
-    for (Livro* livro : Coleccao_LIVROS) {
-        for (Leitor* leitor : livro->reservas) {
-            file << livro->getIsbn() << "," << leitor->getID() << endl;
+    for (size_t i = 0; i < Coleccao_LIVROS.size(); ++i) {
+        for (size_t j = 0; j < Coleccao_LIVROS[i]->reservas.size(); ++j) {
+            file << Coleccao_LIVROS[i]->getIsbn() << "," << Coleccao_LIVROS[i]->reservas[j]->getID() << endl;
         }
     }
 
@@ -177,7 +177,7 @@ bool Biblioteca::LoadFile(string nf)
             getline(ss, copias_emp_str, ',');
             getline(ss, info);
 
-            int copias = std::stoi(copias_str);
+            int copias = stoi(copias_str); // stoi converte string para int
             Livro* livro = nullptr;
 
             if (tipo == "Cientifico") {
@@ -190,10 +190,10 @@ bool Biblioteca::LoadFile(string nf)
                 livro = new LivroFiccao(titulo, autor, isbn, categoria, copias);
             } 
             else if (tipo == "Revista") {
-                livro = new Revista(titulo, autor, isbn, categoria, std::stoi(info), copias);
+                livro = new Revista(titulo, autor, isbn, categoria, stoi(info), copias);
             } 
             else if (tipo == "Jornal") {
-                livro = new Jornal(titulo, autor, isbn, categoria, std::stoi(info), copias);
+                livro = new Jornal(titulo, autor, isbn, categoria, stoi(info), copias);
             }
 
             if (livro) {
@@ -224,16 +224,16 @@ bool Biblioteca::LoadFile(string nf)
             Livro* livro = nullptr;
             Leitor* leitor = nullptr;
 
-            for (Livro* l : Coleccao_LIVROS) {
-                if (l->getIsbn() == isbn) {
-                    livro = l;
+            for (size_t i = 0; i < Coleccao_LIVROS.size(); ++i) {
+                if (Coleccao_LIVROS[i]->getIsbn() == isbn) {
+                    livro = Coleccao_LIVROS[i];
                     break;
                 }
             }
 
-            for (Leitor* l : Coleccao_LEITORES) {
-                if (l->getID() == id_leitor) {
-                    leitor = l;
+            for (size_t i = 0; i < Coleccao_LEITORES.size(); ++i) {
+                if (Coleccao_LEITORES[i]->getID() == id_leitor) {
+                    leitor = Coleccao_LEITORES[i];
                     break;
                 }
             }
@@ -269,18 +269,18 @@ bool Biblioteca::LoadFile(string nf)
             Leitor* leitor = nullptr;
 
             // Encontrar o livro
-            for (Livro* l : Coleccao_LIVROS) {
-                if (l->getIsbn() == isbn) {
-                    livro = l;
+            for (size_t i = 0; i < Coleccao_LIVROS.size(); ++i) {
+                if (Coleccao_LIVROS[i]->getIsbn() == isbn) {
+                    livro = Coleccao_LIVROS[i];
                     //cout << "Livro encontrado: " << livro->getTitulo() << endl;
                     break;
                 }
             }
 
             // Encontrar o leitor
-            for (Leitor* l : Coleccao_LEITORES) {
-                if (l->getID() == id_leitor) {
-                    leitor = l;
+            for (size_t i = 0; i < Coleccao_LEITORES.size(); ++i) {
+                if (Coleccao_LEITORES[i]->getID() == id_leitor) {
+                    leitor = Coleccao_LEITORES[i];
                     //cout << "Leitor encontrado: " << leitor->getNome() << endl;
                     break;
                 }

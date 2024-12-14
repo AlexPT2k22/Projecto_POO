@@ -14,9 +14,6 @@
 
 
 /* TODO:
-    - Relatório de Empréstimos por Tipo de Livro
-    - Histórico de Empréstimos por Leitor
-    - Gravar e Carregar Ficheiros (final)
     - Doxygen para a documentação (final)
 */
 
@@ -93,6 +90,7 @@ int main()
             string titulo, autor, isbn, tipo, categoria;
             int dia, numCopias, edicao;
             cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Adicionar Livro ===" << endl;
             cout << "Titulo: ";
             getline(cin, titulo);
             cout << "Autor: ";
@@ -152,8 +150,10 @@ int main()
         case 2:
         {
             string nome, id, tipoLeitor;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Adicionar Leitor ===" << endl;
             cout << "Nome: ";
-            cin >> nome;
+            getline(cin, nome);
             cout << "ID: ";
             cin >> id;
             cout << "Tipo de Leitor (Comum, Estudante, Professor, Senior): ";
@@ -191,6 +191,8 @@ int main()
         case 3:
         { // Adicionar empréstimo
             string isbn, id;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Adicionar Emprestimo ===" << endl;
             cout << "ISBN do livro: ";
             cin >> isbn;
             cout << "ID do leitor: ";
@@ -230,6 +232,8 @@ int main()
         case 4:
         { // Devolver Livro
             string isbn, id;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Devolver Livro ===" << endl;
             cout << "ISBN do livro: ";
             cin >> isbn;
             cout << "ID do leitor: ";
@@ -260,6 +264,8 @@ int main()
         case 5:
         {
             string tipo;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Pesquisar Livro por Tipo ===" << endl;
             cout << "Tipo de Livro (Cientifico, Educacional, Ficcao, Revista, Jornal): ";
             cin >> tipo;
             bib->Pesquisar_Livro_Tipo(tipo);
@@ -273,6 +279,8 @@ int main()
         case 7:
         {
             string id, isbn;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Prorrogar Emprestimos ===" << endl;
             cout << "ID do leitor: ";
             cin >> id;
             cout << "ISBN do livro: ";
@@ -293,6 +301,8 @@ int main()
         case 10:
         {
             string id;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Editar Informacoes Leitores ===" << endl;
             cout << "ID do leitor: ";
             cin >> id;
             bib->Editar_InformacoesLeitores(id);
@@ -301,6 +311,8 @@ int main()
         case 11: // Editar Informacoes Livros (categoria de um tipo de livro, ediçao de revista, etc)
         {
             string isbn;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Editar Informacoes Livros ===" << endl;
             cout << "ISBN do livro: ";
             cin >> isbn;
             bib->Editar_InformacoesLivros(isbn);
@@ -309,6 +321,8 @@ int main()
         case 12:
         {
             string nomeFicheiro;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Importar Ficheiro ===" << endl;
             cout << "Digite o nome do ficheiro para importar (.csv): ";
             cin >> nomeFicheiro;
             bib->LoadFile(nomeFicheiro);
@@ -317,6 +331,8 @@ int main()
         case 13:
         {
             string nomeFicheiro;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Exportar Ficheiro ===" << endl;
             cout << "Digite o nome do ficheiro para exportar (.csv): ";
             cin >> nomeFicheiro;
             bib->SaveToFile(nomeFicheiro);
@@ -325,6 +341,8 @@ int main()
         case 14:
         {
             string id;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Remover Leitor ===" << endl;
             cout << "ID do leitor: ";
             cin >> id;
             Leitor *leitor = nullptr;
@@ -344,6 +362,8 @@ int main()
         case 15:
         {   
             string isbn;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Remover Livro ===" << endl;
             cout << "ISBN do livro: ";
             cin >> isbn;
             bib->Remover_Livro(isbn);
@@ -352,6 +372,8 @@ int main()
         case 16:
         {
             string isbn, id;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Reservar Livro ===" << endl;
             cout << "ISBN do livro: ";
             cin >> isbn;
             cout << "ID do leitor: ";
@@ -378,6 +400,8 @@ int main()
         case 18:
         {
             string isbn, id;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Cancelar Reserva ===" << endl;
             cout << "ISBN do livro: ";
             cin >> isbn;
             cout << "ID do leitor: ";
@@ -409,6 +433,8 @@ int main()
         case 21:
         {
             string id;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Gerar Historico de Emprestimos por Leitor ===" << endl;
             cout << "ID do leitor: ";
             cin >> id;
             Leitor *leitor = nullptr;
@@ -428,6 +454,8 @@ int main()
         case 22:
         {
             string categoria;
+            cin.ignore(); // Limpar buffer do enter da opcao
+            cout << "=== Listar Livros por Categoria ===" << endl;
             cout << "Categoria: ";
             cin >> categoria;
             bib->ListarLivrosCategoria(categoria);
