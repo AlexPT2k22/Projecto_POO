@@ -1,19 +1,20 @@
 #include <fstream>
 #include <sstream>
-#include <algorithm>
 #include <ctime>
 #include <vector>
 #include "Biblioteca.h"
-#include "LivroEducativo.h"
+#include "Livro.h"
+#include "Leitor.h"
+#include "Emprestimo.h"
 #include "LivroCientifico.h"
+#include "LivroEducativo.h"
 #include "LivroFiccao.h"
 #include "Revista.h"
 #include "Jornal.h"
 #include "LeitorComum.h"
+#include "Senior.h"
 #include "Estudante.h"
 #include "Professor.h"
-#include "Senior.h"
-#include "Livro.h"
 
 /**
  * @brief Construct a new Biblioteca object.

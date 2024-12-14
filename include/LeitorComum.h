@@ -19,5 +19,6 @@ class LeitorComum : public Leitor
         bool podeProrrogar() const override; //Verifica se o leitor comum pode prorrogar o empréstimo
         void editarInformacoes() override; //Edita as informações do leitor comum
         string getTipo() const override; //Obtém o tipo de leitor
+};
 
 #endif // LEITORCOMUM_H
