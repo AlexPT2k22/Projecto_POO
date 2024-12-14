@@ -17,8 +17,9 @@
     - Relatório de Empréstimos por Tipo de Livro
     - Histórico de Empréstimos por Leitor
     - Relatório de Multas pendentes
-    - Gravar e Carregar Ficheiros
+    - Gravar e Carregar Ficheiros (final)
     - Certificar que o jornal está bem implementado
+    - Doxygen para a documentação (final)
 */
 
 using namespace std;
@@ -62,7 +63,8 @@ int main()
         {
         case 1:
         {
-            string titulo, autor, isbn, tipo, edicao, categoria, numCopias, dia;
+            string titulo, autor, isbn, tipo, edicao, categoria;
+            int dia, numCopias;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "Titulo: ";
             getline(cin, titulo);
@@ -82,7 +84,7 @@ int main()
             Livro *livro = nullptr;
             if (tipo == "Cientifico" || tipo == "cientifico")
             {
-                livro = new LivroCientifico(titulo, autor, isbn, categoria, stoi(numCopias));
+                livro = new LivroCientifico(titulo, autor, isbn, categoria, numCopias);
             }
             else if (tipo == "Educacional" || tipo == "educacional")
             {
@@ -90,23 +92,23 @@ int main()
                 cout << "Grau de escolaridade: ";
                 cin.ignore();
                 getline(cin, grau);
-                livro = new LivroEducativo(titulo, autor, isbn, categoria, grau, stoi(numCopias));
+                livro = new LivroEducativo(titulo, autor, isbn, categoria, grau, numCopias);
             }
             else if (tipo == "Ficcao" || tipo == "ficcao")
             {
-                livro = new LivroFiccao(titulo, autor, isbn, categoria, stoi(numCopias));
+                livro = new LivroFiccao(titulo, autor, isbn, categoria, numCopias);
             }
             else if (tipo == "Revista" || tipo == "revista")
             {
                 cout << "Edicao: ";
                 cin >> edicao;
-                livro = new Revista(titulo, autor, isbn, categoria, edicao, stoi(numCopias));
+                livro = new Revista(titulo, autor, isbn, categoria, edicao, numCopias); // stoi -» string to int
             }
             else if (tipo == "Jornal" || tipo == "jornal")
             {
                 cout << "Dia: ";
                 cin >> dia;
-                livro = new Jornal(titulo, autor, isbn, dia, stoi(numCopias));
+                livro = new Jornal(titulo, autor, isbn, categoria, dia, numCopias);
             }
 
 
@@ -379,7 +381,7 @@ int main()
 
         case 19:
         {
-            //bib->GerarRelatorioMultasPendentes(); //TODO: multas pendentes
+            bib->GerarRelatorioMultasPendentes(); //TODO: multas pendentes
             break;
         }
 

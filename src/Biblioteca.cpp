@@ -588,3 +588,26 @@ void Biblioteca::ListarReservas()
         cout << "Nenhuma reserva encontrada!" << endl;
     }
 }
+
+void Biblioteca::GerarRelatorioMultasPendentes()
+{
+    int multas_encontradas = 0;
+    cout << "=== Relatorio de Multas Pendentes ===" << endl;
+    for (size_t i = 0; i < Coleccao_REQ.size(); ++i)
+    {
+        if (Coleccao_REQ[i]->calcularMulta() > 0)
+        {
+            multas_encontradas++;
+            cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << " (ISBN: " << Coleccao_REQ[i]->getLivro()->getIsbn() << ")" << endl;
+            cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << " (ID: " << Coleccao_REQ[i]->getLeitor()->getID() << ")" << endl;
+            cout << "Data de Emprestimo: " << ctime(&Coleccao_REQ[i]->dataEmprestimo);
+            cout << "Data de Devolucao: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
+            cout << "Multa: " << Coleccao_REQ[i]->calcularMulta() << "€" << endl;
+            cout << "---------------------------------" << endl;
+        }
+    }
+    if (multas_encontradas == 0)
+    {
+        cout << "Nenhuma multa encontrada!" << endl;
+    }
+}

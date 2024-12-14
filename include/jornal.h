@@ -7,19 +7,20 @@
 class Jornal : public Livro
 {
     public:
-        Jornal(string t, string a, string i, string d, int num_copias);
+        Jornal(string t, string a, string i, string c, int d, int num_copias);
         virtual ~Jornal();
 
-        string getDia() const;
+        int getDia() const;
         int getPrazoEmprestimo() const;
         string getTipo() const override;
         void EditarInformacoesLivro() override;
-        void setDia(string d);
+        bool setDia(int d);
+
 
     protected:
 
     private:
-        string Dia;
+        int Dia;
 };
 
 #endif // REVISTA_H
