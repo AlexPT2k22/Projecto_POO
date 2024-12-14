@@ -45,6 +45,7 @@ class Biblioteca
         void cancelar_reserva(string isbn, string id);
         void ListarReservas();
         void GerarRelatorioMultasPendentes();
+        void GerarRelatorioEmprestimosPorTipo();
 
 };
 

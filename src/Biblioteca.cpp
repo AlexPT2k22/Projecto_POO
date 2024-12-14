@@ -615,3 +615,61 @@ void Biblioteca::GerarRelatorioMultasPendentes()
         cout << "Nenhuma multa encontrada!" << endl;
     }
 }
+
+void Biblioteca::GerarRelatorioEmprestimosPorTipo()
+{
+    vector<string> tipo_de_livro = {"Cientifico", "Educacional", "Ficcao", "Revista", "Jornal"};
+    vector<string> tipo_de_leitor = {"Estudante", "Professor", "LeitorComum", "Senior"};
+
+    int contagem_emprestimos[5][4] = {0}; // 5 tipos de livros e 4 tipos de leitores (matriz)
+
+    //preencher a matriz com os emprestimos
+    for (size_t i = 0; i < Coleccao_REQ.size(); ++i) //iterar sobre os emprestimos
+    {
+        Livro *livro = Coleccao_REQ[i]->getLivro(); //obter o livro do emprestimo
+        Leitor *leitor = Coleccao_REQ[i]->getLeitor(); //obter o leitor do emprestimo
+        if (livro && leitor) //verificar se o livro e o leitor existem
+        {
+            int tipo_livro_index = -1; //indice do tipo de livro
+            for (size_t j = 0; j < tipo_de_livro.size(); ++j){ //iterar sobre os tipos de livros
+                if (livro->getTipo() == tipo_de_livro[j]){ //verificar se o tipo do livro corresponde ao tipo de livro
+                    tipo_livro_index = j; //atribuir o indice do tipo de livro
+                    break;
+                }
+            }
+
+            int tipo_leitor_index = -1; //indice do tipo de leitor
+            for (size_t j = 0; j < tipo_de_leitor.size(); ++j){ //iterar sobre os tipos de leitores
+                if (leitor->getTipo() == tipo_de_leitor[j]){ //verificar se o tipo do leitor corresponde ao tipo de leitor
+                    tipo_leitor_index = j; //atribuir o indice do tipo de leitor
+                    break;
+                }
+            }
+
+            if (tipo_livro_index != -1 && tipo_leitor_index != -1){ //verificar se os indices nao sao -1
+                contagem_emprestimos[tipo_livro_index][tipo_leitor_index]++; //incrementar o contador de emprestimos
+            }
+        }
+    }
+
+    //imprimir a matriz
+    cout << "=== Relatorio de Emprestimos por Tipo de Livro ===" << endl;
+    for (size_t i = 0; i < tipo_de_livro.size(); ++i){ //iterar sobre os tipos de livros
+        cout << "Tipo de Livro: " << tipo_de_livro[i] << endl;
+
+        //identificar o tipo de leitor que tem mais emprestimos
+        int max_emprestimos = 0;
+        string tipo_leitor_max_emprestimos;
+        for (size_t j = 0; j < tipo_de_leitor.size(); ++j){
+            cout << "Tipo de Leitor: " << tipo_de_leitor[j] << " - Emprestimos: " << contagem_emprestimos[i][j] << endl;
+            if (contagem_emprestimos[i][j] > max_emprestimos){
+                max_emprestimos = contagem_emprestimos[i][j];
+                tipo_leitor_max_emprestimos = tipo_de_leitor[j];
+            }
+        }
+
+        cout << "Tipo de Leitor com mais emprestimos: " << tipo_leitor_max_emprestimos << endl;
+        cout << "---------------------------------" << endl;
+    }
+}
+

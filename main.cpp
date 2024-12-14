@@ -15,7 +15,6 @@
 
 /* TODO:
     - Relatório de Empréstimos por Tipo de Livro
-    - Refazer notificações de atraso
     - Histórico de Empréstimos por Leitor
     - Gravar e Carregar Ficheiros (final)
     - Doxygen para a documentação (final)
@@ -409,7 +408,7 @@ int main()
 
         case 20:
         {
-            //bib->GerarRelatorioEmprestimosPorTipo(); //TODO: empréstimos por tipo de livro
+            bib->GerarRelatorioEmprestimosPorTipo();
             break;
         }
 
