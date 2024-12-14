@@ -13,18 +13,26 @@ using namespace std;
 #include <fstream>
 #include <sstream>
 
-
+/**
+ * @brief Classe que representa uma biblioteca e gerencia as suas operações
+ * 
+ * Esta classe implementa as funcionalidades principais de uma biblioteca, incluindo:
+ * - Gerenciamento de livros, leitores e empréstimos
+ * - Persistência de dados em arquivos
+ * - Sistema de notificações e multas
+ * - Geração de relatórios
+ * - Reservas de livros
+ * - Edição de informações cadastrais
+ */
 class Biblioteca
 {
-   // list, vector, map Coleccao_LIVROS;
-   // list, vector, map Coleccao_REQ;
 
     public:
         Biblioteca();
         virtual ~Biblioteca();
 
-        vector<Livro*> Coleccao_LIVROS;
-        vector<Leitor*> Coleccao_LEITORES;
+        vector<Livro*> Coleccao_LIVROS; //Coleção de livros
+        vector<Leitor*> Coleccao_LEITORES; //Coleção de leitores
         vector<Emprestimo*> Coleccao_REQ; //Requesicões
 
         bool SaveToFile(string nf);
