@@ -18,7 +18,7 @@ int Professor::getLimiteEmprestimos() const
 
 float Professor::getDescontoMulta() const
 {
-    return descontoMulta; // 50% de desconto
+    return 0.50f; // 50% de desconto
 }
 
 bool Professor::podeProrrogar() const

@@ -6,8 +6,6 @@
 
 class Professor : public Leitor
 {
-    private:
-        float descontoMulta = 0.50f;
     public:
         Professor(string n, string i);
         virtual ~Professor();

@@ -16,7 +16,7 @@ int LeitorComum::getLimiteEmprestimos() const {
 }
 
 float LeitorComum::getDescontoMulta() const {
-    return 0;
+    return 0.0f;
 }
 
 bool LeitorComum::podeProrrogar() const {

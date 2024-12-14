@@ -1,6 +1,6 @@
 #include "Revista.h"
 
-Revista::Revista(string t, string a, string i, string c, string e, int numCopias) : Livro(t, a, i, c, numCopias), edicao(e)
+Revista::Revista(string t, string a, string i, string c, int e, int numCopias) : Livro(t, a, i, c, numCopias), edicao(e)
 {
     //ctor
 }
@@ -10,7 +10,7 @@ Revista::~Revista()
     //dtor
 }
 
-string Revista::getEdicao() const
+int Revista::getEdicao() const
 {
     return edicao;
 }
@@ -24,8 +24,13 @@ string Revista::getTipo() const {
     return "Revista";
 }
 
-void Revista::setEdicao(string e) {
-    edicao = e;
+void Revista::setEdicao(int e) {
+    if (e > 0) {
+        edicao = e;
+        cout << "Edicao atualizada com sucesso!" << endl;
+    } else {
+        cout << "Edicao invalida!" << endl;
+    }
 }
 
 void Revista::EditarInformacoesLivro(){
@@ -42,13 +47,12 @@ void Revista::EditarInformacoesLivro(){
     switch (opcao)
     {
     case 1:{
-        string novaEdicao;
+        int novaEdicao;
         cout << "Edicao Atual: " << edicao << endl;
         cout << "Nova Edicao: ";
         cin.ignore();
-        getline(cin, novaEdicao);
+        cin >> novaEdicao;
         setEdicao(novaEdicao);
-        cout << "Informacoes atualizadas com sucesso!" << endl;
         break;
     }
     case 2:{

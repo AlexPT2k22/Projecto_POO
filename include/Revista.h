@@ -7,19 +7,19 @@
 class Revista : public Livro
 {
     public:
-        Revista(string t, string a, string i, string c, string e, int numCopias);
+        Revista(string t, string a, string i, string c, int e, int numCopias);
         virtual ~Revista();
 
-        string getEdicao() const;
+        int getEdicao() const;
         int getPrazoEmprestimo() const;
         string getTipo() const override;
-        void setEdicao(string e);
+        void setEdicao(int e);
         void EditarInformacoesLivro() override;
 
     protected:
 
     private:
-        string edicao;
+        int edicao;
 };
 
 #endif // REVISTA_H

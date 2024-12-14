@@ -21,6 +21,7 @@ class Emprestimo {
         Livro* getLivro() const;
         Leitor* getLeitor() const;
         void prorrogarEmprestimo();
+        void simularAtraso(int dias);
         time_t dataEmprestimo;
         time_t dataDevolucao;
 };

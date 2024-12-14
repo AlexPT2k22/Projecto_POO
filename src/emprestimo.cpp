@@ -10,7 +10,7 @@ Emprestimo::~Emprestimo() {
 }
 
 void Emprestimo::prorrogarEmprestimo(){
-    dataDevolucao += livro->getPrazoEmprestimo() * 24 * 60 * 60;
+    dataDevolucao = dataEmprestimo + (livro->getPrazoEmprestimo() * 24 * 60 * 60);
     cout << "Nova data de devolucao: " << ctime(&dataDevolucao);
 }
 
@@ -25,7 +25,7 @@ bool Emprestimo::estaAtrasado() {
 float Emprestimo::calcularMulta() {
     if (estaAtrasado()) {
         int dias_de_atraso = (time(nullptr) - dataDevolucao) / (24 * 60 * 60);
-        float multa = dias_de_atraso * 1.0; // 1€ por dia de atraso
+        float multa = dias_de_atraso * 1.0f; // 1€ por dia de atraso
         return multa * leitor->getDescontoMulta(); // Aplicar desconto
     }
     return 0;
@@ -38,3 +38,8 @@ Livro* Emprestimo::getLivro() const {
 Leitor* Emprestimo::getLeitor() const {
     return leitor;
 }
+
+void Emprestimo::simularAtraso(int dias) {
+    dataDevolucao -= (dias * 24 * 60 * 60); //subtrair dias a data de devolucao
+}
+

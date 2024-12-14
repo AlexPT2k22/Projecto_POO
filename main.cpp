@@ -29,6 +29,28 @@ int main()
     // Criando a biblioteca
     Biblioteca *bib = new Biblioteca();
 
+    //dados para teste
+    bib->Add_Livro(new LivroFiccao("Titulo 1", "Joao da Silva", "1234567890", "Aventura", 10));
+    bib->Add_Livro(new LivroEducativo("Titulo 2", "Joao da Silva", "123456", "matematica", "Ensino superior", 10));
+    bib->Add_Livro(new LivroCientifico("Titulo 3", "Joao da Silva", "1124124", "biologia", 10));
+    bib->Add_Livro(new Revista("Titulo 4", "Joao da Silva", "126443", "Drama", 1, 10));
+    bib->Add_Livro(new Jornal("Titulo 5", "Joao da Silva", "1234567486", "Futebol", 1, 10));
+
+    bib->Add_Leitor(new LeitorComum("Joao", "123"));
+    bib->Add_Leitor(new Estudante("Silva", "1234"));
+    bib->Add_Leitor(new Professor("Alex", "12345"));
+    bib->Add_Leitor(new Senior("Bruno", "123456"));
+
+    bib->Add_Emprestimo(bib->Coleccao_LIVROS[0], bib->Coleccao_LEITORES[0]);
+    bib->Add_Emprestimo(bib->Coleccao_LIVROS[1], bib->Coleccao_LEITORES[1]);
+    bib->Add_Emprestimo(bib->Coleccao_LIVROS[2], bib->Coleccao_LEITORES[2]);
+    bib->Add_Emprestimo(bib->Coleccao_LIVROS[3], bib->Coleccao_LEITORES[3]);
+    bib->Add_Emprestimo(bib->Coleccao_LIVROS[4], bib->Coleccao_LEITORES[0]);
+
+    //simular atraso
+    bib->Coleccao_REQ[0]->simularAtraso(20); //20 dias
+    bib->Coleccao_REQ[1]->simularAtraso(10); //5 dias
+
     int opcao;
     do
     {
@@ -63,8 +85,8 @@ int main()
         {
         case 1:
         {
-            string titulo, autor, isbn, tipo, edicao, categoria;
-            int dia, numCopias;
+            string titulo, autor, isbn, tipo, categoria;
+            int dia, numCopias, edicao;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "Titulo: ";
             getline(cin, titulo);

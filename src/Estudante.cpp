@@ -14,7 +14,7 @@ int Estudante::getLimiteEmprestimos() const {
 }
 
 float Estudante::getDescontoMulta() const {
-    return 0.5f; // 50% de desconto
+    return 0.35f; // 35% de desconto
 }
 
 bool Estudante::podeProrrogar() const {

@@ -117,19 +117,10 @@ void Biblioteca::Sistema_Notificacoes_Atraso()
         {
             cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << endl;
             cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << endl;
-            cout << "Data de Devolução Prevista: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
-            cout << "ATRASADO! Multa: " << Coleccao_REQ[i]->calcularMulta() << "€" << endl;
+            cout << "Data de Devolucao Prevista: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
+            cout << "ATRASADO! Multa: " << Coleccao_REQ[i]->calcularMulta() << " euros" << endl;
             cout << "---------------------------------" << endl;
         }
-        else
-        {
-            cout << "Nenhum livro atrasado!" << endl;
-        }
-    }
-
-    if (Coleccao_REQ.size() == 0)
-    {
-        cout << "Nenhum livro atrasado!" << endl;
     }
 }
 
@@ -305,7 +296,7 @@ void Biblioteca::Devolver_Livro(Emprestimo *E)
     float multa = E->calcularMulta();
     if (multa > 0)
     {
-        cout << "Livro devolvido com atraso! Multa: " << multa << "€" << endl;
+        cout << "Livro devolvido com atraso! Multa: " << multa << " euros" << endl;
     }
     else
     {
@@ -595,14 +586,15 @@ void Biblioteca::GerarRelatorioMultasPendentes()
     cout << "=== Relatorio de Multas Pendentes ===" << endl;
     for (size_t i = 0; i < Coleccao_REQ.size(); ++i)
     {
-        if (Coleccao_REQ[i]->calcularMulta() > 0)
+        if (Coleccao_REQ[i]->estaAtrasado())
         {
+            int multa = Coleccao_REQ[i]->calcularMulta();
             multas_encontradas++;
             cout << "Livro: " << Coleccao_REQ[i]->getLivro()->getTitulo() << " (ISBN: " << Coleccao_REQ[i]->getLivro()->getIsbn() << ")" << endl;
             cout << "Leitor: " << Coleccao_REQ[i]->getLeitor()->getNome() << " (ID: " << Coleccao_REQ[i]->getLeitor()->getID() << ")" << endl;
             cout << "Data de Emprestimo: " << ctime(&Coleccao_REQ[i]->dataEmprestimo);
             cout << "Data de Devolucao: " << ctime(&Coleccao_REQ[i]->dataDevolucao);
-            cout << "Multa: " << Coleccao_REQ[i]->calcularMulta() << "€" << endl;
+            cout << "Multa: " << multa << " euros" << endl;
             cout << "---------------------------------" << endl;
         }
     }
