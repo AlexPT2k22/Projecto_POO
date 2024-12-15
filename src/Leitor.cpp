@@ -1,20 +1,20 @@
 #include "Leitor.h"
 
 /**
- * @brief Constructs a new Leitor object with the given name and id.
+ * @brief Construtor da classe Leitor.
  * 
- * @param n The name of the Leitor.
- * @param i The id of the Leitor.
+ * @param n O nome do leitor.
+ * @param i O ID do leitor.
  */
 Leitor::Leitor(string n, string i) : nome(n), id(i) {
     //ctor
 }
 
 /**
- * @brief Destructor for the Leitor class.
+ * @brief Destrutor da classe Leitor.
  * 
- * This destructor is responsible for cleaning up any resources
- * that the Leitor object may have acquired during its lifetime.
+ * Este destrutor é responsável por limpar qualquer recurso
+ * que o objeto Leitor possa ter adquirido durante sua vida.
  */
 Leitor::~Leitor() {
     //dtor
@@ -30,8 +30,13 @@ void Leitor::adicionarEmprestimo(Emprestimo* e) {
     historico_emprestimos.push_back(e); // Adiciona o empréstimo ao histórico
 }
 
+/**
+ * @brief Obtém o histórico de empréstimos do leitor.
+ * 
+ * @return Um vetor de ponteiros para objetos Emprestimo.
+ */
 vector<Emprestimo*> Leitor::getHistoricoEmprestimos() const {
-    return historico_emprestimos;
+    return historico_emprestimos; //retornar o histórico de empréstimos
 }
 
 /**
@@ -54,23 +59,23 @@ void Leitor::LimparTodosEmprestimos() {
 }
 
 /**
- * @brief Retrieves the ID of the Leitor object.
+ * @brief Obtém o ID do objeto Leitor.
  * 
- * @return A string representing the ID of the Leitor.
+ * @return Uma string representando o ID do Leitor.
  */
 string Leitor::getID() const {
-    return id;
+    return id; //retornar o ID do leitor
 }
 
 /**
- * @brief Retrieves the name of the Leitor.
+ * @brief Obtém o nome do leitor.
  * 
- * @return A string containing the name of the Leitor.
+ * @return Uma string contendo o nome do leitor.
  */
 string Leitor::getNome() const {
-    return nome;
+    return nome; //retornar o nome do leitor
 }
 
 list<Emprestimo*> Leitor::getEmprestimos() const {
-    return emprestimos;
+    return emprestimos; //retornar a lista de empréstimos
 }

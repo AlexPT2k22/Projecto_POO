@@ -1,38 +1,74 @@
 #include "Revista.h"
 
+/**
+ * @brief Construtor da classe Revista.
+ * 
+ * @param t O título da revista.
+ * @param a O autor da revista.
+ * @param i O ISBN da revista.
+ * @param c A categoria da revista.
+ * @param e A edição da revista.
+ * @param numCopias O número de cópias da revista.
+ */
 Revista::Revista(string t, string a, string i, string c, int e, int numCopias) : Livro(t, a, i, c, numCopias), edicao(e)
 {
     //ctor
 }
 
+/**
+ * @brief Destrutor da classe Revista.
+ */
 Revista::~Revista()
 {
     //dtor
 }
 
+/**
+ * @brief Obtém a edição da revista.
+ * 
+ * @return A edição da revista.
+ */
 int Revista::getEdicao() const
 {
-    return edicao;
+    return edicao; //retornar a edicao da revista
 }
 
+/**
+ * @brief Obtém o prazo de empréstimo da revista.
+ * 
+ * @return O prazo de empréstimo da revista.
+ */
 int Revista::getPrazoEmprestimo() const
 {
-    return 5;
+    return 5; //prazo de empréstimo da revista (5 dias)
 }
 
+/**
+ * @brief Obtém o tipo da revista.
+ * 
+ * @return O tipo da revista.
+ */
 string Revista::getTipo() const {
-    return "Revista";
+    return "Revista"; //retornar o tipo da revista
 }
 
+/**
+ * @brief Define a edição da revista.
+ * 
+ * @param e A edição da revista.
+ */
 void Revista::setEdicao(int e) {
-    if (e > 0) {
-        edicao = e;
-        cout << "Edicao atualizada com sucesso!" << endl;
+    if (e > 0) { //verificar se a edicao é valida
+        edicao = e; //atribuir a edicao
+        cout << "Edicao atualizada com sucesso!" << endl; //informar que a edicao foi atualizada com sucesso
     } else {
-        cout << "Edicao invalida!" << endl;
+        cout << "Edicao invalida!" << endl; //edicao invalida
     }
 }
 
+/**
+ * @brief Edita as informações da revista.
+ */
 void Revista::EditarInformacoesLivro(){
     int opcao;
 
@@ -44,49 +80,49 @@ void Revista::EditarInformacoesLivro(){
     cout << "Escolha: ";
     cin >> opcao;
 
-    switch (opcao)
+    switch (opcao) //switch para escolher o que deseja editar
     {
     case 1:{
-        int novaEdicao;
-        cout << "Edicao Atual: " << edicao << endl;
+        int novaEdicao; //nova edicao
+        cout << "Edicao Atual: " << edicao << endl; //edicao atual
         cout << "Nova Edicao: ";
-        cin.ignore();
-        cin >> novaEdicao;
-        setEdicao(novaEdicao);
+        cin.ignore(); //limpar o buffer do teclado
+        cin >> novaEdicao; //ler a nova edicao
+        setEdicao(novaEdicao); //atribuir a nova edicao
         break;
     }
     case 2:{
-        string novaCategoria;
-        cout << "Categoria Atual: " << getCategoria() << endl;
+        string novaCategoria; //nova categoria
+        cout << "Categoria Atual: " << getCategoria() << endl; //categoria atual
         cout << "Nova Categoria: ";
-        cin.ignore();
-        getline(cin, novaCategoria);
-        setCategoria(novaCategoria);
-        cout << "Informacoes atualizadas com sucesso!" << endl;
+        cin.ignore(); //limpar o buffer do teclado
+        getline(cin, novaCategoria); //ler a nova categoria
+        setCategoria(novaCategoria); //atribuir a nova categoria
+        cout << "Informacoes atualizadas com sucesso!" << endl; //informar que as informacoes foram atualizadas com sucesso
         break;
     }
     case 3:{
-        string novoAutor;
-        cout << "Autor Atual: " << getAutor() << endl;
+        string novoAutor; //novo autor
+        cout << "Autor Atual: " << getAutor() << endl; //autor atual
         cout << "Novo Autor: ";
-        cin.ignore();
-        getline(cin, novoAutor);
-        setAutor(novoAutor);
-        cout << "Informacoes atualizadas com sucesso!" << endl;
+        cin.ignore(); //limpar o buffer do teclado
+        getline(cin, novoAutor); //ler o novo autor
+        setAutor(novoAutor); //atribuir o novo autor
+        cout << "Informacoes atualizadas com sucesso!" << endl; //informar que as informacoes foram atualizadas com sucesso
         break;
     }
     case 4:{
-        string novoTitulo;
-        cout << "Titulo Atual: " << getTitulo() << endl;
+        string novoTitulo; //novo titulo
+        cout << "Titulo Atual: " << getTitulo() << endl; //titulo atual
         cout << "Novo Titulo: ";
-        cin.ignore();
-        getline(cin, novoTitulo);
-        setTitulo(novoTitulo);
-        cout << "Informacoes atualizadas com sucesso!" << endl;
+        cin.ignore(); //limpar o buffer do teclado
+        getline(cin, novoTitulo); //ler o novo titulo
+        setTitulo(novoTitulo); //atribuir o novo titulo
+        cout << "Informacoes atualizadas com sucesso!" << endl; //informar que as informacoes foram atualizadas com sucesso
         break;
     }
     default:
-        cout << "Opcao invalida!" << endl;
+        cout << "Opcao invalida!" << endl; //opcao invalida
         break;
     }
 }
