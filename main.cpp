@@ -12,17 +12,17 @@
 #include "Emprestimo.h"
 #include "Jornal.h"
 
-
-/* TODO:
-    - Doxygen para a documentação (final)
-*/
-
 using namespace std;
 
+/**
+ * @brief Função principal do programa.
+ * 
+ * @return 0
+ */
 int main()
 {
 
-    Biblioteca *bib = new Biblioteca();
+    Biblioteca *bib = new Biblioteca(); //criar a biblioteca
 
     /*
     // Adicionar Livros
@@ -44,8 +44,8 @@ int main()
     Leitor* leitor1 = bib->Coleccao_LEITORES[0];  // Ana
     Leitor* leitor2 = bib->Coleccao_LEITORES[1];  // Pedro
 
-    bib->Add_Emprestimo(livro1, leitor1);
-    bib->Add_Emprestimo(livro2, leitor2);
+    bib->Add_Emprestimo(livro1, leitor1); //adicionar um emprestimo
+    bib->Add_Emprestimo(livro2, leitor2); //adicionar um emprestimo
 
     // Criar algumas reservas
     bib->reservarLivro("1234567890", bib->Coleccao_LEITORES[2]);  // Maria reserva Senhor dos Aneis
@@ -65,7 +65,7 @@ int main()
         cout << "6 - Gerar Relatorio de Emprestimos\n";                     // Gerar relatório de empréstimos ativos
         cout << "7 - Prorrogar Emprestimos\n";                              // Prorrogar empréstimos
         cout << "8 - Sistema de Notificacoes de Atraso\n";                  // Sistema de notificações de atraso
-        cout << "9 - Listagem de Livros\n";                                // Listagem de todos os livros
+        cout << "9 - Listagem de Livros\n";                                 // Listagem de todos os livros
         cout << "10 - Editar Informacoes Leitores\n";                       // Editar informações de leitores
         cout << "11 - Editar Informacoes Livros\n";                         // Editar informações de livros
         cout << "12 - Importar Ficheiro\n";                                 // Importar ficheiro
@@ -83,108 +83,108 @@ int main()
         cout << "Escolha: ";
         cin >> opcao;
 
-        switch (opcao)
+        switch (opcao) //switch para escolher a opcao
         {
-        case 1:
+        case 1: //adicionar livro
         {
             string titulo, autor, isbn, tipo, categoria;
             int dia, numCopias, edicao;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Adicionar Livro ===" << endl;
             cout << "Titulo: ";
-            getline(cin, titulo);
+            getline(cin, titulo); //ler o titulo
             cout << "Autor: ";
-            getline(cin, autor);
+            getline(cin, autor); //ler o autor
             cout << "ISBN: ";
-            cin >> isbn;
+            cin >> isbn; //ler o isbn
             cout << "Tipo de Livro (Cientifico, Educacional, Ficcao, Revista, Jornal): ";
-            cin >> tipo;
+            cin >> tipo; //ler o tipo
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "Categoria: ";
-            getline(cin, categoria);
+            getline(cin, categoria); //ler a categoria
             cout << "Numero de copias: ";
-            cin >> numCopias;
+            cin >> numCopias; //ler o numero de copias
 
 
-            Livro *livro = nullptr;
-            if (tipo == "Cientifico" || tipo == "cientifico")
+            Livro *livro = nullptr; //livro a ser adicionado
+            if (tipo == "Cientifico" || tipo == "cientifico") //se o tipo for cientifico
             {
-                livro = new LivroCientifico(titulo, autor, isbn, categoria, numCopias);
+                livro = new LivroCientifico(titulo, autor, isbn, categoria, numCopias); //criar um novo livro cientifico
             }
-            else if (tipo == "Educacional" || tipo == "educacional")
+            else if (tipo == "Educacional" || tipo == "educacional") //se o tipo for educacional
             {
-                string grau;
+                string grau; //grau de escolaridade
                 cout << "Grau de escolaridade: ";
                 cin.ignore();
                 getline(cin, grau);
-                livro = new LivroEducativo(titulo, autor, isbn, categoria, grau, numCopias);
+                livro = new LivroEducativo(titulo, autor, isbn, categoria, grau, numCopias); //criar um novo livro educacional
             }
-            else if (tipo == "Ficcao" || tipo == "ficcao")
+            else if (tipo == "Ficcao" || tipo == "ficcao") //se o tipo for ficcao
             {
-                livro = new LivroFiccao(titulo, autor, isbn, categoria, numCopias);
+                livro = new LivroFiccao(titulo, autor, isbn, categoria, numCopias); //criar um novo livro ficcao
             }
-            else if (tipo == "Revista" || tipo == "revista")
+            else if (tipo == "Revista" || tipo == "revista") //se o tipo for revista
             {
                 cout << "Edicao: ";
                 cin >> edicao;
-                livro = new Revista(titulo, autor, isbn, categoria, edicao, numCopias); // stoi -» string to int
+                livro = new Revista(titulo, autor, isbn, categoria, edicao, numCopias); //criar uma nova revista
             }
-            else if (tipo == "Jornal" || tipo == "jornal")
+            else if (tipo == "Jornal" || tipo == "jornal") //se o tipo for jornal
             {
                 cout << "Dia: ";
                 cin >> dia;
-                livro = new Jornal(titulo, autor, isbn, categoria, dia, numCopias);
+                livro = new Jornal(titulo, autor, isbn, categoria, dia, numCopias); //criar um novo jornal
             }
 
 
-            if (livro)
+            if (livro) //se o livro foi criado
             {
-                bib->Add_Livro(livro);
+                bib->Add_Livro(livro); //adicionar o livro a biblioteca
             }
             else
             {
-                cout << "Tipo de livro invalido!" << endl;
+                cout << "Tipo de livro invalido!" << endl; //tipo de livro invalido
             }
             break;
         }
-        case 2:
+        case 2: //adicionar leitor
         {
             string nome, id, tipoLeitor;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Adicionar Leitor ===" << endl;
             cout << "Nome: ";
-            getline(cin, nome);
+            getline(cin, nome); //ler o nome
             cout << "ID: ";
-            cin >> id;
+            cin >> id; //ler o id
             cout << "Tipo de Leitor (Comum, Estudante, Professor, Senior): ";
-            cin >> tipoLeitor;
+            cin >> tipoLeitor; //ler o tipo de leitor
 
-            Leitor *leitor = nullptr;
-            if (tipoLeitor == "Comum" || tipoLeitor == "comum")
+            Leitor *leitor = nullptr; //leitor a ser adicionado
+            if (tipoLeitor == "Comum" || tipoLeitor == "comum") //se o tipo de leitor for comum
             {
-                leitor = new LeitorComum(nome, id);
+                leitor = new LeitorComum(nome, id); //criar um novo leitor comum
             }
-            else if (tipoLeitor == "Estudante" || tipoLeitor == "estudante")
+            else if (tipoLeitor == "Estudante" || tipoLeitor == "estudante") //se o tipo de leitor for estudante
             {
-                leitor = new Estudante(nome, id);
+                leitor = new Estudante(nome, id); //criar um novo estudante
             }
-            else if (tipoLeitor == "Professor" || tipoLeitor == "professor")
+            else if (tipoLeitor == "Professor" || tipoLeitor == "professor") //se o tipo de leitor for professor
             {
-                leitor = new Professor(nome, id);
+                leitor = new Professor(nome, id); //criar um novo professor
             }
-            else if (tipoLeitor == "Senior" || tipoLeitor == "senior")
+            else if (tipoLeitor == "Senior" || tipoLeitor == "senior") //se o tipo de leitor for senior
             {
-                leitor = new Senior(nome, id);
+                leitor = new Senior(nome, id); //criar um novo senior
             }
 
-            if (leitor)
+            if (leitor) //se o leitor foi criado
             {
-                bib->Add_Leitor(leitor);
-                cout << "Leitor adicionado com sucesso!" << endl;
+                bib->Add_Leitor(leitor); //adicionar o leitor a biblioteca
+                cout << "Leitor adicionado com sucesso!" << endl; //informar que o leitor foi adicionado com sucesso
             }
             else
             {
-                cout << "Tipo de leitor invalido!" << endl;
+                cout << "Tipo de leitor invalido!" << endl; //tipo de leitor invalido
             }
             break;
         }
@@ -198,34 +198,34 @@ int main()
             cout << "ID do leitor: ";
             cin >> id;
 
-            Livro *livro = nullptr;
-            Leitor *leitor = nullptr;
+            Livro *livro = nullptr; //livro a ser emprestado
+            Leitor *leitor = nullptr; //leitor a ser emprestado
 
-            for (size_t i = 0; i < bib->Coleccao_LIVROS.size(); ++i)
+            for (size_t i = 0; i < bib->Coleccao_LIVROS.size(); ++i) //procurar o livro a ser emprestado
             {
-                if (bib->Coleccao_LIVROS[i]->getIsbn() == isbn)
+                if (bib->Coleccao_LIVROS[i]->getIsbn() == isbn) //se o isbn do livro for igual ao isbn do livro a ser emprestado
                 {
-                    livro = bib->Coleccao_LIVROS[i];
+                    livro = bib->Coleccao_LIVROS[i]; //atribuir o livro a ser emprestado
                     break;
                 }
             }
 
-            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i)
+            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) //procurar o leitor a ser emprestado
             {
-                if (bib->Coleccao_LEITORES[i]->getID() == id)
+                if (bib->Coleccao_LEITORES[i]->getID() == id) //se o id do leitor for igual ao id do leitor a ser emprestado
                 {
                     leitor = bib->Coleccao_LEITORES[i];
                     break;
                 }
             }
 
-            if (livro && leitor)
-            { // Se ambos foram encontrados
-                bib->Add_Emprestimo(livro, leitor);
+            if (livro && leitor) //se o livro e o leitor foram encontrados  
+            {
+                bib->Add_Emprestimo(livro, leitor); //adicionar o emprestimo a biblioteca
             }
             else
             {
-                cout << "Livro ou Leitor nao encontrado!" << endl;
+                cout << "Livro ou Leitor nao encontrado!" << endl; //livro ou leitor nao encontrado
             }
             break;
         }
@@ -239,44 +239,44 @@ int main()
             cout << "ID do leitor: ";
             cin >> id;
 
-            Emprestimo *emprestimoDevolver = nullptr;
+            Emprestimo *emprestimoDevolver = nullptr; //emprestimo a ser devolvido
 
-            for (size_t i = 0; i < bib->Coleccao_REQ.size(); ++i)
+            for (size_t i = 0; i < bib->Coleccao_REQ.size(); ++i) //procurar o emprestimo a ser devolvido
             {
-                if (bib->Coleccao_REQ[i]->getLivro()->getIsbn() == isbn &&
-                    bib->Coleccao_REQ[i]->getLeitor()->getID() == id)
+                if (bib->Coleccao_REQ[i]->getLivro()->getIsbn() == isbn && //se o isbn do livro for igual ao isbn do livro do emprestimo a ser devolvido
+                    bib->Coleccao_REQ[i]->getLeitor()->getID() == id) //se o id do leitor for igual ao id do leitor do emprestimo a ser devolvido
                 {
-                    emprestimoDevolver = bib->Coleccao_REQ[i];
+                    emprestimoDevolver = bib->Coleccao_REQ[i]; //atribuir o emprestimo a ser devolvido
                     break;
                 }
             }
 
-            if (emprestimoDevolver)
+            if (emprestimoDevolver) //se o emprestimo foi encontrado
             {
-                bib->Devolver_Livro(emprestimoDevolver);
+                bib->Devolver_Livro(emprestimoDevolver); //devolver o livro
             }
             else
             {
-                cout << "Emprestimo não encontrado!" << endl;
+                cout << "Emprestimo não encontrado!" << endl; //emprestimo nao encontrado
             }
             break;
         }
-        case 5:
+        case 5: //pesquisar livro por tipo
         {
             string tipo;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Pesquisar Livro por Tipo ===" << endl;
             cout << "Tipo de Livro (Cientifico, Educacional, Ficcao, Revista, Jornal): ";
             cin >> tipo;
-            bib->Pesquisar_Livro_Tipo(tipo);
+            bib->Pesquisar_Livro_Tipo(tipo); //pesquisar o livro por tipo
             break;
         }
-        case 6:
+        case 6: //gerar relatorio de emprestimos
         {
-            bib->Gerar_RelatorioEmprestimos();
+            bib->Gerar_RelatorioEmprestimos(); //gerar o relatorio de emprestimos
             break;
         }
-        case 7:
+        case 7: //prorrogar emprestimos
         {
             string id, isbn;
             cin.ignore(); // Limpar buffer do enter da opcao
@@ -285,91 +285,93 @@ int main()
             cin >> id;
             cout << "ISBN do livro: ";
             cin >> isbn;
-            bib->Prorrogacao_Emprestimos(id, isbn);
+            bib->Prorrogacao_Emprestimos(id, isbn); //prorrogar o emprestimo
             break;
         }
-        case 8:
+        case 8: //sistema de notificacoes de atraso
         {
-            bib->Sistema_Notificacoes_Atraso();
+            bib->Sistema_Notificacoes_Atraso(); //sistema de notificacoes de atraso
             break;
         }
-        case 9:
+        case 9: //listagem de livros
         {
-            bib->Listagem_Livros();
+            bib->Listagem_Livros(); //listar os livros
             break;
         }
-        case 10:
+        case 10: //editar informacoes de leitores
         {
             string id;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Editar Informacoes Leitores ===" << endl;
             cout << "ID do leitor: ";
             cin >> id;
-            bib->Editar_InformacoesLeitores(id);
+            bib->Editar_InformacoesLeitores(id); //editar as informacoes do leitor
             break;
         }
-        case 11: // Editar Informacoes Livros (categoria de um tipo de livro, ediçao de revista, etc)
+        case 11: //editar informacoes de livros
         {
             string isbn;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Editar Informacoes Livros ===" << endl;
             cout << "ISBN do livro: ";
             cin >> isbn;
-            bib->Editar_InformacoesLivros(isbn);
+            bib->Editar_InformacoesLivros(isbn); //editar as informacoes do livro
             break;
         }
-        case 12:
+        case 12: //importar ficheiro
         {
             string nomeFicheiro;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Importar Ficheiro ===" << endl;
-            cout << "Digite o nome do ficheiro para importar (.csv): ";
+            cout << "Digite o nome do ficheiro para importar (.csv): "; //nome do ficheiro a ser importado
             cin >> nomeFicheiro;
-            bib->LoadFile(nomeFicheiro);
+            bib->LoadFile(nomeFicheiro); //importar o ficheiro
             break;
         }
-        case 13:
+        case 13: //exportar ficheiro
         {
             string nomeFicheiro;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Exportar Ficheiro ===" << endl;
-            cout << "Digite o nome do ficheiro para exportar (.csv): ";
+            cout << "Digite o nome do ficheiro para exportar (.csv): "; //nome do ficheiro a ser exportado
             cin >> nomeFicheiro;
-            bib->SaveToFile(nomeFicheiro);
+            bib->SaveToFile(nomeFicheiro); //exportar o ficheiro
             break;
         }
-        case 14:
+        case 14: //remover leitor
         {
             string id;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Remover Leitor ===" << endl;
             cout << "ID do leitor: ";
             cin >> id;
-            Leitor *leitor = nullptr;
-            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) {
-                if (bib->Coleccao_LEITORES[i]->getID() == id) {
-                    leitor = bib->Coleccao_LEITORES[i];
+            Leitor *leitor = nullptr; //leitor a ser removido
+            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) //procurar o leitor a ser removido
+            {
+                if (bib->Coleccao_LEITORES[i]->getID() == id) //se o id do leitor for igual ao id do leitor a ser removido
+                {
+                    leitor = bib->Coleccao_LEITORES[i]; //atribuir o leitor a ser removido
                     break;
                 }
             }
-            if (!leitor){
-                cout << "Leitor nao encontrado!" << endl;
+            if (!leitor){ //se o leitor nao foi encontrado
+                cout << "Leitor nao encontrado!" << endl; //leitor nao encontrado
             }else{
-                bib->Remover_Leitor(id);
+                bib->Remover_Leitor(id); //remover o leitor
             }
             break; 
         }
-        case 15:
+        case 15: //remover livro
         {   
             string isbn;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Remover Livro ===" << endl;
             cout << "ISBN do livro: ";
             cin >> isbn;
-            bib->Remover_Livro(isbn);
+            bib->Remover_Livro(isbn); //remover o livro
             break;
         }
-        case 16:
+        case 16: //reservar livro
         {
             string isbn, id;
             cin.ignore(); // Limpar buffer do enter da opcao
@@ -378,26 +380,28 @@ int main()
             cin >> isbn;
             cout << "ID do leitor: ";
             cin >> id;
-            Leitor *leitor = nullptr;
-            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) {
-                if (bib->Coleccao_LEITORES[i]->getID() == id) {
-                    leitor = bib->Coleccao_LEITORES[i];
+            Leitor *leitor = nullptr; //leitor a ser reservado
+            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) //procurar o leitor a ser reservado
+            {
+                if (bib->Coleccao_LEITORES[i]->getID() == id) //se o id do leitor for igual ao id do leitor a ser reservado
+                {
+                    leitor = bib->Coleccao_LEITORES[i]; //atribuir o leitor a ser reservado
                     break;
                 }
             }
-            if (!leitor){
-                cout << "Leitor nao encontrado!" << endl;
+            if (!leitor){ //se o leitor nao foi encontrado
+                cout << "Leitor nao encontrado!" << endl; //leitor nao encontrado
             }else{
-                bib->reservarLivro(isbn, leitor);
+                bib->reservarLivro(isbn, leitor); //reservar o livro
             }
             break;
         }
-        case 17:
+        case 17: //listar reservas
         {
-            bib->ListarReservas();
+            bib->ListarReservas(); //listar as reservas
             break;
         }
-        case 18:
+        case 18: //cancelar reserva
         {
             string isbn, id;
             cin.ignore(); // Limpar buffer do enter da opcao
@@ -406,71 +410,75 @@ int main()
             cin >> isbn;
             cout << "ID do leitor: ";
             cin >> id;
-            Leitor *leitor = nullptr;
-            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) {
-                if (bib->Coleccao_LEITORES[i]->getID() == id) {
-                    leitor = bib->Coleccao_LEITORES[i];
+            Leitor *leitor = nullptr; //leitor a ser cancelado
+            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) //procurar o leitor a ser cancelado
+            {
+                if (bib->Coleccao_LEITORES[i]->getID() == id) //se o id do leitor for igual ao id do leitor a ser cancelado
+                {
+                    leitor = bib->Coleccao_LEITORES[i]; //atribuir o leitor a ser cancelado
                     break;
                 }
             }
-            if (!leitor){
-                cout << "Leitor nao encontrado!" << endl;
+            if (!leitor){ //se o leitor nao foi encontrado
+                cout << "Leitor nao encontrado!" << endl; //leitor nao encontrado
             }else{
-                bib->cancelar_reserva(isbn, id);
+                bib->cancelar_reserva(isbn, id); //cancelar a reserva
             }
             break;
         }
-        case 19:
+        case 19: //gerar relatorio de multas pendentes
         {
-            bib->GerarRelatorioMultasPendentes();
+            bib->GerarRelatorioMultasPendentes(); //gerar o relatorio de multas pendentes
             break;
         }
-        case 20:
+        case 20: //gerar relatorio de emprestimos por tipo
         {
-            bib->GerarRelatorioEmprestimosPorTipo();
+            bib->GerarRelatorioEmprestimosPorTipo(); //gerar o relatorio de emprestimos por tipo
             break;
         }
-        case 21:
+        case 21: //gerar historico de emprestimos por leitor
         {
             string id;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Gerar Historico de Emprestimos por Leitor ===" << endl;
             cout << "ID do leitor: ";
             cin >> id;
-            Leitor *leitor = nullptr;
-            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) {
-                if (bib->Coleccao_LEITORES[i]->getID() == id) {
-                    leitor = bib->Coleccao_LEITORES[i];
+            Leitor *leitor = nullptr; //leitor a ser procurado
+            for (size_t i = 0; i < bib->Coleccao_LEITORES.size(); ++i) //procurar o leitor a ser procurado
+            {
+                if (bib->Coleccao_LEITORES[i]->getID() == id) //se o id do leitor for igual ao id do leitor a ser procurado
+                {
+                    leitor = bib->Coleccao_LEITORES[i]; //atribuir o leitor a ser procurado
                     break;
                 }
             }
-            if (!leitor){
-                cout << "Leitor nao encontrado!" << endl;
+            if (!leitor){ //se o leitor nao foi encontrado
+                cout << "Leitor nao encontrado!" << endl; //leitor nao encontrado
             }else{
-                bib->GerarHistoricoEmprestimosLeitor(leitor);
+                bib->GerarHistoricoEmprestimosLeitor(leitor); //gerar o historico de emprestimos do leitor
             }
             break;
         }
-        case 22:
+        case 22: //listar livros por categoria
         {
             string categoria;
             cin.ignore(); // Limpar buffer do enter da opcao
             cout << "=== Listar Livros por Categoria ===" << endl;
             cout << "Categoria: ";
             cin >> categoria;
-            bib->ListarLivrosCategoria(categoria);
+            bib->ListarLivrosCategoria(categoria); //listar os livros por categoria
             break;
         }
-        case 0:
-            cout << "Saindo..." << endl;
+        case 0: //sair
+            cout << "A sair..." << endl;
             break;
 
-        default:
-            cout << "Opcao invalida!" << endl;
+        default: //opcao invalida
+            cout << "Opcao invalida!" << endl; //opcao invalida
             break;
         }
-    } while (opcao != 0);
+    } while (opcao != 0); //sair do loop
 
-    delete bib;
+    delete bib; //deletar a biblioteca
     return 0;
 }
