@@ -64,8 +64,8 @@ This project implements a comprehensive library management system in C++. It fac
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/library-management-system.git
-   cd library-management-system
+   git clone https://github.com/AlexPT2k22/Projecto_POO.git
+   cd Projecto_POO.git
    ```
 
 2. **Build the Project Compile all .cpp files**
