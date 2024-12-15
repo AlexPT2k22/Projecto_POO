@@ -70,7 +70,7 @@ This project implements a comprehensive library management system in C++. It fac
 
 2. **Build the Project Compile all .cpp files**
    ```bash
-   g++ -std=c++11 -o library_management *.cpp
+   g++ -o biblioteca.exe main.cpp src\*.cpp -I include
    ```
    
 3. **Run the Application**
