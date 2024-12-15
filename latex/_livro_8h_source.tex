@@ -1,0 +1,52 @@
+\doxysection{Livro.\+h}
+\hypertarget{_livro_8h_source}{}\label{_livro_8h_source}\index{include/Livro.h@{include/Livro.h}}
+\mbox{\hyperlink{_livro_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ Livro\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ Livro\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_leitor_8h}{Leitor.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_livro}{Livro}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_aee62155d13d6ffc16ccb407c748476b2}{Titulo}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_a5d1574a7e612943948b00b3b67acb671}{Autor}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_a148970b463410dfbf54e5f0f35e35332}{isbn}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_a7ad04cb505dea9947ab16df4de3720cb}{categoria}};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_livro_a6f781dcfed4fd06ffa34a04170e274fd}{total\_copias}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_livro_ac4917523c32b582adb91efb6d3fd8f4d}{copias\_emprestadas}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_livro_a8a1986748d53a1e929dac49adf02928a}{Livro}}(\textcolor{keywordtype}{string}\ t,\ \textcolor{keywordtype}{string}\ a,\ \textcolor{keywordtype}{string}\ i,\ \textcolor{keywordtype}{string}\ c,\ \textcolor{keywordtype}{int}\ numCopias);\ \textcolor{comment}{//Construtor}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_livro_a1f3b49a5fbaf89727b0d0317e128655f}{\string~Livro}}();\ \textcolor{comment}{//Destrutor}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ vector<Leitor*>\ \mbox{\hyperlink{class_livro_aa66c5488637d17e077bb3291585507a3}{reservas}};\ \textcolor{comment}{//Lista\ de\ reservas}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_a4670b2f47a447709d6ef52bc32f866f9}{getTipo}}()\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//Obtém\ o\ tipo\ de\ livro}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_livro_a8f3f75c73fa51afc34c66028ace69e64}{getPrazoEmprestimo}}()\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//Obtém\ o\ prazo\ de\ empréstimo\ do\ livro}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_livro_a651146c4b364fb616f5f0ae1cbcf0e54}{EditarInformacoesLivro}}()\ =\ 0;\ \textcolor{comment}{//Edita\ as\ informações\ do\ livro}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_a4b4e2e74d4fa1a0e6e9a4d6c05dc3bd4}{getTitulo}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ título\ do\ livro}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_livro_adbae26ce6938e1f56ed6d88b458351c7}{setTitulo}}(\textcolor{keywordtype}{string}\ titulo);\ \textcolor{comment}{//Define\ o\ título\ do\ livro}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_ae8f2ea7e82a3ddd33e1d0e242c43f3e5}{getAutor}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ autor\ do\ livro}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_livro_ab6979584fef48cc9b2ca4dc0359dd69d}{setAutor}}(\textcolor{keywordtype}{string}\ autor);\ \textcolor{comment}{//Define\ o\ autor\ do\ livro}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_ae1eb9177793c592b905d52fdc15f1277}{getIsbn}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ ISBN\ do\ livro}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_livro_a6ab85111dfd9faa6895fe8f25344357e}{setIsbn}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_a148970b463410dfbf54e5f0f35e35332}{isbn}});\ \textcolor{comment}{//Define\ o\ ISBN\ do\ livro}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_livro_ab21660edae8aeb2483767dea85a28421}{setCategoria}}(\textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_a7ad04cb505dea9947ab16df4de3720cb}{categoria}});\ \textcolor{comment}{//Define\ a\ categoria\ do\ livro}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_livro_a0c1e85f4c74fa94a0f4a7f9031a1e010}{getCategoria}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ a\ categoria\ do\ livro}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_livro_ae01e262402d1f9a13120c90e87133a52}{adicionar\_Reserva}}(\mbox{\hyperlink{class_leitor}{Leitor}}*\ LT);\ \textcolor{comment}{//Adiciona\ uma\ reserva}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_livro_a40530de817d96d94ec0789eb33a1bf91}{remover\_Reserva}}(\mbox{\hyperlink{class_leitor}{Leitor}}*\ LT);\ \textcolor{comment}{//Remove\ uma\ reserva}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_leitor}{Leitor}}*\ \mbox{\hyperlink{class_livro_ade27daf4e6f23af91f9590899e8701e9}{Proximo\_Leitor\_Reserva}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ próximo\ leitor\ da\ reserva}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_livro_acaa106d6bf8ffef7ed812cb5e0cc9bc4}{temReserva}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Verifica\ se\ o\ livro\ tem\ reserva}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_livro_a49f084f569cf1454d6bc6b8acd206c27}{getCopiasDisponiveis}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ número\ de\ cópias\ disponíveis}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_livro_a84b8ac196f41d9b8f497ba6f02ab4a3b}{emprestar\_Copia}}();\ \textcolor{comment}{//Empresta\ uma\ cópia}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_livro_a25b8fac96eabeefd20aa68d54724a44d}{devolver\_Copia}}();\ \textcolor{comment}{//Devolve\ uma\ cópia}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_livro_aeffafbe45aa85998be47aab3dadcd9ea}{getNumCopias}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ número\ de\ cópias}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_livro_a055b41f903e7e288fa3876cf302fec4c}{setNumCopias}}(\textcolor{keywordtype}{int}\ numCopias);\ \textcolor{comment}{//Define\ o\ número\ de\ cópias}}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ Livro\_H}}
+
+\end{DoxyCode}

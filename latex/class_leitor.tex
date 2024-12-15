@@ -1,0 +1,265 @@
+\doxysection{Leitor Class Reference}
+\hypertarget{class_leitor}{}\label{class_leitor}\index{Leitor@{Leitor}}
+
+
+Classe base para representar um leitor na biblioteca.  
+
+
+
+
+{\ttfamily \#include $<$Leitor.\+h$>$}
+
+Inheritance diagram for Leitor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_leitor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_leitor_a7e5e819aee09e2b2e06ad5738f3cd545}{Leitor}} (string n, string i)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_leitor}{Leitor}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_leitor_aab96b9bedaf1405856c0f73e7c7e8526}{\texorpdfstring{$\sim$}{\string~}\+Leitor}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_leitor}{Leitor}. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_a97a904bdba07e367202b0c663ed71441}{get\+Emprestimos}} () const
+\item 
+virtual int \mbox{\hyperlink{class_leitor_a832c5555d073693302c13ef6888a1784}{get\+Limite\+Emprestimos}} () const =0
+\item 
+virtual float \mbox{\hyperlink{class_leitor_afd91dc9ccb5ec3d4aa452a966ad4f2e7}{get\+Desconto\+Multa}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{class_leitor_aba8be613ea150ae7b0f58ef5101576fe}{pode\+Prorrogar}} () const =0
+\item 
+virtual void \mbox{\hyperlink{class_leitor_af28bcea096f04cbb68870c44c59e65fa}{editar\+Informacoes}} ()=0
+\item 
+string \mbox{\hyperlink{class_leitor_ae515d6c4768e29f1a3d73c201f4d7a0f}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o nome do leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leitor_ab9fc0d89c3ab5d22ae64ebf33258d7f3}{adicionar\+Emprestimo}} (\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}e)
+\begin{DoxyCompactList}\small\item\em Adiciona um empréstimo à lista de empréstimos do leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leitor_a1a162f46a2e7ab8126e8ce2e4f95f0ce}{remover\+Emprestimo}} (\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}e)
+\begin{DoxyCompactList}\small\item\em Remove um empréstimo da lista de empréstimos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leitor_aa60a9020dfb8b48210adf6096234ea98}{Limpar\+Todos\+Emprestimos}} ()
+\begin{DoxyCompactList}\small\item\em Limpa todos os empréstimos. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_leitor_aec618ed2d7f33deab578f71cf03b5a3d}{get\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o ID do objeto \doxylink{class_leitor}{Leitor}. \end{DoxyCompactList}\item 
+virtual string \mbox{\hyperlink{class_leitor_af6dfc8720c45228f46c067dcf1019650}{get\+Tipo}} () const =0
+\item 
+vector$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_a61ca7c1bb322d3783255cb2a77fec2ad}{get\+Historico\+Emprestimos}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o histórico de empréstimos do leitor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_leitor_abc45bf17989ff5587f257838e496c0c6}{nome}}
+\item 
+string \mbox{\hyperlink{class_leitor_acd05aa490f79319c0a1b6c44eb576b69}{id}}
+\item 
+list$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_af0123c908604c341b9d89a2337c66888}{emprestimos}}
+\item 
+vector$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_ab5bd6b40ff5dae3cd9524dd142f0c667}{historico\+\_\+emprestimos}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe base para representar um leitor na biblioteca. 
+
+Esta classe define as características e comportamentos comuns a todos os tipos de leitores 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_leitor_a7e5e819aee09e2b2e06ad5738f3cd545}\index{Leitor@{Leitor}!Leitor@{Leitor}}
+\index{Leitor@{Leitor}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{Leitor()}{Leitor()}}
+{\footnotesize\ttfamily \label{class_leitor_a7e5e819aee09e2b2e06ad5738f3cd545} 
+Leitor\+::\+Leitor (\begin{DoxyParamCaption}\item[{string}]{n}{, }\item[{string}]{i}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_leitor}{Leitor}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & O nome do leitor. \\
+\hline
+{\em i} & O ID do leitor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_leitor_aab96b9bedaf1405856c0f73e7c7e8526}\index{Leitor@{Leitor}!````~Leitor@{\texorpdfstring{$\sim$}{\string~}Leitor}}
+\index{````~Leitor@{\texorpdfstring{$\sim$}{\string~}Leitor}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Leitor()}{\string~Leitor()}}
+{\footnotesize\ttfamily \label{class_leitor_aab96b9bedaf1405856c0f73e7c7e8526} 
+Leitor\+::\texorpdfstring{$\sim$}{\string~}\+Leitor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destrutor da classe \doxylink{class_leitor}{Leitor}. 
+
+Este destrutor é responsável por limpar qualquer recurso que o objeto \doxylink{class_leitor}{Leitor} possa ter adquirido durante sua vida. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_leitor_ab9fc0d89c3ab5d22ae64ebf33258d7f3}\index{Leitor@{Leitor}!adicionarEmprestimo@{adicionarEmprestimo}}
+\index{adicionarEmprestimo@{adicionarEmprestimo}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{adicionarEmprestimo()}{adicionarEmprestimo()}}
+{\footnotesize\ttfamily \label{class_leitor_ab9fc0d89c3ab5d22ae64ebf33258d7f3} 
+void Leitor\+::adicionar\+Emprestimo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona um empréstimo à lista de empréstimos do leitor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Ponteiro para o objeto \doxylink{class_emprestimo}{Emprestimo} a ser adicionado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_leitor_af28bcea096f04cbb68870c44c59e65fa}\index{Leitor@{Leitor}!editarInformacoes@{editarInformacoes}}
+\index{editarInformacoes@{editarInformacoes}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{editarInformacoes()}{editarInformacoes()}}
+{\footnotesize\ttfamily \label{class_leitor_af28bcea096f04cbb68870c44c59e65fa} 
+virtual void Leitor\+::editar\+Informacoes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_estudante_ae364a50a2689b85304ceac0270b16994}{Estudante}}, \mbox{\hyperlink{class_leitor_comum_a47a7d9a0a79df4cef090c695d004a770}{Leitor\+Comum}}, \mbox{\hyperlink{class_professor_a52419ba6a94c027fac3c2aec5e45546c}{Professor}}, and \mbox{\hyperlink{class_senior_a72807f324990286be52a4fa3fa6dfbfb}{Senior}}.
+
+\Hypertarget{class_leitor_afd91dc9ccb5ec3d4aa452a966ad4f2e7}\index{Leitor@{Leitor}!getDescontoMulta@{getDescontoMulta}}
+\index{getDescontoMulta@{getDescontoMulta}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{getDescontoMulta()}{getDescontoMulta()}}
+{\footnotesize\ttfamily \label{class_leitor_afd91dc9ccb5ec3d4aa452a966ad4f2e7} 
+virtual float Leitor\+::get\+Desconto\+Multa (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_estudante_ac9d4c4efd7ccb28febd314728c95082e}{Estudante}}, \mbox{\hyperlink{class_leitor_comum_afac9250060abda4fec71198643c02cd4}{Leitor\+Comum}}, \mbox{\hyperlink{class_professor_a6d28ac52c05a849cef97855191de49f7}{Professor}}, and \mbox{\hyperlink{class_senior_aaf0c0e6c23b4d229d46c867aeadb473e}{Senior}}.
+
+\Hypertarget{class_leitor_a97a904bdba07e367202b0c663ed71441}\index{Leitor@{Leitor}!getEmprestimos@{getEmprestimos}}
+\index{getEmprestimos@{getEmprestimos}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{getEmprestimos()}{getEmprestimos()}}
+{\footnotesize\ttfamily \label{class_leitor_a97a904bdba07e367202b0c663ed71441} 
+list$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ Leitor\+::get\+Emprestimos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_leitor_a61ca7c1bb322d3783255cb2a77fec2ad}\index{Leitor@{Leitor}!getHistoricoEmprestimos@{getHistoricoEmprestimos}}
+\index{getHistoricoEmprestimos@{getHistoricoEmprestimos}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{getHistoricoEmprestimos()}{getHistoricoEmprestimos()}}
+{\footnotesize\ttfamily \label{class_leitor_a61ca7c1bb322d3783255cb2a77fec2ad} 
+vector$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ Leitor\+::get\+Historico\+Emprestimos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obtém o histórico de empréstimos do leitor. 
+
+\begin{DoxyReturn}{Returns}
+Um vetor de ponteiros para objetos \doxylink{class_emprestimo}{Emprestimo}. 
+\end{DoxyReturn}
+\Hypertarget{class_leitor_aec618ed2d7f33deab578f71cf03b5a3d}\index{Leitor@{Leitor}!getID@{getID}}
+\index{getID@{getID}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily \label{class_leitor_aec618ed2d7f33deab578f71cf03b5a3d} 
+string Leitor\+::get\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obtém o ID do objeto \doxylink{class_leitor}{Leitor}. 
+
+\begin{DoxyReturn}{Returns}
+Uma string representando o ID do \doxylink{class_leitor}{Leitor}. 
+\end{DoxyReturn}
+\Hypertarget{class_leitor_a832c5555d073693302c13ef6888a1784}\index{Leitor@{Leitor}!getLimiteEmprestimos@{getLimiteEmprestimos}}
+\index{getLimiteEmprestimos@{getLimiteEmprestimos}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{getLimiteEmprestimos()}{getLimiteEmprestimos()}}
+{\footnotesize\ttfamily \label{class_leitor_a832c5555d073693302c13ef6888a1784} 
+virtual int Leitor\+::get\+Limite\+Emprestimos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_estudante_af646c5de0f2e53e7316b3b7b108e348b}{Estudante}}, \mbox{\hyperlink{class_leitor_comum_a80f50ea7a24683908b1225632190dc66}{Leitor\+Comum}}, \mbox{\hyperlink{class_professor_a3375ed61010713faedeb373e088d1151}{Professor}}, and \mbox{\hyperlink{class_senior_af11c379cf74eacb69efe86382084af15}{Senior}}.
+
+\Hypertarget{class_leitor_ae515d6c4768e29f1a3d73c201f4d7a0f}\index{Leitor@{Leitor}!getNome@{getNome}}
+\index{getNome@{getNome}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily \label{class_leitor_ae515d6c4768e29f1a3d73c201f4d7a0f} 
+string Leitor\+::get\+Nome (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obtém o nome do leitor. 
+
+\begin{DoxyReturn}{Returns}
+Uma string contendo o nome do leitor. 
+\end{DoxyReturn}
+\Hypertarget{class_leitor_af6dfc8720c45228f46c067dcf1019650}\index{Leitor@{Leitor}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily \label{class_leitor_af6dfc8720c45228f46c067dcf1019650} 
+virtual string Leitor\+::get\+Tipo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_estudante_ae094b92ea7418841c26efc306640a585}{Estudante}}, \mbox{\hyperlink{class_leitor_comum_ab4e9d93d6182d359e216b404bf1a3b73}{Leitor\+Comum}}, \mbox{\hyperlink{class_professor_ad59a9b3572b692c90175df019f7da7c6}{Professor}}, and \mbox{\hyperlink{class_senior_a68863470d473a8d19ef6bbb764983fb8}{Senior}}.
+
+\Hypertarget{class_leitor_aa60a9020dfb8b48210adf6096234ea98}\index{Leitor@{Leitor}!LimparTodosEmprestimos@{LimparTodosEmprestimos}}
+\index{LimparTodosEmprestimos@{LimparTodosEmprestimos}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{LimparTodosEmprestimos()}{LimparTodosEmprestimos()}}
+{\footnotesize\ttfamily \label{class_leitor_aa60a9020dfb8b48210adf6096234ea98} 
+void Leitor\+::\+Limpar\+Todos\+Emprestimos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Limpa todos os empréstimos. 
+
+Esta função remove todos os elementos do vetor de empréstimos, efetivamente limpando todos os registros de empréstimos. \Hypertarget{class_leitor_aba8be613ea150ae7b0f58ef5101576fe}\index{Leitor@{Leitor}!podeProrrogar@{podeProrrogar}}
+\index{podeProrrogar@{podeProrrogar}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{podeProrrogar()}{podeProrrogar()}}
+{\footnotesize\ttfamily \label{class_leitor_aba8be613ea150ae7b0f58ef5101576fe} 
+virtual bool Leitor\+::pode\+Prorrogar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_estudante_af24937353b72040652a9beb2bc3ee359}{Estudante}}, \mbox{\hyperlink{class_leitor_comum_a4f2465d7e8f31e3f61588b553ebeeb13}{Leitor\+Comum}}, \mbox{\hyperlink{class_professor_ac30bcdff9f14cd5376edabb25d4ea2a2}{Professor}}, and \mbox{\hyperlink{class_senior_a26ab9d15c697ab1bfe64f67022d9ddd4}{Senior}}.
+
+\Hypertarget{class_leitor_a1a162f46a2e7ab8126e8ce2e4f95f0ce}\index{Leitor@{Leitor}!removerEmprestimo@{removerEmprestimo}}
+\index{removerEmprestimo@{removerEmprestimo}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{removerEmprestimo()}{removerEmprestimo()}}
+{\footnotesize\ttfamily \label{class_leitor_a1a162f46a2e7ab8126e8ce2e4f95f0ce} 
+void Leitor\+::remover\+Emprestimo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Remove um empréstimo da lista de empréstimos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Ponteiro para o objeto \doxylink{class_emprestimo}{Emprestimo} a ser removido. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_leitor_af0123c908604c341b9d89a2337c66888}\index{Leitor@{Leitor}!emprestimos@{emprestimos}}
+\index{emprestimos@{emprestimos}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{emprestimos}{emprestimos}}
+{\footnotesize\ttfamily \label{class_leitor_af0123c908604c341b9d89a2337c66888} 
+list$<$\mbox{\hyperlink{class_emprestimo}{Emprestimo}}\texorpdfstring{$\ast$}{*}$>$ Leitor\+::emprestimos\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_leitor_ab5bd6b40ff5dae3cd9524dd142f0c667}\index{Leitor@{Leitor}!historico\_emprestimos@{historico\_emprestimos}}
+\index{historico\_emprestimos@{historico\_emprestimos}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{historico\_emprestimos}{historico\_emprestimos}}
+{\footnotesize\ttfamily \label{class_leitor_ab5bd6b40ff5dae3cd9524dd142f0c667} 
+vector$<$\mbox{\hyperlink{class_emprestimo}{Emprestimo}}\texorpdfstring{$\ast$}{*}$>$ Leitor\+::historico\+\_\+emprestimos\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_leitor_acd05aa490f79319c0a1b6c44eb576b69}\index{Leitor@{Leitor}!id@{id}}
+\index{id@{id}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{class_leitor_acd05aa490f79319c0a1b6c44eb576b69} 
+string Leitor\+::id\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_leitor_abc45bf17989ff5587f257838e496c0c6}\index{Leitor@{Leitor}!nome@{nome}}
+\index{nome@{nome}!Leitor@{Leitor}}
+\doxysubsubsection{\texorpdfstring{nome}{nome}}
+{\footnotesize\ttfamily \label{class_leitor_abc45bf17989ff5587f257838e496c0c6} 
+string Leitor\+::nome\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_leitor_8h}{Leitor.\+h}}\item 
+src/\mbox{\hyperlink{_leitor_8cpp}{Leitor.\+cpp}}\end{DoxyCompactItemize}

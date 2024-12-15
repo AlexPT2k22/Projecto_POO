@@ -1,0 +1,193 @@
+\doxysection{Senior Class Reference}
+\hypertarget{class_senior}{}\label{class_senior}\index{Senior@{Senior}}
+
+
+Classe que representa um leitor senior na biblioteca.  
+
+
+
+
+{\ttfamily \#include $<$Senior.\+h$>$}
+
+Inheritance diagram for Senior\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_senior}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_senior_a70f9c4ea62e907cbad674571d597c390}{Senior}} (string \mbox{\hyperlink{class_leitor_abc45bf17989ff5587f257838e496c0c6}{nome}}, string \mbox{\hyperlink{class_leitor_acd05aa490f79319c0a1b6c44eb576b69}{id}})
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_senior}{Senior}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_senior_a2fb35dc3721bb23cffe9a3b2c497c6bc}{\texorpdfstring{$\sim$}{\string~}\+Senior}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_senior}{Senior}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_senior_af11c379cf74eacb69efe86382084af15}{get\+Limite\+Emprestimos}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o limite de empréstimos do sênior. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_senior_aaf0c0e6c23b4d229d46c867aeadb473e}{get\+Desconto\+Multa}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o desconto da multa do sênior. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_senior_a26ab9d15c697ab1bfe64f67022d9ddd4}{pode\+Prorrogar}} () const override
+\begin{DoxyCompactList}\small\item\em Verifica se o sênior pode prorrogar o empréstimo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_senior_a72807f324990286be52a4fa3fa6dfbfb}{editar\+Informacoes}} () override
+\begin{DoxyCompactList}\small\item\em Exibe uma mensagem a indicar que os usuários sêniores não podem editar as suas informações. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_senior_a68863470d473a8d19ef6bbb764983fb8}{get\+Tipo}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o tipo do sênior. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_leitor}{Leitor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_leitor_a7e5e819aee09e2b2e06ad5738f3cd545}{Leitor}} (string n, string i)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_leitor}{Leitor}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_leitor_aab96b9bedaf1405856c0f73e7c7e8526}{\texorpdfstring{$\sim$}{\string~}\+Leitor}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_leitor}{Leitor}. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_a97a904bdba07e367202b0c663ed71441}{get\+Emprestimos}} () const
+\item 
+string \mbox{\hyperlink{class_leitor_ae515d6c4768e29f1a3d73c201f4d7a0f}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o nome do leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leitor_ab9fc0d89c3ab5d22ae64ebf33258d7f3}{adicionar\+Emprestimo}} (\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}e)
+\begin{DoxyCompactList}\small\item\em Adiciona um empréstimo à lista de empréstimos do leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leitor_a1a162f46a2e7ab8126e8ce2e4f95f0ce}{remover\+Emprestimo}} (\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}e)
+\begin{DoxyCompactList}\small\item\em Remove um empréstimo da lista de empréstimos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leitor_aa60a9020dfb8b48210adf6096234ea98}{Limpar\+Todos\+Emprestimos}} ()
+\begin{DoxyCompactList}\small\item\em Limpa todos os empréstimos. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_leitor_aec618ed2d7f33deab578f71cf03b5a3d}{get\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o ID do objeto \doxylink{class_leitor}{Leitor}. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_a61ca7c1bb322d3783255cb2a77fec2ad}{get\+Historico\+Emprestimos}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o histórico de empréstimos do leitor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_leitor}{Leitor}}}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_leitor_abc45bf17989ff5587f257838e496c0c6}{nome}}
+\item 
+string \mbox{\hyperlink{class_leitor_acd05aa490f79319c0a1b6c44eb576b69}{id}}
+\item 
+list$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_af0123c908604c341b9d89a2337c66888}{emprestimos}}
+\item 
+vector$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_ab5bd6b40ff5dae3cd9524dd142f0c667}{historico\+\_\+emprestimos}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa um leitor senior na biblioteca. 
+
+Esta classe herda de \doxylink{class_leitor}{Leitor} e adiciona funcionalidades específicas para leitores senior, incluindo o limite de empréstimos e o desconto na multa 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_senior_a70f9c4ea62e907cbad674571d597c390}\index{Senior@{Senior}!Senior@{Senior}}
+\index{Senior@{Senior}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{Senior()}{Senior()}}
+{\footnotesize\ttfamily \label{class_senior_a70f9c4ea62e907cbad674571d597c390} 
+Senior\+::\+Senior (\begin{DoxyParamCaption}\item[{string}]{nome}{, }\item[{string}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_senior}{Senior}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & O nome do sênior. \\
+\hline
+{\em id} & O ID do sênior. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_senior_a2fb35dc3721bb23cffe9a3b2c497c6bc}\index{Senior@{Senior}!````~Senior@{\texorpdfstring{$\sim$}{\string~}Senior}}
+\index{````~Senior@{\texorpdfstring{$\sim$}{\string~}Senior}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Senior()}{\string~Senior()}}
+{\footnotesize\ttfamily \label{class_senior_a2fb35dc3721bb23cffe9a3b2c497c6bc} 
+Senior\+::\texorpdfstring{$\sim$}{\string~}\+Senior (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destrutor da classe \doxylink{class_senior}{Senior}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_senior_a72807f324990286be52a4fa3fa6dfbfb}\index{Senior@{Senior}!editarInformacoes@{editarInformacoes}}
+\index{editarInformacoes@{editarInformacoes}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{editarInformacoes()}{editarInformacoes()}}
+{\footnotesize\ttfamily \label{class_senior_a72807f324990286be52a4fa3fa6dfbfb} 
+void Senior\+::editar\+Informacoes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Exibe uma mensagem a indicar que os usuários sêniores não podem editar as suas informações. 
+
+Este método implementa a interface \doxylink{class_senior_a72807f324990286be52a4fa3fa6dfbfb}{editar\+Informacoes()}, mas restringe os sêniores de modificar suas informações de conta exibindo uma mensagem. 
+
+Implements \mbox{\hyperlink{class_leitor_af28bcea096f04cbb68870c44c59e65fa}{Leitor}}.
+
+\Hypertarget{class_senior_aaf0c0e6c23b4d229d46c867aeadb473e}\index{Senior@{Senior}!getDescontoMulta@{getDescontoMulta}}
+\index{getDescontoMulta@{getDescontoMulta}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{getDescontoMulta()}{getDescontoMulta()}}
+{\footnotesize\ttfamily \label{class_senior_aaf0c0e6c23b4d229d46c867aeadb473e} 
+float Senior\+::get\+Desconto\+Multa (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o desconto da multa do sênior. 
+
+\begin{DoxyReturn}{Returns}
+O desconto da multa do sênior. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_leitor_afd91dc9ccb5ec3d4aa452a966ad4f2e7}{Leitor}}.
+
+\Hypertarget{class_senior_af11c379cf74eacb69efe86382084af15}\index{Senior@{Senior}!getLimiteEmprestimos@{getLimiteEmprestimos}}
+\index{getLimiteEmprestimos@{getLimiteEmprestimos}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{getLimiteEmprestimos()}{getLimiteEmprestimos()}}
+{\footnotesize\ttfamily \label{class_senior_af11c379cf74eacb69efe86382084af15} 
+int Senior\+::get\+Limite\+Emprestimos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o limite de empréstimos do sênior. 
+
+\begin{DoxyReturn}{Returns}
+O limite de empréstimos do sênior. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_leitor_a832c5555d073693302c13ef6888a1784}{Leitor}}.
+
+\Hypertarget{class_senior_a68863470d473a8d19ef6bbb764983fb8}\index{Senior@{Senior}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily \label{class_senior_a68863470d473a8d19ef6bbb764983fb8} 
+string Senior\+::get\+Tipo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o tipo do sênior. 
+
+\begin{DoxyReturn}{Returns}
+O tipo do sênior. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_leitor_af6dfc8720c45228f46c067dcf1019650}{Leitor}}.
+
+\Hypertarget{class_senior_a26ab9d15c697ab1bfe64f67022d9ddd4}\index{Senior@{Senior}!podeProrrogar@{podeProrrogar}}
+\index{podeProrrogar@{podeProrrogar}!Senior@{Senior}}
+\doxysubsubsection{\texorpdfstring{podeProrrogar()}{podeProrrogar()}}
+{\footnotesize\ttfamily \label{class_senior_a26ab9d15c697ab1bfe64f67022d9ddd4} 
+bool Senior\+::pode\+Prorrogar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifica se o sênior pode prorrogar o empréstimo. 
+
+\begin{DoxyReturn}{Returns}
+true se o sênior pode prorrogar, false caso contrário. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_leitor_aba8be613ea150ae7b0f58ef5101576fe}{Leitor}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_senior_8h}{Senior.\+h}}\item 
+src/\mbox{\hyperlink{_senior_8cpp}{Senior.\+cpp}}\end{DoxyCompactItemize}

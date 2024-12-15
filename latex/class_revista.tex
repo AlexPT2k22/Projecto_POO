@@ -1,0 +1,238 @@
+\doxysection{Revista Class Reference}
+\hypertarget{class_revista}{}\label{class_revista}\index{Revista@{Revista}}
+
+
+Classe que representa uma revista na biblioteca.  
+
+
+
+
+{\ttfamily \#include $<$Revista.\+h$>$}
+
+Inheritance diagram for Revista\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_revista}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_revista_a4502fb781506855ab4586acf54c9b664}{Revista}} (string t, string a, string i, string c, int e, int num\+Copias)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_revista}{Revista}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_revista_ab705e2fe5ec9a46daf3a69835772a3c6}{\texorpdfstring{$\sim$}{\string~}\+Revista}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_revista}{Revista}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_revista_a2dee03126453137ed833d4f69425361c}{get\+Edicao}} () const
+\begin{DoxyCompactList}\small\item\em Obtém a edição da revista. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_revista_a564c4b30b8740a238d846c3cc8ccce7b}{get\+Prazo\+Emprestimo}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o prazo de empréstimo da revista. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_revista_a4659cc5239408c0d1939f63f76b7de07}{get\+Tipo}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o tipo da revista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_revista_a05bced3f306fa4f97941c7525d76d6be}{set\+Edicao}} (int e)
+\begin{DoxyCompactList}\small\item\em Define a edição da revista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_revista_aa5d84f86eef3134d24dc0369099c4a12}{Editar\+Informacoes\+Livro}} () override
+\begin{DoxyCompactList}\small\item\em Edita as informações da revista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_livro}{Livro}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_livro_a8a1986748d53a1e929dac49adf02928a}{Livro}} (string t, string a, string i, string c, int num\+Copias)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_livro}{Livro}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_livro_a1f3b49a5fbaf89727b0d0317e128655f}{\texorpdfstring{$\sim$}{\string~}\+Livro}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_livro}{Livro}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_a4b4e2e74d4fa1a0e6e9a4d6c05dc3bd4}{get\+Titulo}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o título do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_adbae26ce6938e1f56ed6d88b458351c7}{set\+Titulo}} (string titulo)
+\begin{DoxyCompactList}\small\item\em Define o título do livro. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_ae8f2ea7e82a3ddd33e1d0e242c43f3e5}{get\+Autor}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o autor do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_ab6979584fef48cc9b2ca4dc0359dd69d}{set\+Autor}} (string autor)
+\begin{DoxyCompactList}\small\item\em Define o autor do livro. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_ae1eb9177793c592b905d52fdc15f1277}{get\+Isbn}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o ISBN do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_a6ab85111dfd9faa6895fe8f25344357e}{set\+Isbn}} (string \mbox{\hyperlink{class_livro_a148970b463410dfbf54e5f0f35e35332}{isbn}})
+\begin{DoxyCompactList}\small\item\em Define o ISBN do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_ab21660edae8aeb2483767dea85a28421}{set\+Categoria}} (string \mbox{\hyperlink{class_livro_a7ad04cb505dea9947ab16df4de3720cb}{categoria}})
+\begin{DoxyCompactList}\small\item\em Define a categoria do livro. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_a0c1e85f4c74fa94a0f4a7f9031a1e010}{get\+Categoria}} () const
+\begin{DoxyCompactList}\small\item\em Obtém a categoria do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_ae01e262402d1f9a13120c90e87133a52}{adicionar\+\_\+\+Reserva}} (\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}LT)
+\begin{DoxyCompactList}\small\item\em Adiciona uma reserva para um leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_a40530de817d96d94ec0789eb33a1bf91}{remover\+\_\+\+Reserva}} (\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}LT)
+\begin{DoxyCompactList}\small\item\em Remove uma reserva de um leitor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_livro_ade27daf4e6f23af91f9590899e8701e9}{Proximo\+\_\+\+Leitor\+\_\+\+Reserva}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o próximo leitor na lista de reservas. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_livro_acaa106d6bf8ffef7ed812cb5e0cc9bc4}{tem\+Reserva}} () const
+\begin{DoxyCompactList}\small\item\em Verifica se o livro tem reservas. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_livro_a49f084f569cf1454d6bc6b8acd206c27}{get\+Copias\+Disponiveis}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o número de cópias disponíveis do livro. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_livro_a84b8ac196f41d9b8f497ba6f02ab4a3b}{emprestar\+\_\+\+Copia}} ()
+\begin{DoxyCompactList}\small\item\em Empresta uma cópia do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_a25b8fac96eabeefd20aa68d54724a44d}{devolver\+\_\+\+Copia}} ()
+\begin{DoxyCompactList}\small\item\em Devolve uma cópia do livro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_livro_aeffafbe45aa85998be47aab3dadcd9ea}{get\+Num\+Copias}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o número de cópias do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_a055b41f903e7e288fa3876cf302fec4c}{set\+Num\+Copias}} (int num\+Copias)
+\begin{DoxyCompactList}\small\item\em Define o número de cópias do livro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_revista_aeb63ed6917de55846d4b29fb33225bbb}{edicao}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_livro}{Livro}}}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_livro_aa66c5488637d17e077bb3291585507a3}{reservas}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_livro}{Livro}}}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_livro_aee62155d13d6ffc16ccb407c748476b2}{Titulo}}
+\item 
+string \mbox{\hyperlink{class_livro_a5d1574a7e612943948b00b3b67acb671}{Autor}}
+\item 
+string \mbox{\hyperlink{class_livro_a148970b463410dfbf54e5f0f35e35332}{isbn}}
+\item 
+string \mbox{\hyperlink{class_livro_a7ad04cb505dea9947ab16df4de3720cb}{categoria}}
+\item 
+int \mbox{\hyperlink{class_livro_a6f781dcfed4fd06ffa34a04170e274fd}{total\+\_\+copias}}
+\item 
+int \mbox{\hyperlink{class_livro_ac4917523c32b582adb91efb6d3fd8f4d}{copias\+\_\+emprestadas}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa uma revista na biblioteca. 
+
+Esta classe herda de \doxylink{class_livro}{Livro} e adiciona funcionalidades específicas para revistas, incluindo a edição 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_revista_a4502fb781506855ab4586acf54c9b664}\index{Revista@{Revista}!Revista@{Revista}}
+\index{Revista@{Revista}!Revista@{Revista}}
+\doxysubsubsection{\texorpdfstring{Revista()}{Revista()}}
+{\footnotesize\ttfamily \label{class_revista_a4502fb781506855ab4586acf54c9b664} 
+Revista\+::\+Revista (\begin{DoxyParamCaption}\item[{string}]{t}{, }\item[{string}]{a}{, }\item[{string}]{i}{, }\item[{string}]{c}{, }\item[{int}]{e}{, }\item[{int}]{num\+Copias}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_revista}{Revista}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & O título da revista. \\
+\hline
+{\em a} & O autor da revista. \\
+\hline
+{\em i} & O ISBN da revista. \\
+\hline
+{\em c} & A categoria da revista. \\
+\hline
+{\em e} & A edição da revista. \\
+\hline
+{\em num\+Copias} & O número de cópias da revista. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_revista_ab705e2fe5ec9a46daf3a69835772a3c6}\index{Revista@{Revista}!````~Revista@{\texorpdfstring{$\sim$}{\string~}Revista}}
+\index{````~Revista@{\texorpdfstring{$\sim$}{\string~}Revista}!Revista@{Revista}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Revista()}{\string~Revista()}}
+{\footnotesize\ttfamily \label{class_revista_ab705e2fe5ec9a46daf3a69835772a3c6} 
+Revista\+::\texorpdfstring{$\sim$}{\string~}\+Revista (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destrutor da classe \doxylink{class_revista}{Revista}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_revista_aa5d84f86eef3134d24dc0369099c4a12}\index{Revista@{Revista}!EditarInformacoesLivro@{EditarInformacoesLivro}}
+\index{EditarInformacoesLivro@{EditarInformacoesLivro}!Revista@{Revista}}
+\doxysubsubsection{\texorpdfstring{EditarInformacoesLivro()}{EditarInformacoesLivro()}}
+{\footnotesize\ttfamily \label{class_revista_aa5d84f86eef3134d24dc0369099c4a12} 
+void Revista\+::\+Editar\+Informacoes\+Livro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Edita as informações da revista. 
+
+
+
+Implements \mbox{\hyperlink{class_livro_a651146c4b364fb616f5f0ae1cbcf0e54}{Livro}}.
+
+\Hypertarget{class_revista_a2dee03126453137ed833d4f69425361c}\index{Revista@{Revista}!getEdicao@{getEdicao}}
+\index{getEdicao@{getEdicao}!Revista@{Revista}}
+\doxysubsubsection{\texorpdfstring{getEdicao()}{getEdicao()}}
+{\footnotesize\ttfamily \label{class_revista_a2dee03126453137ed833d4f69425361c} 
+int Revista\+::get\+Edicao (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obtém a edição da revista. 
+
+\begin{DoxyReturn}{Returns}
+A edição da revista. 
+\end{DoxyReturn}
+\Hypertarget{class_revista_a564c4b30b8740a238d846c3cc8ccce7b}\index{Revista@{Revista}!getPrazoEmprestimo@{getPrazoEmprestimo}}
+\index{getPrazoEmprestimo@{getPrazoEmprestimo}!Revista@{Revista}}
+\doxysubsubsection{\texorpdfstring{getPrazoEmprestimo()}{getPrazoEmprestimo()}}
+{\footnotesize\ttfamily \label{class_revista_a564c4b30b8740a238d846c3cc8ccce7b} 
+int Revista\+::get\+Prazo\+Emprestimo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Obtém o prazo de empréstimo da revista. 
+
+\begin{DoxyReturn}{Returns}
+O prazo de empréstimo da revista. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_livro_a8f3f75c73fa51afc34c66028ace69e64}{Livro}}.
+
+\Hypertarget{class_revista_a4659cc5239408c0d1939f63f76b7de07}\index{Revista@{Revista}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!Revista@{Revista}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily \label{class_revista_a4659cc5239408c0d1939f63f76b7de07} 
+string Revista\+::get\+Tipo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o tipo da revista. 
+
+\begin{DoxyReturn}{Returns}
+O tipo da revista. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_livro_a4670b2f47a447709d6ef52bc32f866f9}{Livro}}.
+
+\Hypertarget{class_revista_a05bced3f306fa4f97941c7525d76d6be}\index{Revista@{Revista}!setEdicao@{setEdicao}}
+\index{setEdicao@{setEdicao}!Revista@{Revista}}
+\doxysubsubsection{\texorpdfstring{setEdicao()}{setEdicao()}}
+{\footnotesize\ttfamily \label{class_revista_a05bced3f306fa4f97941c7525d76d6be} 
+void Revista\+::set\+Edicao (\begin{DoxyParamCaption}\item[{int}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Define a edição da revista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & A edição da revista. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_revista_aeb63ed6917de55846d4b29fb33225bbb}\index{Revista@{Revista}!edicao@{edicao}}
+\index{edicao@{edicao}!Revista@{Revista}}
+\doxysubsubsection{\texorpdfstring{edicao}{edicao}}
+{\footnotesize\ttfamily \label{class_revista_aeb63ed6917de55846d4b29fb33225bbb} 
+int Revista\+::edicao\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_revista_8h}{Revista.\+h}}\item 
+src/\mbox{\hyperlink{_revista_8cpp}{Revista.\+cpp}}\end{DoxyCompactItemize}

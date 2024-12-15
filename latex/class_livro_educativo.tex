@@ -1,0 +1,238 @@
+\doxysection{Livro\+Educativo Class Reference}
+\hypertarget{class_livro_educativo}{}\label{class_livro_educativo}\index{LivroEducativo@{LivroEducativo}}
+
+
+Classe que representa um livro educativo na biblioteca.  
+
+
+
+
+{\ttfamily \#include $<$Livro\+Educativo.\+h$>$}
+
+Inheritance diagram for Livro\+Educativo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_livro_educativo}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_livro_educativo_aacc2e1f0d2b9ce63412aa6d11f229ace}{Livro\+Educativo}} (string t, string a, string i, string c, string g, int num\+Copias)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_livro_educativo}{Livro\+Educativo}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_livro_educativo_a847b99233e692b8757a6a98c32b0e050}{\texorpdfstring{$\sim$}{\string~}\+Livro\+Educativo}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_livro_educativo}{Livro\+Educativo}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_educativo_a0a98cd990a190fcd8984cb38e288c667}{get\+Tipo}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o tipo do livro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_livro_educativo_a791a8bad43e5f49ba6bfbc3fb99c949f}{get\+Prazo\+Emprestimo}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o prazo de empréstimo do livro. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_educativo_af8c4a33a992b370f5ce71be60a742378}{get\+Grau\+Escolaridade}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o grau de escolaridade do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_educativo_a710f4da96f4b98f231e62400a874e4c9}{set\+Grau\+Escolaridade}} (string g)
+\begin{DoxyCompactList}\small\item\em Define o grau de escolaridade do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_educativo_a55b055c6748c73aa36beae983caff1f2}{Editar\+Informacoes\+Livro}} () override
+\begin{DoxyCompactList}\small\item\em Edita as informações do livro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_livro}{Livro}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_livro_a8a1986748d53a1e929dac49adf02928a}{Livro}} (string t, string a, string i, string c, int num\+Copias)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_livro}{Livro}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_livro_a1f3b49a5fbaf89727b0d0317e128655f}{\texorpdfstring{$\sim$}{\string~}\+Livro}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_livro}{Livro}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_a4b4e2e74d4fa1a0e6e9a4d6c05dc3bd4}{get\+Titulo}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o título do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_adbae26ce6938e1f56ed6d88b458351c7}{set\+Titulo}} (string titulo)
+\begin{DoxyCompactList}\small\item\em Define o título do livro. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_ae8f2ea7e82a3ddd33e1d0e242c43f3e5}{get\+Autor}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o autor do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_ab6979584fef48cc9b2ca4dc0359dd69d}{set\+Autor}} (string autor)
+\begin{DoxyCompactList}\small\item\em Define o autor do livro. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_ae1eb9177793c592b905d52fdc15f1277}{get\+Isbn}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o ISBN do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_a6ab85111dfd9faa6895fe8f25344357e}{set\+Isbn}} (string \mbox{\hyperlink{class_livro_a148970b463410dfbf54e5f0f35e35332}{isbn}})
+\begin{DoxyCompactList}\small\item\em Define o ISBN do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_ab21660edae8aeb2483767dea85a28421}{set\+Categoria}} (string \mbox{\hyperlink{class_livro_a7ad04cb505dea9947ab16df4de3720cb}{categoria}})
+\begin{DoxyCompactList}\small\item\em Define a categoria do livro. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_livro_a0c1e85f4c74fa94a0f4a7f9031a1e010}{get\+Categoria}} () const
+\begin{DoxyCompactList}\small\item\em Obtém a categoria do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_ae01e262402d1f9a13120c90e87133a52}{adicionar\+\_\+\+Reserva}} (\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}LT)
+\begin{DoxyCompactList}\small\item\em Adiciona uma reserva para um leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_a40530de817d96d94ec0789eb33a1bf91}{remover\+\_\+\+Reserva}} (\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}LT)
+\begin{DoxyCompactList}\small\item\em Remove uma reserva de um leitor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_livro_ade27daf4e6f23af91f9590899e8701e9}{Proximo\+\_\+\+Leitor\+\_\+\+Reserva}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o próximo leitor na lista de reservas. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_livro_acaa106d6bf8ffef7ed812cb5e0cc9bc4}{tem\+Reserva}} () const
+\begin{DoxyCompactList}\small\item\em Verifica se o livro tem reservas. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_livro_a49f084f569cf1454d6bc6b8acd206c27}{get\+Copias\+Disponiveis}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o número de cópias disponíveis do livro. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_livro_a84b8ac196f41d9b8f497ba6f02ab4a3b}{emprestar\+\_\+\+Copia}} ()
+\begin{DoxyCompactList}\small\item\em Empresta uma cópia do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_a25b8fac96eabeefd20aa68d54724a44d}{devolver\+\_\+\+Copia}} ()
+\begin{DoxyCompactList}\small\item\em Devolve uma cópia do livro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_livro_aeffafbe45aa85998be47aab3dadcd9ea}{get\+Num\+Copias}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o número de cópias do livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_livro_a055b41f903e7e288fa3876cf302fec4c}{set\+Num\+Copias}} (int num\+Copias)
+\begin{DoxyCompactList}\small\item\em Define o número de cópias do livro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_livro_educativo_ae8113384bec493215acc03c1ffa36465}{grau\+\_\+escolaridade}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_livro}{Livro}}}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_livro_aa66c5488637d17e077bb3291585507a3}{reservas}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_livro}{Livro}}}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_livro_aee62155d13d6ffc16ccb407c748476b2}{Titulo}}
+\item 
+string \mbox{\hyperlink{class_livro_a5d1574a7e612943948b00b3b67acb671}{Autor}}
+\item 
+string \mbox{\hyperlink{class_livro_a148970b463410dfbf54e5f0f35e35332}{isbn}}
+\item 
+string \mbox{\hyperlink{class_livro_a7ad04cb505dea9947ab16df4de3720cb}{categoria}}
+\item 
+int \mbox{\hyperlink{class_livro_a6f781dcfed4fd06ffa34a04170e274fd}{total\+\_\+copias}}
+\item 
+int \mbox{\hyperlink{class_livro_ac4917523c32b582adb91efb6d3fd8f4d}{copias\+\_\+emprestadas}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa um livro educativo na biblioteca. 
+
+Esta classe herda de \doxylink{class_livro}{Livro} e adiciona funcionalidades específicas para livros educativos, incluindo o grau de escolaridade a que se destina 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_livro_educativo_aacc2e1f0d2b9ce63412aa6d11f229ace}\index{LivroEducativo@{LivroEducativo}!LivroEducativo@{LivroEducativo}}
+\index{LivroEducativo@{LivroEducativo}!LivroEducativo@{LivroEducativo}}
+\doxysubsubsection{\texorpdfstring{LivroEducativo()}{LivroEducativo()}}
+{\footnotesize\ttfamily \label{class_livro_educativo_aacc2e1f0d2b9ce63412aa6d11f229ace} 
+Livro\+Educativo\+::\+Livro\+Educativo (\begin{DoxyParamCaption}\item[{string}]{t}{, }\item[{string}]{a}{, }\item[{string}]{i}{, }\item[{string}]{c}{, }\item[{string}]{g}{, }\item[{int}]{num\+Copias}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_livro_educativo}{Livro\+Educativo}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & O título do livro. \\
+\hline
+{\em a} & O autor do livro. \\
+\hline
+{\em i} & O ISBN do livro. \\
+\hline
+{\em c} & A categoria do livro. \\
+\hline
+{\em g} & O grau de escolaridade do livro. \\
+\hline
+{\em num\+Copias} & O número de cópias do livro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_livro_educativo_a847b99233e692b8757a6a98c32b0e050}\index{LivroEducativo@{LivroEducativo}!````~LivroEducativo@{\texorpdfstring{$\sim$}{\string~}LivroEducativo}}
+\index{````~LivroEducativo@{\texorpdfstring{$\sim$}{\string~}LivroEducativo}!LivroEducativo@{LivroEducativo}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LivroEducativo()}{\string~LivroEducativo()}}
+{\footnotesize\ttfamily \label{class_livro_educativo_a847b99233e692b8757a6a98c32b0e050} 
+Livro\+Educativo\+::\texorpdfstring{$\sim$}{\string~}\+Livro\+Educativo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destrutor da classe \doxylink{class_livro_educativo}{Livro\+Educativo}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_livro_educativo_a55b055c6748c73aa36beae983caff1f2}\index{LivroEducativo@{LivroEducativo}!EditarInformacoesLivro@{EditarInformacoesLivro}}
+\index{EditarInformacoesLivro@{EditarInformacoesLivro}!LivroEducativo@{LivroEducativo}}
+\doxysubsubsection{\texorpdfstring{EditarInformacoesLivro()}{EditarInformacoesLivro()}}
+{\footnotesize\ttfamily \label{class_livro_educativo_a55b055c6748c73aa36beae983caff1f2} 
+void Livro\+Educativo\+::\+Editar\+Informacoes\+Livro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Edita as informações do livro. 
+
+
+
+Implements \mbox{\hyperlink{class_livro_a651146c4b364fb616f5f0ae1cbcf0e54}{Livro}}.
+
+\Hypertarget{class_livro_educativo_af8c4a33a992b370f5ce71be60a742378}\index{LivroEducativo@{LivroEducativo}!getGrauEscolaridade@{getGrauEscolaridade}}
+\index{getGrauEscolaridade@{getGrauEscolaridade}!LivroEducativo@{LivroEducativo}}
+\doxysubsubsection{\texorpdfstring{getGrauEscolaridade()}{getGrauEscolaridade()}}
+{\footnotesize\ttfamily \label{class_livro_educativo_af8c4a33a992b370f5ce71be60a742378} 
+string Livro\+Educativo\+::get\+Grau\+Escolaridade (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obtém o grau de escolaridade do livro. 
+
+\begin{DoxyReturn}{Returns}
+O grau de escolaridade do livro. 
+\end{DoxyReturn}
+\Hypertarget{class_livro_educativo_a791a8bad43e5f49ba6bfbc3fb99c949f}\index{LivroEducativo@{LivroEducativo}!getPrazoEmprestimo@{getPrazoEmprestimo}}
+\index{getPrazoEmprestimo@{getPrazoEmprestimo}!LivroEducativo@{LivroEducativo}}
+\doxysubsubsection{\texorpdfstring{getPrazoEmprestimo()}{getPrazoEmprestimo()}}
+{\footnotesize\ttfamily \label{class_livro_educativo_a791a8bad43e5f49ba6bfbc3fb99c949f} 
+int Livro\+Educativo\+::get\+Prazo\+Emprestimo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o prazo de empréstimo do livro. 
+
+\begin{DoxyReturn}{Returns}
+O prazo de empréstimo do livro. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_livro_a8f3f75c73fa51afc34c66028ace69e64}{Livro}}.
+
+\Hypertarget{class_livro_educativo_a0a98cd990a190fcd8984cb38e288c667}\index{LivroEducativo@{LivroEducativo}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!LivroEducativo@{LivroEducativo}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily \label{class_livro_educativo_a0a98cd990a190fcd8984cb38e288c667} 
+string Livro\+Educativo\+::get\+Tipo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o tipo do livro. 
+
+\begin{DoxyReturn}{Returns}
+O tipo do livro. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_livro_a4670b2f47a447709d6ef52bc32f866f9}{Livro}}.
+
+\Hypertarget{class_livro_educativo_a710f4da96f4b98f231e62400a874e4c9}\index{LivroEducativo@{LivroEducativo}!setGrauEscolaridade@{setGrauEscolaridade}}
+\index{setGrauEscolaridade@{setGrauEscolaridade}!LivroEducativo@{LivroEducativo}}
+\doxysubsubsection{\texorpdfstring{setGrauEscolaridade()}{setGrauEscolaridade()}}
+{\footnotesize\ttfamily \label{class_livro_educativo_a710f4da96f4b98f231e62400a874e4c9} 
+void Livro\+Educativo\+::set\+Grau\+Escolaridade (\begin{DoxyParamCaption}\item[{string}]{g}{}\end{DoxyParamCaption})}
+
+
+
+Define o grau de escolaridade do livro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & O grau de escolaridade do livro. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_livro_educativo_ae8113384bec493215acc03c1ffa36465}\index{LivroEducativo@{LivroEducativo}!grau\_escolaridade@{grau\_escolaridade}}
+\index{grau\_escolaridade@{grau\_escolaridade}!LivroEducativo@{LivroEducativo}}
+\doxysubsubsection{\texorpdfstring{grau\_escolaridade}{grau\_escolaridade}}
+{\footnotesize\ttfamily \label{class_livro_educativo_ae8113384bec493215acc03c1ffa36465} 
+string Livro\+Educativo\+::grau\+\_\+escolaridade\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_livro_educativo_8h}{Livro\+Educativo.\+h}}\item 
+src/\mbox{\hyperlink{_livro_educativo_8cpp}{Livro\+Educativo.\+cpp}}\end{DoxyCompactItemize}

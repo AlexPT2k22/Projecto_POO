@@ -1,0 +1,34 @@
+\doxysection{emprestimo.\+h}
+\hypertarget{emprestimo_8h_source}{}\label{emprestimo_8h_source}\index{include/emprestimo.h@{include/emprestimo.h}}
+\mbox{\hyperlink{emprestimo_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ EMPRESTIMO\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ EMPRESTIMO\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_leitor_8h}{Leitor.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_livro_8h}{Livro.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_emprestimo}{Emprestimo}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_leitor}{Leitor}}*\ \mbox{\hyperlink{class_emprestimo_a5e13f5224c4603b0646ae00af58020d0}{leitor}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_livro}{Livro}}*\ \mbox{\hyperlink{class_emprestimo_aab1c4b34fd856604211880737e52870e}{livro}};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_emprestimo_ad62903cc1d26dedfbdab6b1be8f04019}{Emprestimo}}(\mbox{\hyperlink{class_livro}{Livro}}\ *L,\ \mbox{\hyperlink{class_leitor}{Leitor}}\ *LT);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_emprestimo_a3112936af81ada69746c1eb3ffa496c9}{\string~Emprestimo}}();\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_emprestimo_ac8ca5835ec427d002ed9990334420393}{calcularDataDevolucao}}();\ \textcolor{comment}{//Calcula\ a\ data\ de\ devolução\ do\ livro}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_emprestimo_a4b664810bfec502797b225a29d409dfe}{estaAtrasado}}();\ \textcolor{comment}{//Verifica\ se\ o\ empréstimo\ está\ atrasado}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_emprestimo_ac7542cadb2779de59c15787b2493bc8c}{calcularMulta}}();\ \textcolor{comment}{//Calcula\ a\ multa\ por\ atraso\ na\ devolução\ do\ livro}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_livro}{Livro}}*\ \mbox{\hyperlink{class_emprestimo_a5fd8ba08cc217da1af22319c3682ee98}{getLivro}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ livro\ emprestado}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_leitor}{Leitor}}*\ \mbox{\hyperlink{class_emprestimo_a555824e84e581d3bde8ee59faf258cc2}{getLeitor}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ leitor\ que\ realizou\ o\ empréstimo}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_emprestimo_ad204cfdd337f6d0331b26827ebfa156e}{prorrogarEmprestimo}}();\ \textcolor{comment}{//Prorroga\ a\ data\ de\ devolução\ do\ empréstimo}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_emprestimo_ae5721578f4b862c1db67f853658d8283}{simularAtraso}}(\textcolor{keywordtype}{int}\ dias);\ \textcolor{comment}{//Simula\ um\ atraso\ na\ devolução\ do\ livro}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ time\_t\ \mbox{\hyperlink{class_emprestimo_a60113ec47af8f22b203bdc5d64bee467}{dataEmprestimo}};\ \textcolor{comment}{//Data\ em\ que\ o\ empréstimo\ foi\ realizado}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ time\_t\ \mbox{\hyperlink{class_emprestimo_aca6d27fc8957e30c729c47b1894bcf25}{dataDevolucao}};\ \textcolor{comment}{//Data\ prevista\ para\ devolução\ do\ livro}}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ EMPRESTIMO\_H}}
+
+\end{DoxyCode}

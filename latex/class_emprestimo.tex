@@ -1,0 +1,211 @@
+\doxysection{Emprestimo Class Reference}
+\hypertarget{class_emprestimo}{}\label{class_emprestimo}\index{Emprestimo@{Emprestimo}}
+
+
+Classe que representa um empréstimo de livro na biblioteca.  
+
+
+
+
+{\ttfamily \#include $<$emprestimo.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_emprestimo_ad62903cc1d26dedfbdab6b1be8f04019}{Emprestimo}} (\mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*}L, \mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}LT)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_emprestimo}{Emprestimo}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_emprestimo_a3112936af81ada69746c1eb3ffa496c9}{\texorpdfstring{$\sim$}{\string~}\+Emprestimo}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_emprestimo}{Emprestimo}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emprestimo_ac8ca5835ec427d002ed9990334420393}{calcular\+Data\+Devolucao}} ()
+\begin{DoxyCompactList}\small\item\em Calcula a data de devolução do empréstimo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_emprestimo_a4b664810bfec502797b225a29d409dfe}{esta\+Atrasado}} ()
+\begin{DoxyCompactList}\small\item\em Verifica se o empréstimo está atrasado. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_emprestimo_ac7542cadb2779de59c15787b2493bc8c}{calcular\+Multa}} ()
+\begin{DoxyCompactList}\small\item\em Calcula a multa do empréstimo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_emprestimo_a5fd8ba08cc217da1af22319c3682ee98}{get\+Livro}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o livro emprestado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_emprestimo_a555824e84e581d3bde8ee59faf258cc2}{get\+Leitor}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o leitor que fez o empréstimo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emprestimo_ad204cfdd337f6d0331b26827ebfa156e}{prorrogar\+Emprestimo}} ()
+\begin{DoxyCompactList}\small\item\em Prorroga o prazo de devolução do empréstimo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emprestimo_ae5721578f4b862c1db67f853658d8283}{simular\+Atraso}} (int dias)
+\begin{DoxyCompactList}\small\item\em Simula um atraso no empréstimo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+time\+\_\+t \mbox{\hyperlink{class_emprestimo_a60113ec47af8f22b203bdc5d64bee467}{data\+Emprestimo}}
+\item 
+time\+\_\+t \mbox{\hyperlink{class_emprestimo_aca6d27fc8957e30c729c47b1894bcf25}{data\+Devolucao}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_emprestimo_a5e13f5224c4603b0646ae00af58020d0}{leitor}}
+\item 
+\mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_emprestimo_aab1c4b34fd856604211880737e52870e}{livro}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa um empréstimo de livro na biblioteca. 
+
+Esta classe gere os empréstimos de livros, incluindo\+:
+\begin{DoxyItemize}
+\item Cálculo de datas de devolução
+\item Verificação de atrasos
+\item Cálculo de multas
+\item Prorrogação de empréstimos
+\item Gestão da relação entre leitor e livro 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_emprestimo_ad62903cc1d26dedfbdab6b1be8f04019}\index{Emprestimo@{Emprestimo}!Emprestimo@{Emprestimo}}
+\index{Emprestimo@{Emprestimo}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{Emprestimo()}{Emprestimo()}}
+{\footnotesize\ttfamily \label{class_emprestimo_ad62903cc1d26dedfbdab6b1be8f04019} 
+Emprestimo\+::\+Emprestimo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*}}]{L}{, }\item[{\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}}]{LT}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_emprestimo}{Emprestimo}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Ponteiro para o livro emprestado. \\
+\hline
+{\em LT} & Ponteiro para o leitor que fez o empréstimo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_emprestimo_a3112936af81ada69746c1eb3ffa496c9}\index{Emprestimo@{Emprestimo}!````~Emprestimo@{\texorpdfstring{$\sim$}{\string~}Emprestimo}}
+\index{````~Emprestimo@{\texorpdfstring{$\sim$}{\string~}Emprestimo}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Emprestimo()}{\string~Emprestimo()}}
+{\footnotesize\ttfamily \label{class_emprestimo_a3112936af81ada69746c1eb3ffa496c9} 
+Emprestimo\+::\texorpdfstring{$\sim$}{\string~}\+Emprestimo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destrutor da classe \doxylink{class_emprestimo}{Emprestimo}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_emprestimo_ac8ca5835ec427d002ed9990334420393}\index{Emprestimo@{Emprestimo}!calcularDataDevolucao@{calcularDataDevolucao}}
+\index{calcularDataDevolucao@{calcularDataDevolucao}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{calcularDataDevolucao()}{calcularDataDevolucao()}}
+{\footnotesize\ttfamily \label{class_emprestimo_ac8ca5835ec427d002ed9990334420393} 
+void Emprestimo\+::calcular\+Data\+Devolucao (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Calcula a data de devolução do empréstimo. 
+
+\Hypertarget{class_emprestimo_ac7542cadb2779de59c15787b2493bc8c}\index{Emprestimo@{Emprestimo}!calcularMulta@{calcularMulta}}
+\index{calcularMulta@{calcularMulta}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{calcularMulta()}{calcularMulta()}}
+{\footnotesize\ttfamily \label{class_emprestimo_ac7542cadb2779de59c15787b2493bc8c} 
+float Emprestimo\+::calcular\+Multa (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Calcula a multa do empréstimo. 
+
+\begin{DoxyReturn}{Returns}
+A multa do empréstimo. 
+\end{DoxyReturn}
+\Hypertarget{class_emprestimo_a4b664810bfec502797b225a29d409dfe}\index{Emprestimo@{Emprestimo}!estaAtrasado@{estaAtrasado}}
+\index{estaAtrasado@{estaAtrasado}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{estaAtrasado()}{estaAtrasado()}}
+{\footnotesize\ttfamily \label{class_emprestimo_a4b664810bfec502797b225a29d409dfe} 
+bool Emprestimo\+::esta\+Atrasado (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se o empréstimo está atrasado. 
+
+\begin{DoxyReturn}{Returns}
+true se o empréstimo está atrasado, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_emprestimo_a555824e84e581d3bde8ee59faf258cc2}\index{Emprestimo@{Emprestimo}!getLeitor@{getLeitor}}
+\index{getLeitor@{getLeitor}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{getLeitor()}{getLeitor()}}
+{\footnotesize\ttfamily \label{class_emprestimo_a555824e84e581d3bde8ee59faf258cc2} 
+\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*} Emprestimo\+::get\+Leitor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obtém o leitor que fez o empréstimo. 
+
+\begin{DoxyReturn}{Returns}
+Ponteiro para o leitor. 
+\end{DoxyReturn}
+\Hypertarget{class_emprestimo_a5fd8ba08cc217da1af22319c3682ee98}\index{Emprestimo@{Emprestimo}!getLivro@{getLivro}}
+\index{getLivro@{getLivro}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{getLivro()}{getLivro()}}
+{\footnotesize\ttfamily \label{class_emprestimo_a5fd8ba08cc217da1af22319c3682ee98} 
+\mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*} Emprestimo\+::get\+Livro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Obtém o livro emprestado. 
+
+\begin{DoxyReturn}{Returns}
+Ponteiro para o livro emprestado. 
+\end{DoxyReturn}
+\Hypertarget{class_emprestimo_ad204cfdd337f6d0331b26827ebfa156e}\index{Emprestimo@{Emprestimo}!prorrogarEmprestimo@{prorrogarEmprestimo}}
+\index{prorrogarEmprestimo@{prorrogarEmprestimo}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{prorrogarEmprestimo()}{prorrogarEmprestimo()}}
+{\footnotesize\ttfamily \label{class_emprestimo_ad204cfdd337f6d0331b26827ebfa156e} 
+void Emprestimo\+::prorrogar\+Emprestimo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Prorroga o prazo de devolução do empréstimo. 
+
+\Hypertarget{class_emprestimo_ae5721578f4b862c1db67f853658d8283}\index{Emprestimo@{Emprestimo}!simularAtraso@{simularAtraso}}
+\index{simularAtraso@{simularAtraso}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{simularAtraso()}{simularAtraso()}}
+{\footnotesize\ttfamily \label{class_emprestimo_ae5721578f4b862c1db67f853658d8283} 
+void Emprestimo\+::simular\+Atraso (\begin{DoxyParamCaption}\item[{int}]{dias}{}\end{DoxyParamCaption})}
+
+
+
+Simula um atraso no empréstimo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dias} & O número de dias de atraso. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_emprestimo_aca6d27fc8957e30c729c47b1894bcf25}\index{Emprestimo@{Emprestimo}!dataDevolucao@{dataDevolucao}}
+\index{dataDevolucao@{dataDevolucao}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{dataDevolucao}{dataDevolucao}}
+{\footnotesize\ttfamily \label{class_emprestimo_aca6d27fc8957e30c729c47b1894bcf25} 
+time\+\_\+t Emprestimo\+::data\+Devolucao}
+
+\Hypertarget{class_emprestimo_a60113ec47af8f22b203bdc5d64bee467}\index{Emprestimo@{Emprestimo}!dataEmprestimo@{dataEmprestimo}}
+\index{dataEmprestimo@{dataEmprestimo}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{dataEmprestimo}{dataEmprestimo}}
+{\footnotesize\ttfamily \label{class_emprestimo_a60113ec47af8f22b203bdc5d64bee467} 
+time\+\_\+t Emprestimo\+::data\+Emprestimo}
+
+\Hypertarget{class_emprestimo_a5e13f5224c4603b0646ae00af58020d0}\index{Emprestimo@{Emprestimo}!leitor@{leitor}}
+\index{leitor@{leitor}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{leitor}{leitor}}
+{\footnotesize\ttfamily \label{class_emprestimo_a5e13f5224c4603b0646ae00af58020d0} 
+\mbox{\hyperlink{class_leitor}{Leitor}}\texorpdfstring{$\ast$}{*} Emprestimo\+::leitor\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_emprestimo_aab1c4b34fd856604211880737e52870e}\index{Emprestimo@{Emprestimo}!livro@{livro}}
+\index{livro@{livro}!Emprestimo@{Emprestimo}}
+\doxysubsubsection{\texorpdfstring{livro}{livro}}
+{\footnotesize\ttfamily \label{class_emprestimo_aab1c4b34fd856604211880737e52870e} 
+\mbox{\hyperlink{class_livro}{Livro}}\texorpdfstring{$\ast$}{*} Emprestimo\+::livro\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{emprestimo_8h}{emprestimo.\+h}}\item 
+src/\mbox{\hyperlink{emprestimo_8cpp}{emprestimo.\+cpp}}\end{DoxyCompactItemize}

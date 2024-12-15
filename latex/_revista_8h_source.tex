@@ -1,0 +1,27 @@
+\doxysection{Revista.\+h}
+\hypertarget{_revista_8h_source}{}\label{_revista_8h_source}\index{include/Revista.h@{include/Revista.h}}
+\mbox{\hyperlink{_revista_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ REVISTA\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ REVISTA\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_livro_8h}{Livro.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_revista}{Revista}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_livro}{Livro}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_revista_a4502fb781506855ab4586acf54c9b664}{Revista}}(\textcolor{keywordtype}{string}\ t,\ \textcolor{keywordtype}{string}\ a,\ \textcolor{keywordtype}{string}\ i,\ \textcolor{keywordtype}{string}\ c,\ \textcolor{keywordtype}{int}\ e,\ \textcolor{keywordtype}{int}\ numCopias);\ \textcolor{comment}{//Construtor}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_revista_ab705e2fe5ec9a46daf3a69835772a3c6}{\string~Revista}}();\ \textcolor{comment}{//Destrutor}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_revista_a2dee03126453137ed833d4f69425361c}{getEdicao}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ a\ edição\ da\ revista}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_revista_a564c4b30b8740a238d846c3cc8ccce7b}{getPrazoEmprestimo}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ prazo\ de\ empréstimo\ da\ revista}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_revista_a4659cc5239408c0d1939f63f76b7de07}{getTipo}}()\ \textcolor{keyword}{const\ override};\ \textcolor{comment}{//Obtém\ o\ tipo\ de\ livro}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_revista_a05bced3f306fa4f97941c7525d76d6be}{setEdicao}}(\textcolor{keywordtype}{int}\ e);\ \textcolor{comment}{//Define\ a\ edição\ da\ revista}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_revista_aa5d84f86eef3134d24dc0369099c4a12}{EditarInformacoesLivro}}()\ \textcolor{keyword}{override};\ \textcolor{comment}{//Edita\ as\ informações\ da\ revista}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_revista_aeb63ed6917de55846d4b29fb33225bbb}{edicao}};\ \textcolor{comment}{//Edição\ da\ revista}}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ REVISTA\_H}}
+
+\end{DoxyCode}

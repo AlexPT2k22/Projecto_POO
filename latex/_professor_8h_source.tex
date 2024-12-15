@@ -1,0 +1,27 @@
+\doxysection{Professor.\+h}
+\hypertarget{_professor_8h_source}{}\label{_professor_8h_source}\index{include/Professor.h@{include/Professor.h}}
+\mbox{\hyperlink{_professor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROFESSOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROFESSOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_leitor_8h}{Leitor.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_professor}{Professor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_leitor}{Leitor}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_professor_a185f7e94cb18e2f095a0f1d2e6e61493}{descontoMulta}}\ =\ 0.50f;\ \textcolor{comment}{//Desconto\ na\ multa\ do\ professor}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_professor_ac5618ff643c8e74d794dafd84c529661}{Professor}}(\textcolor{keywordtype}{string}\ n,\ \textcolor{keywordtype}{string}\ i);\ \textcolor{comment}{//Construtor}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_professor_afc11ab966c1f1231a6cd92d7304cce50}{\string~Professor}}();\ \textcolor{comment}{//Destrutor}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_professor_a3375ed61010713faedeb373e088d1151}{getLimiteEmprestimos}}()\ \textcolor{keyword}{const\ override};\ \textcolor{comment}{//Obtém\ o\ limite\ de\ empréstimos\ do\ professor}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_professor_a6d28ac52c05a849cef97855191de49f7}{getDescontoMulta}}()\ \textcolor{keyword}{const\ override};\ \textcolor{comment}{//Obtém\ o\ desconto\ na\ multa\ do\ professor}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_professor_ac30bcdff9f14cd5376edabb25d4ea2a2}{podeProrrogar}}()\ \textcolor{keyword}{const\ override};\ \textcolor{comment}{//Verifica\ se\ o\ professor\ pode\ prorrogar\ o\ empréstimo}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_professor_a52419ba6a94c027fac3c2aec5e45546c}{editarInformacoes}}()\ \textcolor{keyword}{override};\ \textcolor{comment}{//Edita\ as\ informações\ do\ professor}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_professor_ad59a9b3572b692c90175df019f7da7c6}{getTipo}}()\ \textcolor{keyword}{const\ override};\ \textcolor{comment}{//Obtém\ o\ tipo\ de\ leitor}}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PROFESSOR\_H}}
+
+\end{DoxyCode}

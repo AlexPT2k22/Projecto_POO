@@ -1,0 +1,43 @@
+\doxysection{Leitor.\+h}
+\hypertarget{_leitor_8h_source}{}\label{_leitor_8h_source}\index{include/Leitor.h@{include/Leitor.h}}
+\mbox{\hyperlink{_leitor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ Leitor\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ Leitor\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_emprestimo}{Emprestimo}};\ \textcolor{comment}{//Declaração\ antecipada\ da\ classe\ Emprestimo}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_leitor}{Leitor}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_leitor_abc45bf17989ff5587f257838e496c0c6}{nome}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_leitor_acd05aa490f79319c0a1b6c44eb576b69}{id}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ list<Emprestimo*>\ \mbox{\hyperlink{class_leitor_af0123c908604c341b9d89a2337c66888}{emprestimos}};\ \textcolor{comment}{//Lista\ de\ empréstimos\ ativos}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ vector<Emprestimo*>\ \mbox{\hyperlink{class_leitor_ab5bd6b40ff5dae3cd9524dd142f0c667}{historico\_emprestimos}};\ \textcolor{comment}{//Histórico\ de\ empréstimos}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_leitor_a7e5e819aee09e2b2e06ad5738f3cd545}{Leitor}}(\textcolor{keywordtype}{string}\ n,\ \textcolor{keywordtype}{string}\ i);\ \textcolor{comment}{//nome\ e\ ID}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_leitor_aab96b9bedaf1405856c0f73e7c7e8526}{\string~Leitor}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ list<Emprestimo*>\ \mbox{\hyperlink{class_leitor_a97a904bdba07e367202b0c663ed71441}{getEmprestimos}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_leitor_a832c5555d073693302c13ef6888a1784}{getLimiteEmprestimos}}()\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//Limite\ de\ empréstimos}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_leitor_afd91dc9ccb5ec3d4aa452a966ad4f2e7}{getDescontoMulta}}()\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//Desconto\ de\ multa}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_leitor_aba8be613ea150ae7b0f58ef5101576fe}{podeProrrogar}}()\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//Verifica\ se\ o\ leitor\ pode\ prorrogar\ o\ empréstimo}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_leitor_af28bcea096f04cbb68870c44c59e65fa}{editarInformacoes}}()\ =\ 0;\ \textcolor{comment}{//Edita\ as\ informações\ do\ leitor}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_leitor_ae515d6c4768e29f1a3d73c201f4d7a0f}{getNome}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ nome\ do\ leitor}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_leitor_ab9fc0d89c3ab5d22ae64ebf33258d7f3}{adicionarEmprestimo}}(\mbox{\hyperlink{class_emprestimo}{Emprestimo}}*\ e);\ \textcolor{comment}{//Adiciona\ um\ empréstimo\ à\ lista\ de\ empréstimos\ ativos}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_leitor_a1a162f46a2e7ab8126e8ce2e4f95f0ce}{removerEmprestimo}}(\mbox{\hyperlink{class_emprestimo}{Emprestimo}}*\ e);\ \textcolor{comment}{//Remove\ um\ empréstimo\ da\ lista\ de\ empréstimos\ ativos}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_leitor_aa60a9020dfb8b48210adf6096234ea98}{LimparTodosEmprestimos}}();\ \textcolor{comment}{//Limpa\ todos\ os\ empréstimos}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_leitor_aec618ed2d7f33deab578f71cf03b5a3d}{getID}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ ID\ do\ leitor}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_leitor_af6dfc8720c45228f46c067dcf1019650}{getTipo}}()\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//Obtém\ o\ tipo\ de\ leitor}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ vector<Emprestimo*>\ \mbox{\hyperlink{class_leitor_a61ca7c1bb322d3783255cb2a77fec2ad}{getHistoricoEmprestimos}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//Obtém\ o\ histórico\ de\ empréstimos}}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LEITOR\_H}}
+
+\end{DoxyCode}

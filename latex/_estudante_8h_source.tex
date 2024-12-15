@@ -1,0 +1,28 @@
+\doxysection{Estudante.\+h}
+\hypertarget{_estudante_8h_source}{}\label{_estudante_8h_source}\index{include/Estudante.h@{include/Estudante.h}}
+\mbox{\hyperlink{_estudante_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ Estudante\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ Estudante\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_leitor_8h}{Leitor.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_estudante}{Estudante}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_leitor}{Leitor}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_estudante_abfc88a61b6ce4f0e199d4b05d8c1d543}{limiteEmprestimos}}\ =\ 10;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_estudante_a97962f5d3590a9cfaf590103b1f82023}{Estudante}}(\textcolor{keywordtype}{string}\ n,\ \textcolor{keywordtype}{string}\ i);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_estudante_a67d3cd1664e6ecc9a4f6337a160af671}{\string~Estudante}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_estudante_af646c5de0f2e53e7316b3b7b108e348b}{getLimiteEmprestimos}}()\ \textcolor{keyword}{const\ override};\ \textcolor{comment}{//Obtém\ o\ limite\ de\ empréstimos\ do\ estudante}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_estudante_ac9d4c4efd7ccb28febd314728c95082e}{getDescontoMulta}}()\ \textcolor{keyword}{const\ override};\ \textcolor{comment}{//Obtém\ o\ desconto\ de\ multa\ do\ estudante}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_estudante_af24937353b72040652a9beb2bc3ee359}{podeProrrogar}}()\ \textcolor{keyword}{const\ override};\ \textcolor{comment}{//Verifica\ se\ o\ estudante\ pode\ prorrogar\ o\ empréstimo}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_estudante_ae364a50a2689b85304ceac0270b16994}{editarInformacoes}}()\ \textcolor{keyword}{override};\ \textcolor{comment}{//Edita\ as\ informações\ do\ estudante}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_estudante_ae094b92ea7418841c26efc306640a585}{getTipo}}()\ \textcolor{keyword}{const\ override};\ \textcolor{comment}{//Obtém\ o\ tipo\ de\ leitor}}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ESTUDANTE\_H}}
+
+\end{DoxyCode}

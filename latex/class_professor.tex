@@ -1,0 +1,207 @@
+\doxysection{Professor Class Reference}
+\hypertarget{class_professor}{}\label{class_professor}\index{Professor@{Professor}}
+
+
+Classe que representa um professor na biblioteca.  
+
+
+
+
+{\ttfamily \#include $<$Professor.\+h$>$}
+
+Inheritance diagram for Professor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_professor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_professor_ac5618ff643c8e74d794dafd84c529661}{Professor}} (string n, string i)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_professor}{Professor}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_professor_afc11ab966c1f1231a6cd92d7304cce50}{\texorpdfstring{$\sim$}{\string~}\+Professor}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_professor}{Professor}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_professor_a3375ed61010713faedeb373e088d1151}{get\+Limite\+Emprestimos}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o limite de empréstimos do professor. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_professor_a6d28ac52c05a849cef97855191de49f7}{get\+Desconto\+Multa}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o desconto de multa do professor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_professor_ac30bcdff9f14cd5376edabb25d4ea2a2}{pode\+Prorrogar}} () const override
+\begin{DoxyCompactList}\small\item\em Verifica se o professor pode prorrogar o empréstimo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_professor_a52419ba6a94c027fac3c2aec5e45546c}{editar\+Informacoes}} () override
+\begin{DoxyCompactList}\small\item\em Edita as informações do professor. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_professor_ad59a9b3572b692c90175df019f7da7c6}{get\+Tipo}} () const override
+\begin{DoxyCompactList}\small\item\em Obtém o tipo do professor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_leitor}{Leitor}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_leitor_a7e5e819aee09e2b2e06ad5738f3cd545}{Leitor}} (string n, string i)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_leitor}{Leitor}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_leitor_aab96b9bedaf1405856c0f73e7c7e8526}{\texorpdfstring{$\sim$}{\string~}\+Leitor}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_leitor}{Leitor}. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_a97a904bdba07e367202b0c663ed71441}{get\+Emprestimos}} () const
+\item 
+string \mbox{\hyperlink{class_leitor_ae515d6c4768e29f1a3d73c201f4d7a0f}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o nome do leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leitor_ab9fc0d89c3ab5d22ae64ebf33258d7f3}{adicionar\+Emprestimo}} (\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}e)
+\begin{DoxyCompactList}\small\item\em Adiciona um empréstimo à lista de empréstimos do leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leitor_a1a162f46a2e7ab8126e8ce2e4f95f0ce}{remover\+Emprestimo}} (\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}e)
+\begin{DoxyCompactList}\small\item\em Remove um empréstimo da lista de empréstimos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_leitor_aa60a9020dfb8b48210adf6096234ea98}{Limpar\+Todos\+Emprestimos}} ()
+\begin{DoxyCompactList}\small\item\em Limpa todos os empréstimos. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_leitor_aec618ed2d7f33deab578f71cf03b5a3d}{get\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o ID do objeto \doxylink{class_leitor}{Leitor}. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_a61ca7c1bb322d3783255cb2a77fec2ad}{get\+Historico\+Emprestimos}} () const
+\begin{DoxyCompactList}\small\item\em Obtém o histórico de empréstimos do leitor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_professor_a185f7e94cb18e2f095a0f1d2e6e61493}{desconto\+Multa}} = 0.\+50f
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_leitor}{Leitor}}}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_leitor_abc45bf17989ff5587f257838e496c0c6}{nome}}
+\item 
+string \mbox{\hyperlink{class_leitor_acd05aa490f79319c0a1b6c44eb576b69}{id}}
+\item 
+list$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_af0123c908604c341b9d89a2337c66888}{emprestimos}}
+\item 
+vector$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_leitor_ab5bd6b40ff5dae3cd9524dd142f0c667}{historico\+\_\+emprestimos}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa um professor na biblioteca. 
+
+Esta classe herda de \doxylink{class_leitor}{Leitor} e adiciona funcionalidades específicas para professores, incluindo o desconto na multa e o limite de empréstimos 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_professor_ac5618ff643c8e74d794dafd84c529661}\index{Professor@{Professor}!Professor@{Professor}}
+\index{Professor@{Professor}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{Professor()}{Professor()}}
+{\footnotesize\ttfamily \label{class_professor_ac5618ff643c8e74d794dafd84c529661} 
+Professor\+::\+Professor (\begin{DoxyParamCaption}\item[{string}]{n}{, }\item[{string}]{i}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_professor}{Professor}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & O nome do professor. \\
+\hline
+{\em i} & O ID do professor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_professor_afc11ab966c1f1231a6cd92d7304cce50}\index{Professor@{Professor}!````~Professor@{\texorpdfstring{$\sim$}{\string~}Professor}}
+\index{````~Professor@{\texorpdfstring{$\sim$}{\string~}Professor}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Professor()}{\string~Professor()}}
+{\footnotesize\ttfamily \label{class_professor_afc11ab966c1f1231a6cd92d7304cce50} 
+Professor\+::\texorpdfstring{$\sim$}{\string~}\+Professor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destrutor da classe \doxylink{class_professor}{Professor}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_professor_a52419ba6a94c027fac3c2aec5e45546c}\index{Professor@{Professor}!editarInformacoes@{editarInformacoes}}
+\index{editarInformacoes@{editarInformacoes}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{editarInformacoes()}{editarInformacoes()}}
+{\footnotesize\ttfamily \label{class_professor_a52419ba6a94c027fac3c2aec5e45546c} 
+void Professor\+::editar\+Informacoes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Edita as informações do professor. 
+
+
+
+Implements \mbox{\hyperlink{class_leitor_af28bcea096f04cbb68870c44c59e65fa}{Leitor}}.
+
+\Hypertarget{class_professor_a6d28ac52c05a849cef97855191de49f7}\index{Professor@{Professor}!getDescontoMulta@{getDescontoMulta}}
+\index{getDescontoMulta@{getDescontoMulta}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{getDescontoMulta()}{getDescontoMulta()}}
+{\footnotesize\ttfamily \label{class_professor_a6d28ac52c05a849cef97855191de49f7} 
+float Professor\+::get\+Desconto\+Multa (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o desconto de multa do professor. 
+
+\begin{DoxyReturn}{Returns}
+O desconto de multa do professor. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_leitor_afd91dc9ccb5ec3d4aa452a966ad4f2e7}{Leitor}}.
+
+\Hypertarget{class_professor_a3375ed61010713faedeb373e088d1151}\index{Professor@{Professor}!getLimiteEmprestimos@{getLimiteEmprestimos}}
+\index{getLimiteEmprestimos@{getLimiteEmprestimos}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{getLimiteEmprestimos()}{getLimiteEmprestimos()}}
+{\footnotesize\ttfamily \label{class_professor_a3375ed61010713faedeb373e088d1151} 
+int Professor\+::get\+Limite\+Emprestimos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o limite de empréstimos do professor. 
+
+\begin{DoxyReturn}{Returns}
+O limite de empréstimos do professor. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_leitor_a832c5555d073693302c13ef6888a1784}{Leitor}}.
+
+\Hypertarget{class_professor_ad59a9b3572b692c90175df019f7da7c6}\index{Professor@{Professor}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily \label{class_professor_ad59a9b3572b692c90175df019f7da7c6} 
+string Professor\+::get\+Tipo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Obtém o tipo do professor. 
+
+\begin{DoxyReturn}{Returns}
+O tipo do professor. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_leitor_af6dfc8720c45228f46c067dcf1019650}{Leitor}}.
+
+\Hypertarget{class_professor_ac30bcdff9f14cd5376edabb25d4ea2a2}\index{Professor@{Professor}!podeProrrogar@{podeProrrogar}}
+\index{podeProrrogar@{podeProrrogar}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{podeProrrogar()}{podeProrrogar()}}
+{\footnotesize\ttfamily \label{class_professor_ac30bcdff9f14cd5376edabb25d4ea2a2} 
+bool Professor\+::pode\+Prorrogar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifica se o professor pode prorrogar o empréstimo. 
+
+\begin{DoxyReturn}{Returns}
+true se o professor pode prorrogar, false caso contrário. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_leitor_aba8be613ea150ae7b0f58ef5101576fe}{Leitor}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_professor_a185f7e94cb18e2f095a0f1d2e6e61493}\index{Professor@{Professor}!descontoMulta@{descontoMulta}}
+\index{descontoMulta@{descontoMulta}!Professor@{Professor}}
+\doxysubsubsection{\texorpdfstring{descontoMulta}{descontoMulta}}
+{\footnotesize\ttfamily \label{class_professor_a185f7e94cb18e2f095a0f1d2e6e61493} 
+float Professor\+::desconto\+Multa = 0.\+50f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_professor_8h}{Professor.\+h}}\item 
+src/\mbox{\hyperlink{_professor_8cpp}{Professor.\+cpp}}\end{DoxyCompactItemize}

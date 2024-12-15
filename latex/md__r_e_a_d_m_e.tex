@@ -1,0 +1,99 @@
+\chapter{README}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{README@{README}}
+\href{https://wakatime.com/badge/github/AlexPT2k22/Projecto_POO}{\texttt{ }}    \hypertarget{md__r_e_a_d_m_e_autotoc_md0}{}\doxysection{\texorpdfstring{🇵🇹 THIS PROJECT IS IN PORTUGUESE}{🇵🇹 THIS PROJECT IS IN PORTUGUESE}}\label{md__r_e_a_d_m_e_autotoc_md0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{📚 Library Management System}{📚 Library Management System}}\label{md__r_e_a_d_m_e_autotoc_md1}
+This project implements a comprehensive library management system in C++. It facilitates the administration of books, readers, reservations, and loans, with advanced features like exporting and importing data in CSV format. The system uses inheritance and polymorphism to model different types of books and readers.\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{\texorpdfstring{✨ Features}{✨ Features}}\label{md__r_e_a_d_m_e_autotoc_md2}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{1. {\bfseries{Book Management}}}{1. {\bfseries{Book Management}}}}\label{md__r_e_a_d_m_e_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{Supported book types}}\+:
+\begin{DoxyItemize}
+\item Scientific Books
+\item Educational Books
+\item Fiction Books
+\item Magazines
+\item Newspapers
+\end{DoxyItemize}
+\item {\bfseries{Available actions}}\+:
+\begin{DoxyItemize}
+\item Add new books.
+\item Update book information.
+\item Register loans and returns.
+\item Reserve books.
+\item And more.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{2. {\bfseries{Reader Management}}}{2. {\bfseries{Reader Management}}}}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Supported reader types}}\+:
+\begin{DoxyItemize}
+\item Common Reader
+\item Student
+\item \doxylink{class_professor}{Professor}
+\item \doxylink{class_senior}{Senior} Reader
+\end{DoxyItemize}
+\item {\bfseries{Available actions}}\+:
+\begin{DoxyItemize}
+\item Register readers.
+\item Log loans for readers.
+\item View detailed reader information.
+\item And more.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{3. {\bfseries{Loans and Reservations}}}{3. {\bfseries{Loans and Reservations}}}}\label{md__r_e_a_d_m_e_autotoc_md5}
+
+\begin{DoxyItemize}
+\item Log loans with loan and return dates.
+\item Manage book reservations.
+\item Automatically update book copy availability.
+\item And more.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{4. {\bfseries{Data Export and Import}}}{4. {\bfseries{Data Export and Import}}}}\label{md__r_e_a_d_m_e_autotoc_md6}
+
+\begin{DoxyItemize}
+\item {\bfseries{Supported file format}}\+: CSV.
+\item Export detailed information about books, readers, reservations, and loans.
+\item Import data to restore library state.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{🛠️ Technologies Used}{🛠️ Technologies Used}}\label{md__r_e_a_d_m_e_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\bfseries{Language}}\+: C++.
+\item {\bfseries{Paradigm}}\+: Object-\/\+Oriented Programming (OOP).
+\begin{DoxyItemize}
+\item Classes and objects for data modeling.
+\item Inheritance to represent specialized types of books and readers.
+\item Polymorphism for dynamic behaviors.
+\end{DoxyItemize}
+\item {\bfseries{Input and Output}}\+:
+\begin{DoxyItemize}
+\item CSV file manipulation.
+\item Terminal interaction for data input.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{md__r_e_a_d_m_e_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{Compiler\+:}} GCC or any C++11 compliant compiler.
+\item {\bfseries{Tools\+:}} Doxygen (for documentation generation), Makefile (if configured for automated builds).
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{Installation and Usage}{Installation and Usage}}\label{md__r_e_a_d_m_e_autotoc_md9}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Clone the Repository}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/AlexPT2k22/Projecto\_POO.git}
+\DoxyCodeLine{cd\ Projecto\_POO.git}
+
+\end{DoxyCode}
+
+\item {\bfseries{Build the Project Compile all .cpp files}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{g++\ -\/std=c++11\ -\/o\ library\_management\ *.cpp}
+
+\end{DoxyCode}
+
+\item {\bfseries{Run the Application}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ ./library\_management}
+\DoxyCodeLine{4.\ **Generate\ Documentation\ (Optional)\ If\ Doxygen\ is\ installed:**}
+
+\end{DoxyCode}
+ bash doxygen Doxyfile \`{}\`{}\`{}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysection{\texorpdfstring{License}{License}}\label{md__r_e_a_d_m_e_autotoc_md10}
+This project is licensed under the MIT License -\/ see the LICENSE file for details. 

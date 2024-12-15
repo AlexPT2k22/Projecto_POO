@@ -1,0 +1,487 @@
+\doxysection{Biblioteca Class Reference}
+\hypertarget{class_biblioteca}{}\label{class_biblioteca}\index{Biblioteca@{Biblioteca}}
+
+
+Classe que representa uma biblioteca e gerencia as suas operações.  
+
+
+
+
+{\ttfamily \#include $<$Biblioteca.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_biblioteca_a5e12ea4e7a4edb14d210a41708fc1c10}{Biblioteca}} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_biblioteca}{Biblioteca}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_biblioteca_ae3f55e8952ed4bdddb82ece48c52f6c0}{\texorpdfstring{$\sim$}{\string~}\+Biblioteca}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_biblioteca}{Biblioteca}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_biblioteca_a1da2de85aa9f66060c967667d626c6fd}{Save\+To\+File}} (string nf)
+\begin{DoxyCompactList}\small\item\em Salva os dados da biblioteca em um ficheiro CSV. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_biblioteca_a23db0f4691275989a32532b33953dd59}{Load\+File}} (string nf)
+\begin{DoxyCompactList}\small\item\em Carrega os dados da biblioteca a partir de um ficheiro CSV. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a56dbc045510ca490acfd81ae9dcb5853}{Prorrogacao\+\_\+\+Emprestimos}} (string id, string isbn)
+\begin{DoxyCompactList}\small\item\em Prorroga um empréstimo de um livro para um leitor específico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a3dea9603d5bdec675b9e464404865be9}{Sistema\+\_\+\+Notificacoes\+\_\+\+Atraso}} ()
+\begin{DoxyCompactList}\small\item\em Envia notificações de atraso para os leitores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a03b4db6193c1e737611f6d59366ca4ec}{Listagem\+\_\+\+Livros}} ()
+\begin{DoxyCompactList}\small\item\em Lista todos os livros na coleção. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_biblioteca_a4e5e86abca313b3548f9e3ff511c4330}{Add\+\_\+\+Leitor}} (\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}LT)
+\begin{DoxyCompactList}\small\item\em Adiciona um leitor à coleção de leitores. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_biblioteca_a6346c218d295f6e33dda817946745241}{Add\+\_\+\+Livro}} (\mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*}L)
+\begin{DoxyCompactList}\small\item\em Adiciona um livro à coleção de livros. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_afdf468a2025b35622927095e44575bff}{Add\+\_\+\+Emprestimo}} (\mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*}L, \mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}LT)
+\begin{DoxyCompactList}\small\item\em Adiciona um empréstimo de livro para um leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a34c2cb73eec50f55d387cca373e7e84a}{Devolver\+\_\+\+Livro}} (\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}E)
+\begin{DoxyCompactList}\small\item\em Devolve um livro emprestado à biblioteca. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a609809ecf34fe081c134589aba0c6a86}{Gerar\+\_\+\+Relatorio\+Emprestimos}} ()
+\begin{DoxyCompactList}\small\item\em Gera um relatório dos empréstimos atuais na biblioteca. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a135b0fdeb2c1f10ebecc6ed190c37543}{Editar\+\_\+\+Informacoes\+Leitores}} (string id)
+\begin{DoxyCompactList}\small\item\em Edita as informações de um leitor na coleção de leitores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a0abb72b817305ce108474c79cb359ef9}{Editar\+\_\+\+Informacoes\+Livros}} (string isbn)
+\begin{DoxyCompactList}\small\item\em Edita as informações de um livro na coleção de livros. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_ae5a060141f31e867c4f8854777714d6d}{Pesquisar\+\_\+\+Livro\+\_\+\+Tipo}} (string tipo)
+\begin{DoxyCompactList}\small\item\em Pesquisa livros na coleção pelo tipo especificado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a110dab634322a366a511befeb05f13f1}{Listar\+Livros\+Categoria}} (string categoria)
+\begin{DoxyCompactList}\small\item\em Lista todos os livros de uma determinada categoria. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a133983578c745df09dee604bca4433a4}{Remover\+\_\+\+Leitor}} (string id)
+\begin{DoxyCompactList}\small\item\em Remove um leitor da coleção de leitores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a108b1dec8de369bd4972ac0262bc38b9}{Remover\+\_\+\+Livro}} (string isbn)
+\begin{DoxyCompactList}\small\item\em Remove um livro da coleção de livros. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_abe3553566560aaa797c7ad37c71b13cb}{reservar\+Livro}} (string isbn, \mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}LT)
+\begin{DoxyCompactList}\small\item\em Realiza a reserva de um livro para um leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a7b54b454b449f42d8d682e63eda5e9e7}{cancelar\+\_\+reserva}} (string isbn, string id)
+\begin{DoxyCompactList}\small\item\em Cancela a reserva de um livro para um leitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a9c1646765e7cc64f6dd5f75c273676f7}{Listar\+Reservas}} ()
+\begin{DoxyCompactList}\small\item\em Lista todas as reservas atuais na biblioteca. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_a6dcd882365fd6bcf4fd9ff18e8b0665c}{Gerar\+Relatorio\+Multas\+Pendentes}} ()
+\begin{DoxyCompactList}\small\item\em Gera um relatório de multas pendentes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_ae8ccd219c9025c3e8677f9108c728619}{Gerar\+Relatorio\+Emprestimos\+Por\+Tipo}} ()
+\begin{DoxyCompactList}\small\item\em Gera um relatório de empréstimos por tipo de livro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_biblioteca_ace77170f0c647e8960891b776ccd239d}{Gerar\+Historico\+Emprestimos\+Leitor}} (\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}LT)
+\begin{DoxyCompactList}\small\item\em Gera um histórico de empréstimos de um leitor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_biblioteca_a3a44b09bb842394efa4a0c12125b4692}{Coleccao\+\_\+\+LIVROS}}
+\item 
+vector$<$ \mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_biblioteca_aca73db7ceb89594458cc1f2a53ad295a}{Coleccao\+\_\+\+LEITORES}}
+\item 
+vector$<$ \mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_biblioteca_a6014331ba4c4104174b47bb4e8fd6539}{Coleccao\+\_\+\+REQ}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa uma biblioteca e gerencia as suas operações. 
+
+Esta classe implementa as funcionalidades principais de uma biblioteca, incluindo\+:
+\begin{DoxyItemize}
+\item Gerenciamento de livros, leitores e empréstimos
+\item Persistência de dados em arquivos
+\item Sistema de notificações e multas
+\item Geração de relatórios
+\item Reservas de livros
+\item Edição de informações cadastrais 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_biblioteca_a5e12ea4e7a4edb14d210a41708fc1c10}\index{Biblioteca@{Biblioteca}!Biblioteca@{Biblioteca}}
+\index{Biblioteca@{Biblioteca}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Biblioteca()}{Biblioteca()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a5e12ea4e7a4edb14d210a41708fc1c10} 
+Biblioteca\+::\+Biblioteca (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_biblioteca}{Biblioteca}. 
+
+Este construtor é responsável por inicializar uma nova instância da classe \doxylink{class_biblioteca}{Biblioteca}. Não recebe parâmetros e não realiza nenhuma inicialização específica, uma vez que as colecções de livros, leitores e empréstimos são inicializadas automaticamente como vectores vazios.
+
+As colecções que são inicializadas são\+:
+\begin{DoxyItemize}
+\item Coleccao\+\_\+\+LIVROS\+: Vector que armazena apontadores para objectos do tipo \doxylink{class_livro}{Livro}
+\item Coleccao\+\_\+\+LEITORES\+: Vector que armazena apontadores para objectos do tipo \doxylink{class_leitor}{Leitor}
+\item Coleccao\+\_\+\+REQ\+: Vector que armazena apontadores para objectos do tipo \doxylink{class_emprestimo}{Emprestimo} 
+\end{DoxyItemize}\Hypertarget{class_biblioteca_ae3f55e8952ed4bdddb82ece48c52f6c0}\index{Biblioteca@{Biblioteca}!````~Biblioteca@{\texorpdfstring{$\sim$}{\string~}Biblioteca}}
+\index{````~Biblioteca@{\texorpdfstring{$\sim$}{\string~}Biblioteca}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Biblioteca()}{\string~Biblioteca()}}
+{\footnotesize\ttfamily \label{class_biblioteca_ae3f55e8952ed4bdddb82ece48c52f6c0} 
+Biblioteca\+::\texorpdfstring{$\sim$}{\string~}\+Biblioteca (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destrutor da classe \doxylink{class_biblioteca}{Biblioteca}. 
+
+Este destrutor é responsável por limpar a memória dinamicamente alocada associada à instância da classe \doxylink{class_biblioteca}{Biblioteca}. Ele itera através das colecções de livros, leitores e empréstimos, deletando cada objecto alocado dinamicamente e limpando as colecções. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_biblioteca_afdf468a2025b35622927095e44575bff}\index{Biblioteca@{Biblioteca}!Add\_Emprestimo@{Add\_Emprestimo}}
+\index{Add\_Emprestimo@{Add\_Emprestimo}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Add\_Emprestimo()}{Add\_Emprestimo()}}
+{\footnotesize\ttfamily \label{class_biblioteca_afdf468a2025b35622927095e44575bff} 
+void Biblioteca\+::\+Add\+\_\+\+Emprestimo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*}}]{L}{, }\item[{\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}}]{LT}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona um empréstimo de livro para um leitor. 
+
+Esta função tenta adicionar um empréstimo de um livro para um leitor específico. Primeiro, verifica se o livro e o leitor existem. Se o livro não tiver cópias disponíveis, o usuário é perguntado se deseja realizar uma reserva. Se o empréstimo for bem-\/sucedido, ele é adicionado à coleção de empréstimos ativos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Ponteiro para o objeto \doxylink{class_livro}{Livro} a ser emprestado. \\
+\hline
+{\em LT} & Ponteiro para o objeto \doxylink{class_leitor}{Leitor} que está recebendo o empréstimo. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a4e5e86abca313b3548f9e3ff511c4330}\index{Biblioteca@{Biblioteca}!Add\_Leitor@{Add\_Leitor}}
+\index{Add\_Leitor@{Add\_Leitor}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Add\_Leitor()}{Add\_Leitor()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a4e5e86abca313b3548f9e3ff511c4330} 
+bool Biblioteca\+::\+Add\+\_\+\+Leitor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}}]{LT}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona um leitor à coleção de leitores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em LT} & Ponteiro para o objeto \doxylink{class_leitor}{Leitor} a ser adicionado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o leitor foi adicionado com sucesso, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_biblioteca_a6346c218d295f6e33dda817946745241}\index{Biblioteca@{Biblioteca}!Add\_Livro@{Add\_Livro}}
+\index{Add\_Livro@{Add\_Livro}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Add\_Livro()}{Add\_Livro()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a6346c218d295f6e33dda817946745241} 
+bool Biblioteca\+::\+Add\+\_\+\+Livro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_livro}{Livro}} \texorpdfstring{$\ast$}{*}}]{L}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona um livro à coleção de livros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Ponteiro para o objeto \doxylink{class_livro}{Livro} a ser adicionado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o livro foi adicionado com sucesso, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_biblioteca_a7b54b454b449f42d8d682e63eda5e9e7}\index{Biblioteca@{Biblioteca}!cancelar\_reserva@{cancelar\_reserva}}
+\index{cancelar\_reserva@{cancelar\_reserva}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{cancelar\_reserva()}{cancelar\_reserva()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a7b54b454b449f42d8d682e63eda5e9e7} 
+void Biblioteca\+::cancelar\+\_\+reserva (\begin{DoxyParamCaption}\item[{string}]{isbn}{, }\item[{string}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Cancela a reserva de um livro para um leitor. 
+
+Esta função percorre a coleção de livros e procura um livro com o ISBN fornecido. Se encontrar, verifica se o livro está associado a uma reserva. Se estiver, imprime uma mensagem de erro indicando que o livro não pode ser reservado devido a empréstimos pendentes. Caso contrário, remove a reserva do livro.
+
+
+\begin{DoxyParams}{Parameters}
+{\em isbn} & O ISBN do livro a ser reservado. \\
+\hline
+{\em id} & O ID do leitor que deseja cancelar a reserva. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a34c2cb73eec50f55d387cca373e7e84a}\index{Biblioteca@{Biblioteca}!Devolver\_Livro@{Devolver\_Livro}}
+\index{Devolver\_Livro@{Devolver\_Livro}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Devolver\_Livro()}{Devolver\_Livro()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a34c2cb73eec50f55d387cca373e7e84a} 
+void Biblioteca\+::\+Devolver\+\_\+\+Livro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_emprestimo}{Emprestimo}} \texorpdfstring{$\ast$}{*}}]{E}{}\end{DoxyParamCaption})}
+
+
+
+Devolve um livro emprestado à biblioteca. 
+
+Esta função realiza a devolução de um livro emprestado, removendo o empréstimo da coleção de empréstimos ativos da biblioteca e do leitor associado. Se o empréstimo não for encontrado ou for inválido, uma mensagem de erro é exibida. Caso o livro seja devolvido com atraso, uma multa é calculada e exibida.
+
+
+\begin{DoxyParams}{Parameters}
+{\em E} & Ponteiro para o objeto \doxylink{class_emprestimo}{Emprestimo} que representa o empréstimo a ser devolvido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a135b0fdeb2c1f10ebecc6ed190c37543}\index{Biblioteca@{Biblioteca}!Editar\_InformacoesLeitores@{Editar\_InformacoesLeitores}}
+\index{Editar\_InformacoesLeitores@{Editar\_InformacoesLeitores}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Editar\_InformacoesLeitores()}{Editar\_InformacoesLeitores()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a135b0fdeb2c1f10ebecc6ed190c37543} 
+void Biblioteca\+::\+Editar\+\_\+\+Informacoes\+Leitores (\begin{DoxyParamCaption}\item[{string}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Edita as informações de um leitor na coleção de leitores. 
+
+Esta função percorre a coleção de leitores (Coleccao\+\_\+\+LEITORES) e procura um leitor com o ID fornecido. Se encontrar, chama a função editar\+Informacoes() desse leitor para permitir a edição das suas informações. Caso contrário, imprime uma mensagem a indicar que o leitor não foi encontrado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & O ID do leitor cujas informações devem ser editadas. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a0abb72b817305ce108474c79cb359ef9}\index{Biblioteca@{Biblioteca}!Editar\_InformacoesLivros@{Editar\_InformacoesLivros}}
+\index{Editar\_InformacoesLivros@{Editar\_InformacoesLivros}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Editar\_InformacoesLivros()}{Editar\_InformacoesLivros()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a0abb72b817305ce108474c79cb359ef9} 
+void Biblioteca\+::\+Editar\+\_\+\+Informacoes\+Livros (\begin{DoxyParamCaption}\item[{string}]{isbn}{}\end{DoxyParamCaption})}
+
+
+
+Edita as informações de um livro na coleção de livros. 
+
+Esta função percorre a coleção de livros e procura um livro com o ISBN fornecido. Se encontrar, chama a função editar\+Informacoes\+Livro() desse livro para permitir a edição das suas informações. Caso contrário, imprime uma mensagem a indicar que o livro não foi encontrado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em isbn} & O ISBN do livro cujas informações devem ser editadas. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a609809ecf34fe081c134589aba0c6a86}\index{Biblioteca@{Biblioteca}!Gerar\_RelatorioEmprestimos@{Gerar\_RelatorioEmprestimos}}
+\index{Gerar\_RelatorioEmprestimos@{Gerar\_RelatorioEmprestimos}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Gerar\_RelatorioEmprestimos()}{Gerar\_RelatorioEmprestimos()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a609809ecf34fe081c134589aba0c6a86} 
+void Biblioteca\+::\+Gerar\+\_\+\+Relatorio\+Emprestimos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gera um relatório dos empréstimos atuais na biblioteca. 
+
+Esta função imprime na consola um relatório detalhado dos empréstimos atuais, incluindo o título do livro (ISBN), o nome do leitor e as datas de empréstimo e devolução.
+
+O relatório é formatado com uma linha de separação entre cada empréstimo. \Hypertarget{class_biblioteca_ace77170f0c647e8960891b776ccd239d}\index{Biblioteca@{Biblioteca}!GerarHistoricoEmprestimosLeitor@{GerarHistoricoEmprestimosLeitor}}
+\index{GerarHistoricoEmprestimosLeitor@{GerarHistoricoEmprestimosLeitor}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{GerarHistoricoEmprestimosLeitor()}{GerarHistoricoEmprestimosLeitor()}}
+{\footnotesize\ttfamily \label{class_biblioteca_ace77170f0c647e8960891b776ccd239d} 
+void Biblioteca\+::\+Gerar\+Historico\+Emprestimos\+Leitor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}}]{LT}{}\end{DoxyParamCaption})}
+
+
+
+Gera um histórico de empréstimos de um leitor. 
+
+Esta função imprime na consola um histórico detalhado dos empréstimos de um leitor, incluindo o título do livro (ISBN), o nome do leitor e as datas de empréstimo e devolução.
+
+O relatório é formatado com uma linha de separação entre cada empréstimo. \Hypertarget{class_biblioteca_ae8ccd219c9025c3e8677f9108c728619}\index{Biblioteca@{Biblioteca}!GerarRelatorioEmprestimosPorTipo@{GerarRelatorioEmprestimosPorTipo}}
+\index{GerarRelatorioEmprestimosPorTipo@{GerarRelatorioEmprestimosPorTipo}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{GerarRelatorioEmprestimosPorTipo()}{GerarRelatorioEmprestimosPorTipo()}}
+{\footnotesize\ttfamily \label{class_biblioteca_ae8ccd219c9025c3e8677f9108c728619} 
+void Biblioteca\+::\+Gerar\+Relatorio\+Emprestimos\+Por\+Tipo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gera um relatório de empréstimos por tipo de livro. 
+
+Esta função gera um relatório detalhado das quantidades de empréstimos por tipo de livro e tipo de leitor. O relatório é formatado com uma linha de separação entre cada tipo de livro. \Hypertarget{class_biblioteca_a6dcd882365fd6bcf4fd9ff18e8b0665c}\index{Biblioteca@{Biblioteca}!GerarRelatorioMultasPendentes@{GerarRelatorioMultasPendentes}}
+\index{GerarRelatorioMultasPendentes@{GerarRelatorioMultasPendentes}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{GerarRelatorioMultasPendentes()}{GerarRelatorioMultasPendentes()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a6dcd882365fd6bcf4fd9ff18e8b0665c} 
+void Biblioteca\+::\+Gerar\+Relatorio\+Multas\+Pendentes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gera um relatório de multas pendentes. 
+
+Esta função imprime na consola um relatório detalhado das multas pendentes, incluindo o título do livro (ISBN), o nome do leitor e as datas de reserva.
+
+O relatório é formatado com uma linha de separação entre cada reserva. \Hypertarget{class_biblioteca_a03b4db6193c1e737611f6d59366ca4ec}\index{Biblioteca@{Biblioteca}!Listagem\_Livros@{Listagem\_Livros}}
+\index{Listagem\_Livros@{Listagem\_Livros}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Listagem\_Livros()}{Listagem\_Livros()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a03b4db6193c1e737611f6d59366ca4ec} 
+void Biblioteca\+::\+Listagem\+\_\+\+Livros (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lista todos os livros na coleção. 
+
+\Hypertarget{class_biblioteca_a110dab634322a366a511befeb05f13f1}\index{Biblioteca@{Biblioteca}!ListarLivrosCategoria@{ListarLivrosCategoria}}
+\index{ListarLivrosCategoria@{ListarLivrosCategoria}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{ListarLivrosCategoria()}{ListarLivrosCategoria()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a110dab634322a366a511befeb05f13f1} 
+void Biblioteca\+::\+Listar\+Livros\+Categoria (\begin{DoxyParamCaption}\item[{string}]{categoria}{}\end{DoxyParamCaption})}
+
+
+
+Lista todos os livros de uma determinada categoria. 
+
+Esta função percorre a coleção de livros e exibe as informações dos livros que pertencem à categoria especificada. Se não houver livros na coleção ou se nenhum livro corresponder à categoria fornecida, uma mensagem apropriada será exibida.
+
+
+\begin{DoxyParams}{Parameters}
+{\em categoria} & A categoria dos livros a serem listados. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a9c1646765e7cc64f6dd5f75c273676f7}\index{Biblioteca@{Biblioteca}!ListarReservas@{ListarReservas}}
+\index{ListarReservas@{ListarReservas}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{ListarReservas()}{ListarReservas()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a9c1646765e7cc64f6dd5f75c273676f7} 
+void Biblioteca\+::\+Listar\+Reservas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lista todas as reservas atuais na biblioteca. 
+
+Esta função imprime na consola um relatório detalhado das reservas atuais, incluindo o título do livro (ISBN), o nome do leitor e as datas de reserva.
+
+O relatório é formatado com uma linha de separação entre cada reserva. \Hypertarget{class_biblioteca_a23db0f4691275989a32532b33953dd59}\index{Biblioteca@{Biblioteca}!LoadFile@{LoadFile}}
+\index{LoadFile@{LoadFile}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{LoadFile()}{LoadFile()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a23db0f4691275989a32532b33953dd59} 
+bool Biblioteca\+::\+Load\+File (\begin{DoxyParamCaption}\item[{string}]{nf}{}\end{DoxyParamCaption})}
+
+
+
+Carrega os dados da biblioteca a partir de um ficheiro CSV. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nf} & O nome do ficheiro CSV a ser carregado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o ficheiro foi carregado com sucesso, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_biblioteca_ae5a060141f31e867c4f8854777714d6d}\index{Biblioteca@{Biblioteca}!Pesquisar\_Livro\_Tipo@{Pesquisar\_Livro\_Tipo}}
+\index{Pesquisar\_Livro\_Tipo@{Pesquisar\_Livro\_Tipo}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Pesquisar\_Livro\_Tipo()}{Pesquisar\_Livro\_Tipo()}}
+{\footnotesize\ttfamily \label{class_biblioteca_ae5a060141f31e867c4f8854777714d6d} 
+void Biblioteca\+::\+Pesquisar\+\_\+\+Livro\+\_\+\+Tipo (\begin{DoxyParamCaption}\item[{string}]{tipo}{}\end{DoxyParamCaption})}
+
+
+
+Pesquisa livros na coleção pelo tipo especificado. 
+
+Esta função exibe informações sobre todos os livros na coleção que correspondem ao tipo fornecido. Se nenhum livro for encontrado, uma mensagem apropriada será exibida.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tipo} & O tipo de livro a ser pesquisado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a56dbc045510ca490acfd81ae9dcb5853}\index{Biblioteca@{Biblioteca}!Prorrogacao\_Emprestimos@{Prorrogacao\_Emprestimos}}
+\index{Prorrogacao\_Emprestimos@{Prorrogacao\_Emprestimos}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Prorrogacao\_Emprestimos()}{Prorrogacao\_Emprestimos()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a56dbc045510ca490acfd81ae9dcb5853} 
+void Biblioteca\+::\+Prorrogacao\+\_\+\+Emprestimos (\begin{DoxyParamCaption}\item[{string}]{id}{, }\item[{string}]{isbn}{}\end{DoxyParamCaption})}
+
+
+
+Prorroga um empréstimo de um livro para um leitor específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & O ID do leitor que está realizando a prorrogação. \\
+\hline
+{\em isbn} & O ISBN do livro que está sendo prorrogado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a133983578c745df09dee604bca4433a4}\index{Biblioteca@{Biblioteca}!Remover\_Leitor@{Remover\_Leitor}}
+\index{Remover\_Leitor@{Remover\_Leitor}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Remover\_Leitor()}{Remover\_Leitor()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a133983578c745df09dee604bca4433a4} 
+void Biblioteca\+::\+Remover\+\_\+\+Leitor (\begin{DoxyParamCaption}\item[{string}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Remove um leitor da coleção de leitores. 
+
+Esta função percorre a coleção de leitores e procura um leitor com o ID fornecido. Se encontrar, verifica se o leitor possui empréstimos ativos. Se não possuir, remove o leitor da coleção. Caso contrário, imprime uma mensagem de erro indicando que o leitor não pode ser removido devido a empréstimos pendentes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & O ID do leitor a ser removido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a108b1dec8de369bd4972ac0262bc38b9}\index{Biblioteca@{Biblioteca}!Remover\_Livro@{Remover\_Livro}}
+\index{Remover\_Livro@{Remover\_Livro}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Remover\_Livro()}{Remover\_Livro()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a108b1dec8de369bd4972ac0262bc38b9} 
+void Biblioteca\+::\+Remover\+\_\+\+Livro (\begin{DoxyParamCaption}\item[{string}]{isbn}{}\end{DoxyParamCaption})}
+
+
+
+Remove um livro da coleção de livros. 
+
+Esta função percorre a coleção de livros e procura um livro com o ISBN fornecido. Se encontrar, verifica se o livro está associado a um empréstimo ativo. Se estiver, imprime uma mensagem de erro indicando que o livro não pode ser removido devido a empréstimos pendentes. Caso contrário, remove o livro da coleção.
+
+
+\begin{DoxyParams}{Parameters}
+{\em isbn} & O ISBN do livro a ser removido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_abe3553566560aaa797c7ad37c71b13cb}\index{Biblioteca@{Biblioteca}!reservarLivro@{reservarLivro}}
+\index{reservarLivro@{reservarLivro}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{reservarLivro()}{reservarLivro()}}
+{\footnotesize\ttfamily \label{class_biblioteca_abe3553566560aaa797c7ad37c71b13cb} 
+void Biblioteca\+::reservar\+Livro (\begin{DoxyParamCaption}\item[{string}]{isbn}{, }\item[{\mbox{\hyperlink{class_leitor}{Leitor}} \texorpdfstring{$\ast$}{*}}]{LT}{}\end{DoxyParamCaption})}
+
+
+
+Realiza a reserva de um livro para um leitor. 
+
+Esta função percorre a coleção de livros e procura um livro com o ISBN fornecido. Se encontrar, verifica se o livro está associado a um empréstimo ativo. Se estiver, imprime uma mensagem de erro indicando que o livro não pode ser reservado devido a empréstimos pendentes. Caso contrário, reserva o livro para o leitor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em isbn} & O ISBN do livro a ser reservado. \\
+\hline
+{\em LT} & O leitor que deseja reservar o livro. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_biblioteca_a1da2de85aa9f66060c967667d626c6fd}\index{Biblioteca@{Biblioteca}!SaveToFile@{SaveToFile}}
+\index{SaveToFile@{SaveToFile}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{SaveToFile()}{SaveToFile()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a1da2de85aa9f66060c967667d626c6fd} 
+bool Biblioteca\+::\+Save\+To\+File (\begin{DoxyParamCaption}\item[{string}]{nf}{}\end{DoxyParamCaption})}
+
+
+
+Salva os dados da biblioteca em um ficheiro CSV. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nf} & O nome do ficheiro CSV a ser salvo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o ficheiro foi salvo com sucesso, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_biblioteca_a3dea9603d5bdec675b9e464404865be9}\index{Biblioteca@{Biblioteca}!Sistema\_Notificacoes\_Atraso@{Sistema\_Notificacoes\_Atraso}}
+\index{Sistema\_Notificacoes\_Atraso@{Sistema\_Notificacoes\_Atraso}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Sistema\_Notificacoes\_Atraso()}{Sistema\_Notificacoes\_Atraso()}}
+{\footnotesize\ttfamily \label{class_biblioteca_a3dea9603d5bdec675b9e464404865be9} 
+void Biblioteca\+::\+Sistema\+\_\+\+Notificacoes\+\_\+\+Atraso (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Envia notificações de atraso para os leitores. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_biblioteca_aca73db7ceb89594458cc1f2a53ad295a}\index{Biblioteca@{Biblioteca}!Coleccao\_LEITORES@{Coleccao\_LEITORES}}
+\index{Coleccao\_LEITORES@{Coleccao\_LEITORES}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Coleccao\_LEITORES}{Coleccao\_LEITORES}}
+{\footnotesize\ttfamily \label{class_biblioteca_aca73db7ceb89594458cc1f2a53ad295a} 
+vector$<$\mbox{\hyperlink{class_leitor}{Leitor}}\texorpdfstring{$\ast$}{*}$>$ Biblioteca\+::\+Coleccao\+\_\+\+LEITORES}
+
+\Hypertarget{class_biblioteca_a3a44b09bb842394efa4a0c12125b4692}\index{Biblioteca@{Biblioteca}!Coleccao\_LIVROS@{Coleccao\_LIVROS}}
+\index{Coleccao\_LIVROS@{Coleccao\_LIVROS}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Coleccao\_LIVROS}{Coleccao\_LIVROS}}
+{\footnotesize\ttfamily \label{class_biblioteca_a3a44b09bb842394efa4a0c12125b4692} 
+vector$<$\mbox{\hyperlink{class_livro}{Livro}}\texorpdfstring{$\ast$}{*}$>$ Biblioteca\+::\+Coleccao\+\_\+\+LIVROS}
+
+\Hypertarget{class_biblioteca_a6014331ba4c4104174b47bb4e8fd6539}\index{Biblioteca@{Biblioteca}!Coleccao\_REQ@{Coleccao\_REQ}}
+\index{Coleccao\_REQ@{Coleccao\_REQ}!Biblioteca@{Biblioteca}}
+\doxysubsubsection{\texorpdfstring{Coleccao\_REQ}{Coleccao\_REQ}}
+{\footnotesize\ttfamily \label{class_biblioteca_a6014331ba4c4104174b47bb4e8fd6539} 
+vector$<$\mbox{\hyperlink{class_emprestimo}{Emprestimo}}\texorpdfstring{$\ast$}{*}$>$ Biblioteca\+::\+Coleccao\+\_\+\+REQ}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_biblioteca_8h}{Biblioteca.\+h}}\item 
+src/\mbox{\hyperlink{_biblioteca_8cpp}{Biblioteca.\+cpp}}\end{DoxyCompactItemize}
